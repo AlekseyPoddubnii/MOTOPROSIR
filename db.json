@@ -1,0 +1,14 @@
+{
+  "events": [
+    {
+      "id": 1,
+      "name": "Our first Event for test",
+      "description": "Some description for event"
+    },
+    {
+      "id": 2,
+      "name": "Our Second Event for test",
+      "description": "Some description for event"
+    }
+  ]
+}
