@@ -48,74 +48,186 @@
                     </ul>
                 </div>
                 <div class="posts">
-                        <div class="posts__item border">
-                            <div class="posts__item--author">
-                                <canvas class="avatar-round" role="button">
-                                </canvas>
-                                <span>
-                                    <img class="author__avatar--img" src="/src/app/templates/registration/img/kym-avatar.jpg" alt="profile photo {KYM}">
-                                </span>
-                                <div class="post-info">
-                                    <div class="author">
-                                        <div class="author__action">
-                                            <p>kym planed a trip for the 2nd February</p>
-                                            <span class="author__action--date">Yesterday at 4:00 pm</span>
-                                        </div>
-                                        <div class="author__location">
-                                            <div class="author__location--from">
-                                                <svg class="location">
-                                                    <use xlink:href="sprite/sprite-sheet.svg#location"></use>
-                                                </svg>
-                                                <p>from Ukraine, Cherkasy</p>
-                                            </div>
-                                            <div class="author__location--to">
-                                                <svg class="location">
-                                                    <use xlink:href="sprite/sprite-sheet.svg#location"></use>
-                                                </svg>
-                                                <p>to Ukraine, Odessa</p>
-                                            </div>
-                                        </div>
+                    <div class="posts__item border">
+                        <div class="posts__item--author">
+                            <canvas class="avatar-round" role="button">
+                            </canvas>
+                            <span>
+                                <img class="author__avatar--img" src="/src/app/templates/registration/img/kym-avatar.jpg" alt="profile photo {KYM}">
+                            </span>
+                            <div class="post-info">
+                                <div class="author">
+                                    <div class="author__action">
+                                        <p>kym planed a trip for the 2nd February</p>
+                                        <span class="author__action--date">Yesterday at 4:00 pm</span>
                                     </div>
-                                    <div class="action__favorits" role="button">
-                                        <svg class="favorite">
-                                            <use xlink:href="sprite/sprite-sheet.svg#favorite"></use>
-                                        </svg>
+                                    <div class="author__location">
+                                        <div class="author__location--from">
+                                            <svg class="location">
+                                                <use xlink:href="sprite/sprite-sheet.svg#location"></use>
+                                            </svg>
+                                            <p>from Ukraine, Cherkasy</p>
+                                        </div>
+                                        <div class="author__location--to">
+                                            <svg class="location">
+                                                <use xlink:href="sprite/sprite-sheet.svg#location"></use>
+                                            </svg>
+                                            <p>to Ukraine, Odessa</p>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="posts__item--map">
-                                <img class="map__img" src="/src/app/templates/registration/img/map.jpg" alt="from Cherkasy to Odessa">
-                            </div>
-                            <div class="posts__item--action">
-                                <div class="action__list">
-                                    <div class="action__list--item">
-                                        <svg class="actions">
-                                            <use xlink:href="sprite/sprite-sheet.svg#like"></use>
-                                        </svg>
-                                        <p>Like</p>
-                                    </div>
-                                    <div class="action__list--item">
-                                        <svg class="actions">
-                                            <use xlink:href="sprite/sprite-sheet.svg#join"></use>
-                                        </svg>
-                                        <p>Join</p>
-                                    </div>
-                                    <div class="action__list--item">
-                                        <svg class="actions">
-                                            <use xlink:href="sprite/sprite-sheet.svg#add-comment"></use>
-                                        </svg>
-                                        <p>Comment</p>
-                                    </div>
-                                    <div class="action__list--item">
-                                        <svg class="actions">
-                                            <use xlink:href="sprite/sprite-sheet.svg#share"></use>
-                                        </svg>
-                                        <p>Share</p>
-                                    </div>
+                                <div class="action__favorits" role="button">
+                                    <svg class="favorite">
+                                        <use xlink:href="sprite/sprite-sheet.svg#favorite"></use>
+                                    </svg>
                                 </div>
                             </div>
                         </div>
+                        <div class="posts__item--map">
+                            <img class="map__img" src="/src/app/templates/registration/img/map.jpg" alt="from Cherkasy to Odessa">
+                        </div>
+                        <div class="posts__item--action">
+                            <div class="action__list">
+                                <button class="action__list--item" type="button">
+                                    <svg class="actions">
+                                        <use xlink:href="sprite/sprite-sheet.svg#like"></use>
+                                    </svg>
+                                    <p class="action">Like</p>
+                                </button>
+                                <button class="action__list--item" type="button">
+                                    <svg class="actions">
+                                        <use xlink:href="sprite/sprite-sheet.svg#join"></use>
+                                    </svg>
+                                    <p class="action">Join</p>
+                                </button>
+                                <button class="action__list--item" type="button">
+                                    <svg class="actions">
+                                        <use xlink:href="sprite/sprite-sheet.svg#add-comment"></use>
+                                    </svg>
+                                    <p class="action">Comment</p>
+                                </button>
+                                <button class="action__list--item" type="button">
+                                    <svg class="actions">
+                                        <use xlink:href="sprite/sprite-sheet.svg#share"></use>
+                                    </svg>
+                                    <p class="action">Share</p>
+                                </button>
+                            </div>
+                            <button class="action__list--more" type="button">
+                                <svg class="more">
+                                    <use xlink:href="sprite/sprite-sheet.svg#more"></use>
+                                </svg>
+                            </button>
+                        </div>
+                        <div class="action__stats">
+                            <p class="action__stats--item"><span data-likes>2163</span> Likes</p>
+                            <p class="action__stats--item"><span data-joined>42</span> Joined</p>
+                            <p class="action__stats--item"><span data-comments>231</span> Comments</p>
+                            <p class="action__stats--item"><span data-shared>14</span> Shared</p>
+                        </div>
+                        <div class="action__coments">
+                            <p><span class="action__coments--author">kym</span>: who wants with me, guys?</p>
+                            <button class="action__coments--view" type="button">View all coments</button>
+                        </div>
+                        <div class="action__add-comment">
+                            <span>
+                                <img class="action__add-comment--user-avatar" src="/src/app/templates/registration/img/kym-avatar.jpg" alt="">
+                            </span>
+                            <input class="action__add-comment--user-comment" type="text" placeholder="Your comment ...">
+                        </div>
                     </div>
+                </div>
+            </div>
+            <div class="registration">
+                <div class="registration-headline">
+                    <h2>Registration</h2>
+                </div>
+                <form class="registration-form" action="POST">
+                    <div class="registration-form__item">
+                        <h3 class="registration-form__item--headlines">Username</h3>
+                        <input class="registration-form__item--inputs" type="text" placeholder="examp.le">
+                    </div>
+                    <div class="registration-form__item">
+                        <h3 class="registration-form__item--headlines">E-mail</h3>
+                        <input class="registration-form__item--inputs" type="text" placeholder="example@expamle.com">
+                    </div>
+                    <div class="registration-form__container">
+                        <div class="registration-form__item half">
+                            <h3 class="registration-form__item--headlines">Name</h3>
+                            <input class="registration-form__item--inputs" type="text" placeholder="Jhon">
+                        </div>
+                        <div class="registration-form__item half">
+                            <h3 class="registration-form__item--headlines">Surname</h3>
+                            <input class="registration-form__item--inputs" type="text" placeholder="Doe">
+                        </div>
+                    </div>
+                    <div class="registration-form__container">
+                        <div class="registration-form__item half">
+                            <h3 class="registration-form__item--headlines">Brand of bike</h3>
+                            <select class="registration-form__item--inputs">
+                                <option hidden disabled selected></option>
+                                <option>Honda</option>
+                                <option>Yamaha</option>
+                                <option>BMW</option>
+                            </select>
+                        </div>
+                        <div class="registration-form__item half">
+                            <h3 class="registration-form__item--headlines">Model of bike</h3>
+                            <select class="registration-form__item--inputs">
+                                <option hidden disabled selected></option>
+                                <option>432454</option>
+                                <option>324234</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="registration-form__container">
+                        <div class="registration-form__item half">
+                            <h3 class="registration-form__item--headlines">Birthday</h3>
+                            <select class="registration-form__item--inputs">
+                                <option hidden disabled selected></option>
+                            </select>
+                        </div>
+                        <div class="registration-form__item half">
+                            <h3 class="registration-form__item--headlines">Gender</h3>
+                            <select class="registration-form__item--inputs">
+                                <option hidden disabled selected></option>
+                                <option>Female</option>
+                                <option>Male</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="registration-form__container">
+                        <div class="registration-form__item half">
+                            <h3 class="registration-form__item--headlines">Country</h3>
+                            <select class="registration-form__item--inputs">
+                                <option hidden disabled selected></option>
+                                <option>Ukraine</option>
+                                <option>Russia</option>
+                            </select>
+                        </div>
+                        <div class="registration-form__item half">
+                            <h3 class="registration-form__item--headlines">Sity</h3>
+                            <select class="registration-form__item--inputs">
+                                <option hidden disabled selected></option>
+                                <option>Kyiv</option>
+                                <option>Cherkasy</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="registration-form__item">
+                        <h3 class="registration-form__item--headlines">Password</h3>
+                        <input class="registration-form__item--inputs" type="password">
+                    </div>
+                    <div class="registration-form__item">
+                        <h3 class="registration-form__item--headlines">Confirm password</h3>
+                        <input class="registration-form__item--inputs" type="password">
+                    </div>
+                </form>
+                <div class="registration__create">
+                    <button class="registration__create--button">Create an account</button>
+                    <p class="registration__create--already">Already have an account? <a class="registration__create--link" href="">Sign in</a></p>
+                </div>
+                
             </div>
         </section>
     </main>
