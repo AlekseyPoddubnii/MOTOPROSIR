@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Motoprostir</title>
+    <link rel="stylesheet" href="style/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <nav class="navigation">
+            <a class="logo" href="">Motoprostir</a>
+            <ul class="navigation__item">
+                <li class="navigation__item--list"><a class="navigation__item--link" href="">
+                    <svg class="icon">
+                        <use xlink:href="sprite/sprite-sheet.svg#sign-in"></use>
+                    </svg>
+                Sign in</a></li>
+                <li class="navigation__item--list"><a class="navigation__item--link" href="">
+                        <svg class="icon">
+                            <use xlink:href="sprite/sprite-sheet.svg#sign-up"></use>
+                        </svg>
+                Sign up
+                </a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="home">
+            <div class="events">
+                <div class="filters border">
+                    <ul class="filters__item">
+                        <li class="filters__item--list">All</li>
+                        <li class="filters__item--list"><select>
+                            <option hidden disabled selected>Place</option>
+                            <option>Ukraine</option>
+                        </select></li>
+                        <li class="filters__item--list">Date<select></select></li>
+                        <li class="filters__item--list"><select>
+                            <option hidden disabled selected>Moto</option>
+                            <option>Honda</option>
+                            <option>Yamaha</option>
+                        </select></li>
+                        <li class="filters__item--list">My events</li>
+                        <li class="filters__item--list">Favorite</li>
+                    </ul>
+                </div>
+                <div class="posts">
+                        <div class="posts__item border">
+                            <div class="posts__item--author">
+                                <canvas class="avatar-round" role="button">
+                                </canvas>
+                                <span>
+                                    <img class="author__avatar--img" src="/src/app/templates/registration/img/kym-avatar.jpg" alt="profile photo {KYM}">
+                                </span>
+                                <div class="post-info">
+                                    <div class="author">
+                                        <div class="author__action">
+                                            <p>kym planed a trip for the 2nd February</p>
+                                            <span class="author__action--date">Yesterday at 4:00 pm</span>
+                                        </div>
+                                        <div class="author__location">
+                                            <div class="author__location--from">
+                                                <svg class="location">
+                                                    <use xlink:href="sprite/sprite-sheet.svg#location"></use>
+                                                </svg>
+                                                <p>from Ukraine, Cherkasy</p>
+                                            </div>
+                                            <div class="author__location--to">
+                                                <svg class="location">
+                                                    <use xlink:href="sprite/sprite-sheet.svg#location"></use>
+                                                </svg>
+                                                <p>to Ukraine, Odessa</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="action__favorits" role="button">
+                                        <svg class="favorite">
+                                            <use xlink:href="sprite/sprite-sheet.svg#favorite"></use>
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="posts__item--map">
+                                <img class="map__img" src="/src/app/templates/registration/img/map.jpg" alt="from Cherkasy to Odessa">
+                            </div>
+                            <div class="posts__item--action">
+                                <div class="action__list">
+                                    <div class="action__list--item">
+                                        <svg class="actions">
+                                            <use xlink:href="sprite/sprite-sheet.svg#like"></use>
+                                        </svg>
+                                        <p>Like</p>
+                                    </div>
+                                    <div class="action__list--item">
+                                        <svg class="actions">
+                                            <use xlink:href="sprite/sprite-sheet.svg#join"></use>
+                                        </svg>
+                                        <p>Join</p>
+                                    </div>
+                                    <div class="action__list--item">
+                                        <svg class="actions">
+                                            <use xlink:href="sprite/sprite-sheet.svg#add-comment"></use>
+                                        </svg>
+                                        <p>Comment</p>
+                                    </div>
+                                    <div class="action__list--item">
+                                        <svg class="actions">
+                                            <use xlink:href="sprite/sprite-sheet.svg#share"></use>
+                                        </svg>
+                                        <p>Share</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+        </section>
+    </main>
+    <script src="js/script.js"></script>
+</body>
+</html>
