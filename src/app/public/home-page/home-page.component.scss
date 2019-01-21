@@ -1,0 +1,16 @@
+.banner {
+  background-image: url('/assets/img/banner-main.jpg');
+  background-size: contain;
+  height: 100vh;
+  background-repeat: no-repeat;
+
+  .banner__h1 {
+    padding: 200px;
+  }
+}
+
+// Last Events
+
+.last-event {
+  background-color: #FFF;
+}

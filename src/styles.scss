@@ -1,1 +1,76 @@
 /* You can add global styles to this file, and also import other style files */
+
+*,
+*:before,
+*:after {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  width: 100%;
+  background-image: url('assets/img/background.jpg');
+  font-family: 'Open Sans', sans-serif;
+}
+
+img {
+  width: 100%;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  margin: 0 !important;
+}
+
+a {
+  color: #0404e4;
+  text-decoration: none;
+}
+
+/* --- Navigation --- */
+
+.header {
+  background-color: #000;
+  max-height: 65px;
+}
+
+.logo__img {
+  max-width: 170px;
+  padding: 13px 0 0;
+}
+
+.navigation__item {
+  list-style: none;
+  margin-top: 23px;
+  text-align: right;
+}
+
+.navigation__list {
+  display: inline-block;
+}
+
+.navigation__link {
+  color: #FFF;
+  padding: 10px 20px;
+}
+
+// .navigation__item--link {
+// 	margin-left: 50px;
+// 	font-size: 14px;
+// 	text-decoration: none;
+// 	color: #FFF;
+// 	fill: #FFF;
+// }
+
+// .icon {
+// 	margin-right: 5px;
+// 	height: 16px;
+// 	width: 18px;
+// }
+
+// .navigation__item--link:hover {
+// 	color: #CCC;
+// 	fill: #CCC;
+// }

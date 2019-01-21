@@ -1,5 +1,29 @@
-<header>
-  Hello, im Public Pages Header.. Under me working router outlet for rendering pages by URL
+<!-- Account header -->
+<header class="header">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-2">
+        <img class="logo__img" src="assets/img/logo.png">
+      </div>
+      <div class="col-lg-9">
+        <nav class="navigation">
+          <ul class="navigation__item">
+            <li class="navigation__list"><a class="navigation__link" href="">
+                <!-- <svg class="icon">
+                    <use xlink:href="sprite/sprite-sheet.svg#sign-in"></use>
+                  </svg> -->
+                Sign in</a></li>
+            <li class="navigation__list"><a class="navigation__link" href="">
+                <!-- <svg class="icon">
+                    <use xlink:href="sprite/sprite-sheet.svg#sign-up"></use>
+                  </svg> -->
+                Sign up
+              </a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
 </header>
 
 <router-outlet></router-outlet>
