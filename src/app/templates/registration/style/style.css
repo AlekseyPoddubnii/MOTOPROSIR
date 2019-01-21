@@ -140,7 +140,7 @@ select {
 	margin-left: 25px;
 	font-size: 12px;
 	font-weight: 400;
-	color: rgb(116, 116, 116);
+	color: #777;
 }
 
 .author__location {
@@ -152,8 +152,8 @@ select {
 	display: flex;
 	font-size: 13px;
 	font-weight: 400;
-	color: rgb(50, 50, 50);
-	fill: rgb(50, 50, 50);
+	color: #333;
+	fill: #333;
 }
 
 .author__location--to {
@@ -161,8 +161,8 @@ select {
 	display: flex;
 	font-size: 13px;
 	font-weight: 400;
-	color: rgb(50, 50, 50);
-	fill: rgb(50, 50, 50);
+	color: #333;
+	fill: #333;
 }
 
 .location {
@@ -181,3 +181,191 @@ select {
 	width: 698px;
 	height: 452px;
 }
+
+.posts__item--action {
+	padding: 20px 20px 10px 20px;
+	display: flex;
+	justify-content: space-between;
+}
+
+.action__list {
+	display: flex;
+}
+
+.action__list--item {
+	border: none;
+	outline: none;
+	margin-right: 30px;
+	display: flex;
+	color: #000;
+	font-size: 14px;
+	font-weight: 600;
+}
+
+.action__list--more {
+	border: none;
+	outline: none;
+}
+
+.action {
+	margin-top: 3px;
+}
+
+.actions {
+	margin-right: 10px;
+	width: 25px;
+	height: 25px;
+}
+
+.more {
+	width: 25px;
+	height: 25px;	
+}
+
+.action__stats {
+	padding-left: 20px;
+	font-size: 12px;
+	font-weight: 600;
+	color: #333;
+	display: flex;
+}
+
+.action__stats--item {
+	margin-right: 15px;
+}
+
+.action__coments{
+	color: #666;
+	font-size: 14px;
+	padding: 15px 0 0 20px;
+}
+
+.action__coments--author {
+	color: #000;
+	font-weight: 600;
+}
+
+.action__coments--view {
+	padding-top: 10px;
+	border: none;
+	outline: none;
+	color: #777;
+	font-size: 10px;
+	font-weight: 600;
+}
+
+.action__add-comment {
+	padding: 20px;
+	display: flex;
+}
+
+.action__add-comment--user-avatar {
+	width: 22px;
+	height: 22px;
+	border-radius: 50%;
+}
+
+.action__add-comment--user-comment {
+	width: 650px;
+	margin-left: 15px;
+	border: none;
+	background: none;
+	outline: none;
+	font-size: 14px;
+	color: #666;
+}
+
+/* --- Posts END --- */
+
+/* --- Registration bar --- */
+
+.registration {
+	width: 440px;
+	margin: 30px 0 0 30px;
+}
+
+.registration-headline {
+	padding: 18px;
+	text-align: center;
+	background-color: #000;
+	font-size: 12px;
+}
+
+.registration-form {
+	padding: 35px 35px 40px 35px;
+	border: 1px solid #CCC;
+	border-top: none;
+}
+
+.registration-form__container {
+	display: flex;
+	justify-content: space-between;
+}
+
+.half {
+	width: 45%;
+}
+
+.registration-form__item {
+	margin-bottom: 25px;
+}
+
+.registration-form__item--headlines {
+	color: #999;
+	font-size: 10px;
+}
+
+.registration-form__item--inputs {
+	width: 100%;
+	outline: none;
+	background: none;
+	border: none;
+	padding-bottom: 5px;
+	border-bottom: 1px solid #CCC;
+	margin-top: 13px;
+	color: #000;
+	font-size: 14px;
+	font-weight: 400;
+}
+
+.registration__create {
+	margin-top: 15px;
+	width: 100%;
+}
+
+.registration__create--button {
+	border: none;
+	outline: none;
+	background-color: #000;
+	padding: 20px;
+	color: #FFF;
+	fill: #FFF;
+	font-size: 18px;
+	font-weight: 600px;
+	margin-bottom: 5px;
+}
+
+.create {
+	margin-right: 15px;
+	width: 25px;
+	height: 25px;
+}
+
+.registration__create--already {
+	color: #000;
+	font-size: 12px;
+	font-weight: 400;
+	text-align: center;
+}
+
+.registration__create--link {
+	text-decoration: none;
+	margin: 0 auto;
+	color: #000;
+	font-weight: 600;
+}
+
+.registration__create--link:hover {
+	text-decoration: underline;
+}
+
