@@ -88,31 +88,52 @@
                             </div>
                             <div class="posts__item--action">
                                 <div class="action__list">
-                                    <div class="action__list--item">
+                                    <button class="action__list--item" type="button">
                                         <svg class="actions">
                                             <use xlink:href="sprite/sprite-sheet.svg#like"></use>
                                         </svg>
-                                        <p>Like</p>
-                                    </div>
-                                    <div class="action__list--item">
+                                        <p class="action">Like</p>
+                                    </button>
+                                    <button class="action__list--item" type="button">
                                         <svg class="actions">
                                             <use xlink:href="sprite/sprite-sheet.svg#join"></use>
                                         </svg>
-                                        <p>Join</p>
-                                    </div>
-                                    <div class="action__list--item">
+                                        <p class="action">Join</p>
+                                    </button>
+                                    <button class="action__list--item" type="button">
                                         <svg class="actions">
                                             <use xlink:href="sprite/sprite-sheet.svg#add-comment"></use>
                                         </svg>
-                                        <p>Comment</p>
-                                    </div>
-                                    <div class="action__list--item">
+                                        <p class="action">Comment</p>
+                                    </button>
+                                    <button class="action__list--item" type="button">
                                         <svg class="actions">
                                             <use xlink:href="sprite/sprite-sheet.svg#share"></use>
                                         </svg>
-                                        <p>Share</p>
-                                    </div>
+                                        <p class="action">Share</p>
+                                    </button>
                                 </div>
+                                <button class="action__list--more" type="button">
+                                    <svg class="more">
+                                        <use xlink:href="sprite/sprite-sheet.svg#more"></use>
+                                    </svg>
+                                </button>
+                            </div>
+                            <div class="action__stats">
+                                <p class="action__stats--item"><span data-likes>2163</span> Likes</p>
+                                <p class="action__stats--item"><span data-joined>42</span> Joined</p>
+                                <p class="action__stats--item"><span data-comments>231</span> Comments</p>
+                                <p class="action__stats--item"><span data-shared>14</span> Shared</p>
+                            </div>
+                            <div class="action__coments">
+                                <p><span class="action__coments--author">kym</span>: who wants with me, guys?</p>
+                                <button class="action__coments--view" type="button">View all coments</button>
+                            </div>
+                            <div class="action__add-comment">
+                                <span>
+                                    <img class="action__add-comment--user-avatar" src="/src/app/templates/registration/img/kym-avatar.jpg" alt="">
+                                </span>
+                                <input class="action__add-comment--user-comment" type="text" placeholder="Your comment ...">
                             </div>
                         </div>
                     </div>
