@@ -1,17 +1,13 @@
-*, *:before, *:after {
-    padding: 0;
-    margin: 0;
-}
 
 .sign-in {
-    position: absolute;
-    height: 550px;
-    width: 900px;
+    // position: absolute;
+    // height: 550px;
+    // width: 900px;
     background-color: #FFF;
     border-radius: 35px;
     overflow: hidden;
     display: flex;
-    
+
 }
 
 .sign-in__img-container {
@@ -78,7 +74,7 @@
     -webkit-transition: all .2s linear;
     -moz-transition: all .2s linear;
     -o-transition: all .2s linear;
-    
+
 }
 
 .registration-form__item--button:hover {

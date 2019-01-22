@@ -12,88 +12,32 @@
 <section class="last">
   <div class="container">
     <div class="row">
-      <div class="col-lg">
+      <div class="col-lg" *ngFor="let event of events">
         <figure class="last-event">
-          <img src="assets/img/data/enduro.jpg" alt="" class="last-event__img">
+          <ng-template [ngIf]="event.type === 1">
+            <img class="last-event__img" src="assets/img/data/enduro.jpg" alt="" title="{{ event.title }}">
+          </ng-template>
+          <ng-template [ngIf]="event.type === 3">
+            <img class="last-event__img" src="assets/img/data/touristic.jpg" alt="" title="{{ event.title }}">
+          </ng-template>
+          <ng-template [ngIf]="event.type === 4">
+            <img class="last-event__img" src="assets/img/data/chopper.jpg" alt="" title="{{ event.title }}">
+          </ng-template>
           <figcaption class="last-event__heading">
-            Crazy Enduro Shit
+            {{ event.title }}
           </figcaption>
           <p class="last-event__type">
-            Type: Enduro
+            Type:
+            <ng-template [ngIf]="event.type === 1">Enduro</ng-template>
+            <ng-template [ngIf]="event.type === 2">Sport</ng-template>
+            <ng-template [ngIf]="event.type === 3">Touristic</ng-template>
+            <ng-template [ngIf]="event.type === 4">Chooper</ng-template>
           </p>
           <p class="last-event__start">
-            Date: 20.12.2019
+            Date: {{ event.date }}
           </p>
           <p class="last-event__time">
-            Days: 20
-          </p>
-        </figure>
-      </div>
-      <div class="col-lg">
-        <figure class="last-event">
-          <img src="assets/img/data/enduro.jpg" alt="" class="last-event__img">
-          <figcaption class="last-event__heading">
-            Crazy Enduro Shit
-          </figcaption>
-          <p class="last-event__type">
-            Type: Enduro
-          </p>
-          <p class="last-event__start">
-            Date: 20.12.2019
-          </p>
-          <p class="last-event__time">
-            Days: 20
-          </p>
-        </figure>
-      </div>
-      <div class="col-lg">
-        <figure class="last-event">
-          <img src="assets/img/data/enduro.jpg" alt="" class="last-event__img">
-          <figcaption class="last-event__heading">
-            Crazy Enduro Shit
-          </figcaption>
-          <p class="last-event__type">
-            Type: Enduro
-          </p>
-          <p class="last-event__start">
-            Date: 20.12.2019
-          </p>
-          <p class="last-event__time">
-            Days: 20
-          </p>
-        </figure>
-      </div>
-      <div class="col-lg">
-        <figure class="last-event">
-          <img src="assets/img/data/enduro.jpg" alt="" class="last-event__img">
-          <figcaption class="last-event__heading">
-            Crazy Enduro Shit
-          </figcaption>
-          <p class="last-event__type">
-            Type: Enduro
-          </p>
-          <p class="last-event__start">
-            Date: 20.12.2019
-          </p>
-          <p class="last-event__time">
-            Days: 20
-          </p>
-        </figure>
-      </div>
-      <div class="col-lg">
-        <figure class="last-event">
-          <img src="assets/img/data/enduro.jpg" alt="" class="last-event__img">
-          <figcaption class="last-event__heading">
-            Crazy Enduro Shit
-          </figcaption>
-          <p class="last-event__type">
-            Type: Enduro
-          </p>
-          <p class="last-event__start">
-            Date: 20.12.2019
-          </p>
-          <p class="last-event__time">
-            Days: 20
+            Days: {{ event.days }}
           </p>
         </figure>
       </div>
