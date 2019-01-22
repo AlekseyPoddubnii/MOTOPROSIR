@@ -1,18 +1,21 @@
 <div class="sign-in">
   <div class="sign-in__img-container">
-    <img src="./assents/img/sign-in.jpeg" alt="">
+    <img class="sign-in__img" src="assets/img/sign-in.jpeg" alt="">
   </div>
   <div class="sign-in__form-container">
-    <h2 class="sign-in__headline">Sign in</h2>
     <form class="registration-form" action="">
+      <h2 class="sign-in__headline">Sign in</h2>
       <div class="registration-form__item">
         <h3 class="registration-form__item--headlines">E-mail</h3>
-        <input class="registration-form__item--inputs" type="text" placeholder="example@expamle.com">
+        <input class="registration-form__item--inputs" type="text">
       </div>
       <div class="registration-form__item">
           <h3 class="registration-form__item--headlines">Password</h3>
           <input class="registration-form__item--inputs" type="password">
-          <button class="registration-form__item--button">Forgot password?</button>
+          <div class="registration-form__item--button-container">
+            <button class="registration-form__item--button">Forgot password?</button>
+          </div>
+          
       </div>
       <div class="registration-form__buttons">
         <button class="registration-form__buttons--sign-in">Sign in</button>
@@ -20,17 +23,5 @@
         </div>
     </form>
   </div>
+  <button class="close" mat-raised-button (click)="close()">Close</button>
 </div>
-
-
-<!-- <a id="open-remodal" href="#modal">ds</a>
-<div class="remodal" data-remodal-id="modal">
-    <button data-remodal-action="close" class="remodal-close"></button>
-    <h1>Remodal</h1>
-    <p>
-      Responsive, lightweight, fast, synchronized with CSS animations, fully customizable modal window plugin with declarative configuration and hash tracking.
-    </p>
-    <br>
-    <button data-remodal-action="cancel" class="remodal-cancel">Cancel</button>
-    <button data-remodal-action="confirm" class="remodal-confirm">OK</button>
-</div> -->

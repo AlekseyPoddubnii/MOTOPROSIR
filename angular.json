@@ -29,13 +29,9 @@
             "styles": [
               "src/styles.scss",
               "./node_modules/flexboxgrid/dist/flexboxgrid.css",
-              "./node_modules/normalize.css/normalize.css",
-              "./node_modules/remodal/dist/remodal.css",
-              "./node_modules/remodal/dist/remodal-default-theme.css"
+              "./node_modules/normalize.css/normalize.css"
             ],
-            "scripts": [
-              "./node_modules/remodal/dist/remodal.min.js"
-            ]
+            "scripts": []
           },
           "configurations": {
             "production": {
