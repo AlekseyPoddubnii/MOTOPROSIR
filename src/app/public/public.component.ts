@@ -1,8 +1,8 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: "app-public",
+  selector: 'app-public',
   templateUrl: './public.component.html',
   styleUrls: ['./public.component.scss']
 })

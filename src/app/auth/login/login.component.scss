@@ -1,0 +1,58 @@
+*, *:before, *:after {
+    padding: 0;
+    margin: 0;
+}
+
+.sign-in {
+    height: 550px;
+    width: 900px;
+    background-color: #FFF;
+    display: flex;
+    flex-direction: row;
+    border-radius: 35px;
+    // overflow: hidden;
+}
+
+.sign-in__form-container {
+    justify-content: flex-end;
+}
+
+.sign-in__headline {
+    font-size: 25px;
+}
+
+.registration-form {
+    margin-top: 30px;
+    width: 370px;
+}
+
+.registration-form__item {
+	margin-bottom: 25px;
+}
+
+.registration-form__item--headlines {
+	color: #999;
+	font-size: 10px;
+}
+
+.registration-form__item--inputs {
+	width: 100%;
+	outline: none;
+	background: none;
+	border: none;
+	padding-bottom: 5px;
+	border-bottom: 1px solid #CCC;
+	margin-top: 13px;
+	color: #000;
+	font-size: 14px;
+	font-weight: 400;
+}
+
+.registration-form__item--button {
+    margin-top: 10px;
+    border: none;
+    background: none;
+    font-size: 12px;
+    font-weight: 600;
+    color: #999
+}
