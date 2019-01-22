@@ -1,0 +1,27 @@
+<div class="sign-in">
+  <div class="sign-in__img-container">
+    <img class="sign-in__img" src="assets/img/sign-in.jpeg" alt="">
+  </div>
+  <div class="sign-in__form-container">
+    <form class="registration-form" action="">
+      <h2 class="sign-in__headline">Sign in</h2>
+      <div class="registration-form__item">
+        <h3 class="registration-form__item--headlines">E-mail</h3>
+        <input class="registration-form__item--inputs" type="text">
+      </div>
+      <div class="registration-form__item">
+          <h3 class="registration-form__item--headlines">Password</h3>
+          <input class="registration-form__item--inputs" type="password">
+          <div class="registration-form__item--button-container">
+            <button class="registration-form__item--button">Forgot password?</button>
+          </div>
+          
+      </div>
+      <div class="registration-form__buttons">
+        <button class="registration-form__buttons--sign-in">Sign in</button>
+        <p class="registration-form__buttons--or">or <a class="registration-form__buttons--link" href="">Sign up</a></p>
+        </div>
+    </form>
+  </div>
+  <button class="close" mat-raised-button (click)="close()">Close</button>
+</div>
