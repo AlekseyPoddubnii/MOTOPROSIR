@@ -10,7 +10,9 @@ import { AuthenticationService } from '../services/authentication.service';
 @Component({
     // tslint:disable-next-line:component-selector
     selector: 'register',
-    templateUrl: 'register.component.html'})
+    templateUrl: 'register.component.html',
+    styleUrls: ['register.component.scss']
+})
 export class RegisterComponent implements OnInit {
     registerForm: FormGroup;
     submitted = false;
@@ -29,10 +31,17 @@ export class RegisterComponent implements OnInit {
 
     ngOnInit() {
         this.registerForm = this.formBuilder.group({
+            username: ['', Validators.required],
+            email: ['', [Validators.required, Validators.email]],
             firstName: ['', Validators.required],
             lastName: ['', Validators.required],
-            username: ['', Validators.required],
-            password: ['', [Validators.required, Validators.minLength(6)]]
+            brandOfBike: ['', Validators.required],
+            modelOfBike: ['', Validators.required],
+            gender: ['', Validators.required],
+            country: ['', Validators.required],
+            sity: ['', Validators.required],
+            password: ['', [Validators.required, Validators.minLength(6)]],
+            confirmedPassword: ['', [Validators.required, Validators.minLength(6)]],
         });
     }
 
