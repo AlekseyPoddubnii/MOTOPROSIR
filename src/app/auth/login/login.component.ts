@@ -4,6 +4,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { first } from 'rxjs/operators';
 
+import { AlertService } from '../services/alert.service';
 import { AuthenticationService } from '../services/authentication.service';
 
 @Component({
@@ -23,16 +24,19 @@ export class LoginComponent implements OnInit {
         private route: ActivatedRoute,
         private router: Router,
         private authenticationService: AuthenticationService,
+        private alertService: AlertService,
         @Inject(MAT_DIALOG_DATA) public data: any
-    ) { }
+    ) {
+        if (this.authenticationService.currentUserValue) {
+            this.router.navigate(['/']);
+        }
+    }
 
     ngOnInit() {
         this.loginForm = this.formBuilder.group({
             username: ['', Validators.required],
             password: ['', Validators.required]
         });
-
-        this.authenticationService.logout();
 
         this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
     }
@@ -41,7 +45,6 @@ export class LoginComponent implements OnInit {
 
     onSubmit() {
         this.submitted = true;
-
         if (this.loginForm.invalid) {
             return;
         }
@@ -50,11 +53,11 @@ export class LoginComponent implements OnInit {
         this.authenticationService.login(this.f.username.value, this.f.password.value)
             .pipe(first())
             .subscribe(
-                _data => {
+                data => {
                     this.router.navigate([this.returnUrl]);
                 },
                 error => {
-                    this.error = error;
+                    this.alertService.error(error);
                     this.loading = false;
                 });
     }

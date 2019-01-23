@@ -15,12 +15,16 @@ import { fakeBackendProvider } from './auth/helpers/fake-backend';
 import { JwtInterceptor} from './auth/helpers/jwt.interceptor';
 import {  ErrorInterceptor  } from './auth/helpers/error.interceptor';
 import { HomeComponent } from './auth/home/home.component';
+import { RegisterComponent } from './auth/register/register.component';
+import { AlertComponent } from './auth/alerts/alert.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    LoginComponent
+    LoginComponent,
+    RegisterComponent,
+    AlertComponent,
   ],
   imports: [
     BrowserModule,

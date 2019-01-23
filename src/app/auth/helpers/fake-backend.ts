@@ -3,54 +3,98 @@ import { HttpRequest, HttpResponse, HttpHandler, HttpEvent, HttpInterceptor, HTT
 import { Observable, of, throwError } from 'rxjs';
 import { delay, mergeMap, materialize, dematerialize } from 'rxjs/operators';
 
-import { User } from '../models/user';
-
 @Injectable()
 export class FakeBackendInterceptor implements HttpInterceptor {
+
+    constructor() { }
+
     intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-        const users: User[] = [
-            { id: 1, username: 'test', password: 'test', firstName: 'Test', lastName: 'User' },
-            { id: 2, username: 'kymotocyle@gmail.com', password: '12345678', firstName: 'Aleksey', lastName: 'Poddubnii' },
-            { id: 3, username: 'zzeenj@gmail.com', password: '24102000', firstName: 'Max', lastName: 'Zinchenko' },
-        ];
-
-        const authHeader = request.headers.get('Authorization');
-        const isLoggedIn = authHeader && authHeader.startsWith('Bearer fake-jwt-token');
-
+        const users: any[] = JSON.parse(localStorage.getItem('users')) || [];
         return of(null).pipe(mergeMap(() => {
+
+            // authenticate user
             if (request.url.endsWith('/users/authenticate') && request.method === 'POST') {
-                const user = users.find(x => x.username === request.body.username && x.password === request.body.password);
-                if (!user) { return error('Username or password is incorrect'); }
-                return ok({
-                    id: user.id,
-                    username: user.username,
-                    firstName: user.firstName,
-                    lastName: user.lastName,
-                    token: `fake-jwt-token`
+                const filteredUsers = users.filter(user => {
+                    return user.username === request.body.username && user.password === request.body.password;
                 });
+
+                if (filteredUsers.length) {
+                    const user = filteredUsers[0];
+                    const body = {
+                        id: user.id,
+                        username: user.username,
+                        firstName: user.firstName,
+                        lastName: user.lastName,
+                        token: 'fake-jwt-token'
+                    };
+
+                    return of(new HttpResponse({ status: 200, body: body }));
+                } else {
+                    return throwError({ error: { message: 'Username or password is incorrect' } });
+                }
             }
+
             if (request.url.endsWith('/users') && request.method === 'GET') {
-                if (!isLoggedIn) { return unauthorised(); }
-                return ok(users);
+                if (request.headers.get('Authorization') === 'Bearer fake-jwt-token') {
+                    return of(new HttpResponse({ status: 200, body: users }));
+                } else {
+                    return throwError({ status: 401, error: { message: 'Unauthorised' } });
+                }
+            }
+
+            // id user
+            if (request.url.match(/\/users\/\d+$/) && request.method === 'GET') {
+                if (request.headers.get('Authorization') === 'Bearer fake-jwt-token') {
+                    const urlParts = request.url.split('/');
+                    // tslint:disable-next-line:radix
+                    const id = parseInt(urlParts[urlParts.length - 1]);
+                    // tslint:disable-next-line:no-shadowed-variable
+                    const matchedUsers = users.filter(user => user.id === id);
+                    const user = matchedUsers.length ? matchedUsers[0] : null;
+
+                    return of(new HttpResponse({ status: 200, body: user }));
+                } else {
+                    return throwError({ status: 401, error: { message: 'Unauthorised' } });
+                }
+            }
+
+            // register user
+            if (request.url.endsWith('/users/register') && request.method === 'POST') {
+                const newUser = request.body;
+
+                const duplicateUser = users.filter(user => user.username === newUser.username).length;
+                if (duplicateUser) {
+                    return throwError({ error: { message: 'Username "' + newUser.username + '" is already taken' } });
+                }
+                newUser.id = users.length + 1;
+                users.push(newUser);
+                localStorage.setItem('users', JSON.stringify(users));
+                return of(new HttpResponse({ status: 200 }));
+            }
+
+            // delete user
+            if (request.url.match(/\/users\/\d+$/) && request.method === 'DELETE') {
+                if (request.headers.get('Authorization') === 'Bearer fake-jwt-token') {
+                    // find user by id in users array
+                    const urlParts = request.url.split('/');
+                    // tslint:disable-next-line:radix
+                    const id = parseInt(urlParts[urlParts.length - 1]);
+                    for (let i = 0; i < users.length; i++) {
+                        const user = users[i];
+                        if (user.id === id) {
+                            users.splice(i, 1);
+                            localStorage.setItem('users', JSON.stringify(users));
+                            break;
+                        }
+                    }
+                    return of(new HttpResponse({ status: 200 }));
+                } else {
+                    // return 401 not authorised if token is null or invalid
+                    return throwError({ status: 401, error: { message: 'Unauthorised' } });
+                }
             }
             return next.handle(request);
-        }))
-
-        .pipe(materialize())
-        .pipe(delay(500))
-        .pipe(dematerialize());
-
-        function ok(body) {
-            return of(new HttpResponse({ status: 200, body }));
-        }
-
-        function unauthorised() {
-            return throwError({ status: 401, error: { message: 'Unauthorised' } });
-        }
-
-        function error(message) {
-            return throwError({ status: 400, error: { message } });
-        }
+        }));
     }
 }
 
