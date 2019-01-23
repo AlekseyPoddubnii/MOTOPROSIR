@@ -3,17 +3,27 @@
     <img class="sign-in__img" src="assets/img/sign-in.jpeg" alt="">
   </div>
   <div class="sign-in__form-container">
-    <form class="registration-form" action="">
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="registration-form" action="">
       <h2 class="sign-in__headline">Sign in</h2>
       <div class="registration-form__item">
         <h3 class="registration-form__item--headlines">E-mail</h3>
-        <input class="registration-form__item--inputs" type="text">
+        <input class="registration-form__item--inputs" type="text" formControlName="username" [ngClass]="{ 'is-invalid': submitted && f.username.errors }" />
+        <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+          <div class="error" *ngIf="f.username.errors.required">E-mail is required</div>
+        </div>
+        <div class="alert-error" *ngIf="error">{{error}}</div>
       </div>
       <div class="registration-form__item">
           <h3 class="registration-form__item--headlines">Password</h3>
-          <input class="registration-form__item--inputs" type="password">
+          <input class="registration-form__item--inputs" type="password" formControlName="password" [ngClass]="{ 'is-invalid': submitted && f.password.errors }"/>
           <div class="registration-form__item--button-container">
-            <button class="registration-form__item--button">Forgot password?</button>
+            <button class="registration-form__item--button" type="button">Forgot password?</button>
+          </div>
+          <div class="registration-form__item--errors-container">
+            <div class="error-container" *ngIf="submitted && f.password.errors">
+              <div class="errorr" *ngIf="f.password.errors.required">Password is required</div>
+            </div>
+            <div class="alert-error" *ngIf="error">{{error}}</div>
           </div>
           
       </div>
@@ -23,5 +33,6 @@
         </div>
     </form>
   </div>
+  
   <button class="close" mat-raised-button (click)="close()">Close</button>
 </div>
