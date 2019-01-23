@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 import { AccountModule } from './account/account.module';
 import { PublicModule } from './public/public.module';
 import { LoginComponent } from './auth/login/login.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -21,8 +22,9 @@ import { LoginComponent } from './auth/login/login.component';
     AccountModule,
     PublicModule,
     MatDialogModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [HttpClientModule],
   bootstrap: [AppComponent],
   entryComponents: [LoginComponent]
 })
