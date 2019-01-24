@@ -1,27 +1,2 @@
-<!-- Account header -->
-<header class="header">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-3">
-        <a class="logo" href="#">
-          <img class="logo__img" src="assets/img/logo.png">
-        </a>
-      </div>
-      <div class="col-lg-9">
-        <nav class="navigation">
-          <ul class="navigation__item">
-            <li class="navigation__list"><a class="navigation__link" href="">
-                <!-- <svg class="icon">
-                  <use xlink:href="sprite/sprite-sheet.svg#sign-in"></use>
-                </svg> -->
-                Sign in</a></li>
-            <li class="navigation__list"><a class="navigation__link" (click)="logout()">Logout</a></li>
-              <a class="nav-item nav-link" routerLink="/">Home</a>
-              
-          </ul>
-        </nav>
-      </div>
-    </div>
-  </div>
-</header>
+<app-header-account></app-header-account>
 <router-outlet></router-outlet>

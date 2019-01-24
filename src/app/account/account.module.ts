@@ -5,6 +5,7 @@ import { AccountRoutingModule } from './account-routing.module';
 import { EventsComponent } from './events/events.component';
 import { BoardPageComponent } from './board-page/board-page.component';
 import { AccountComponent } from './account.component';
+import { HeaderAccountComponent } from './shared/components/header-account/header-account.component';
 
 @NgModule({
   imports: [
@@ -14,7 +15,8 @@ import { AccountComponent } from './account.component';
   declarations: [
     EventsComponent,
     BoardPageComponent,
-    AccountComponent
+    AccountComponent,
+    HeaderAccountComponent
   ]
 })
 
