@@ -6,7 +6,11 @@ import { User } from '../models/user';
 import { UserService } from '../services/user.service';
 import { AuthenticationService } from '../services/authentication.service';
 
-@Component({ templateUrl: 'home.component.html' })
+@Component({
+    // tslint:disable-next-line:component-selector
+    selector: 'home-user',
+    templateUrl: 'home.component.html'
+})
 export class HomeComponent implements OnInit, OnDestroy {
     currentUser: User;
     currentUserSubscription: Subscription;

@@ -13,6 +13,7 @@ import { AuthenticationService } from '../services/authentication.service';
 })
 export class LoginComponent implements OnInit {
     loginForm: FormGroup;
+    loading = false;
     submitted = false;
     returnUrl: string;
     error = '';
@@ -23,7 +24,6 @@ export class LoginComponent implements OnInit {
         private route: ActivatedRoute,
         private router: Router,
         private authenticationService: AuthenticationService,
-        private alertService: AlertService,
         @Inject(MAT_DIALOG_DATA) public data: any
     ) {
         if (this.authenticationService.currentUserValue) {
@@ -37,6 +37,8 @@ export class LoginComponent implements OnInit {
             password: ['', Validators.required]
         });
 
+        this.authenticationService.logout();
+
         this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
     }
 
@@ -44,6 +46,7 @@ export class LoginComponent implements OnInit {
 
     onSubmit() {
         this.submitted = true;
+
         if (this.loginForm.invalid) {
             return;
         }
@@ -55,7 +58,7 @@ export class LoginComponent implements OnInit {
                     this.router.navigate([this.returnUrl]);
                 },
                 error => {
-                    this.alertService.error(error);
+                    this.error = error;
                 });
     }
 

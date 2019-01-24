@@ -119,6 +119,7 @@
                     <div class="error" *ngIf="f.confirmedPassword.errors.minlength">Password must be at least 6 characters</div>
                 </div>
             </div>
+            <div class="message-success" *ngIf="message" [ngClass]="{ 'alert': message, 'alert-success': message.type === 'success', 'alert-danger': message.type === 'error' }">{{message.text}}</div>
         </div>
         <button  class="registration__create--button" type="submit">Create an account</button>
     </form>

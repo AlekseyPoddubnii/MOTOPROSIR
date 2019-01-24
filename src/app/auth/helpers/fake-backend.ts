@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpRequest, HttpResponse, HttpHandler, HttpEvent, HttpInterceptor, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { Observable, of, throwError } from 'rxjs';
-import { delay, mergeMap, materialize, dematerialize } from 'rxjs/operators';
+import { mergeMap } from 'rxjs/operators';
 
 @Injectable()
 export class FakeBackendInterceptor implements HttpInterceptor {
@@ -23,6 +23,7 @@ export class FakeBackendInterceptor implements HttpInterceptor {
                     const body = {
                         id: user.id,
                         username: user.username,
+                        email: user.email,
                         firstName: user.firstName,
                         lastName: user.lastName,
                         token: 'fake-jwt-token'
@@ -61,6 +62,7 @@ export class FakeBackendInterceptor implements HttpInterceptor {
             // register user
             if (request.url.endsWith('/users/register') && request.method === 'POST') {
                 const newUser = request.body;
+                const newEmail = request.body;
 
                 const duplicateUser = users.filter(user => user.username === newUser.username).length;
                 if (duplicateUser) {

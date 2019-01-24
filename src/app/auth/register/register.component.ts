@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { first } from 'rxjs/operators';
+import { Subscription } from 'rxjs';
 
 import { AlertService } from '../services/alert.service';
 import { UserService } from '../services/user.service';
@@ -13,7 +14,11 @@ import { AuthenticationService } from '../services/authentication.service';
     templateUrl: 'register.component.html',
     styleUrls: ['register.component.scss']
 })
-export class RegisterComponent implements OnInit {
+export class RegisterComponent implements OnInit, OnDestroy {
+
+    private subscription: Subscription;
+    message: any;
+
     registerForm: FormGroup;
     submitted = false;
 
@@ -43,9 +48,16 @@ export class RegisterComponent implements OnInit {
             password: ['', [Validators.required, Validators.minLength(6)]],
             confirmedPassword: ['', [Validators.required, Validators.minLength(6)]],
         });
+        this.subscription = this.alertService.getMessage().subscribe(message => {
+            this.message = message;
+        });
     }
 
     get f() { return this.registerForm.controls; }
+
+    ngOnDestroy() {
+        this.subscription.unsubscribe();
+    }
 
     onSubmit() {
         this.submitted = true;
