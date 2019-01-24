@@ -62,6 +62,18 @@ a {
   padding: 10px 20px;
 }
 
+.navigation__button {
+  color: #FFF;
+  padding: 10px 20px;
+  background: none;
+  border: none;
+  outline: none;
+}
+
+.navigation__button:hover {
+  cursor: pointer;
+}
+
 // .navigation__item--link {
 // 	margin-left: 50px;
 // 	font-size: 14px;
