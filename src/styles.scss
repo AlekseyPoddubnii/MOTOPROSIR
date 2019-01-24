@@ -8,6 +8,11 @@
   padding: 0;
 }
 
+.mat-dialog-container {
+  padding: 0 !important;
+  border-radius: 35px !important;
+}
+
 body {
   width: 100%;
   background-image: url('assets/img/background.jpg');
@@ -55,6 +60,18 @@ a {
 .navigation__link {
   color: #FFF;
   padding: 10px 20px;
+}
+
+.navigation__button {
+  color: #FFF;
+  padding: 10px 20px;
+  background: none;
+  border: none;
+  outline: none;
+}
+
+.navigation__button:hover {
+  cursor: pointer;
 }
 
 // .navigation__item--link {

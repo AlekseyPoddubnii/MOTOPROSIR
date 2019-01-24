@@ -15,12 +15,9 @@
                   <use xlink:href="sprite/sprite-sheet.svg#sign-in"></use>
                 </svg> -->
                 Sign in</a></li>
-            <li class="navigation__list"><a class="navigation__link" href="">
-                <!-- <svg class="icon">
-                  <use xlink:href="sprite/sprite-sheet.svg#sign-up"></use>
-                </svg> -->
-                Sign up
-              </a></li>
+            <li class="navigation__list"><a class="navigation__link" (click)="logout()">Logout</a></li>
+              <a class="nav-item nav-link" routerLink="/">Home</a>
+              
           </ul>
         </nav>
       </div>

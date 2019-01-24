@@ -1,0 +1,129 @@
+<div class="registration">
+    <div class="registration-headline">
+        <h2>Registration</h2>
+    </div>
+    <form class="registration-form" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+        <div class="bg">
+            <div class="registration-form__item">
+                <h3 class="registration-form__item--headlines">Username</h3>
+                <input class="registration-form__item--inputs" formControlName="username" [ngClass]="{ 'is-invalid': submitted && f.username.errors }" />
+                <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+                    <div class="error" *ngIf="f.username.errors.required">Enter your username</div>
+                </div>
+            </div>
+            <div class="registration-form__item">
+                <h3 class="registration-form__item--headlines">E-mail</h3>
+                <input class="registration-form__item--inputs" type="text" formControlName="email" [ngClass]="{ 'is-invalid': submitted && f.email.errors }">
+                <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                    <div class="error" *ngIf="f.email.errors.required">Enter your e-mail</div>
+                    <div class="error" *ngIf="f.email.errors.email">Incorrect e-mail</div>
+                </div>
+            </div>
+            <div class="registration-form__container">
+                <div class="registration-form__item half">
+                    <h3 class="registration-form__item--headlines">First Name</h3>
+                    <input class="registration-form__item--inputs"  formControlName="firstName" [ngClass]="{'is-invalid': submitted && f.firstName.errors }" />
+                    <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
+                        <div class="error" *ngIf="f.firstName.errors.required">Enter your First Name</div>
+                    </div>
+                </div>
+                <div class="registration-form__item half">
+                    <h3 class="registration-form__item--headlines">Last Name</h3>
+                    <input class="registration-form__item--inputs" formControlName="lastName" [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }">
+                    <div *ngIf="submitted && f.lastName.errors" class="invalid-feedback">
+                        <div class="error" *ngIf="f.lastName.errors.required">Enter your Last Name</div>
+                    </div>
+                </div>
+            </div>
+            <div class="registration-form__container">
+                <div class="registration-form__item half">
+                    <h3 class="registration-form__item--headlines">Brand of bike</h3>
+                    <select class="registration-form__item--inputs" formControlName="brandOfBike" [ngClass]="{ 'is-invalid': submitted && f.brandOfBike.errors }">
+                        <option hidden disabled selected></option>
+                        <option>Honda</option>
+                        <option>Yamaha</option>
+                        <option>BMW</option>
+                    </select>
+                    <div *ngIf="submitted && f.brandOfBike.errors" class="invalid-feedback">
+                        <div class="error" *ngIf="f.brandOfBike.errors.required">Select a brand of your bike</div>
+                    </div>
+                </div>
+                <div class="registration-form__item half">
+                    <h3 class="registration-form__item--headlines">Model of bike</h3>
+                    <select class="registration-form__item--inputs" formControlName="modelOfBike" [ngClass]="{ 'is-invalid': submitted && f.modelOfBike.errors }">
+                        <option hidden disabled selected></option>
+                        <option>432454</option>
+                        <option>324234</option>
+                    </select>
+                    <div *ngIf="submitted && f.modelOfBike.errors" class="invalid-feedback">
+                        <div class="error" *ngIf="f.modelOfBike.errors.required">Select a model of your bike</div>
+                    </div>
+                </div>
+            </div>
+            <div class="registration-form__container">
+                <div class="registration-form__item half">
+                    <h3 class="registration-form__item--headlines">Birthday</h3>
+                    <select class="registration-form__item--inputs">
+                        <option hidden disabled selected></option>
+                    </select>
+                </div>
+                <div class="registration-form__item half">
+                    <h3 class="registration-form__item--headlines">Gender</h3>
+                    <select class="registration-form__item--inputs" formControlName="gender" [ngClass]="{ 'is-invalid': submitted && f.gender.errors }">
+                        <option hidden disabled selected></option>
+                        <option>Female</option>
+                        <option>Male</option>
+                    </select>
+                    <div *ngIf="submitted && f.gender.errors" class="invalid-feedback">
+                        <div class="error" *ngIf="f.gender.errors.required">Select your gender</div>
+                    </div>
+                </div>
+            </div>
+            <div class="registration-form__container">
+                <div class="registration-form__item half">
+                    <h3 class="registration-form__item--headlines">Country</h3>
+                    <select class="registration-form__item--inputs" formControlName="country" [ngClass]="{ 'is-invalid': submitted && f.country.errors }">
+                        <option hidden disabled selected></option>
+                        <option>Ukraine</option>
+                        <option>Russia</option>
+                    </select>
+                    <div *ngIf="submitted && f.country.errors" class="invalid-feedback">
+                        <div class="error" *ngIf="f.country.errors.required">Select your country</div>
+                    </div>
+                </div>
+                <div class="registration-form__item half">
+                    <h3 class="registration-form__item--headlines">Sity</h3>
+                    <select class="registration-form__item--inputs" formControlName="sity" [ngClass]="{ 'is-invalid': submitted && f.sity.errors }"> 
+                        <option hidden disabled selected></option>
+                        <option>Kyiv</option>
+                        <option>Cherkasy</option>
+                    </select>
+                    <div *ngIf="submitted && f.sity.errors" class="invalid-feedback">
+                        <div class="error" *ngIf="f.sity.errors.required">Select your sity</div>
+                    </div>
+                </div>
+            </div>
+            <div class="registration-form__item">
+                <h3 class="registration-form__item--headlines">Password</h3>
+                <input class="registration-form__item--inputs" type="password" formControlName="password" [ngClass]="{ 'is-invalid': submitted && f.password.errors }">
+                <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                    <div class="error" *ngIf="f.password.errors.required">Enter your password</div>
+                    <div class="error" *ngIf="f.password.errors.minlength">Password must be at least 6 characters</div>
+                </div>
+            </div>
+            <div class="registration-form__item">
+                <h3 class="registration-form__item--headlines">Confirm password</h3>
+                <input class="registration-form__item--inputs" type="password" formControlName="confirmedPassword" [ngClass]="{ 'is-invalid': submitted && f.confirmedPassword.errors }">
+                <div *ngIf="submitted && f.confirmedPassword.errors" class="invalid-feedback">
+                    <div class="error" *ngIf="f.confirmedPassword.errors.required">Confirm your password</div>
+                    <div class="error" *ngIf="f.confirmedPassword.errors.minlength">Password must be at least 6 characters</div>
+                </div>
+            </div>
+            <div class="message-success" *ngIf="message" [ngClass]="{ 'alert': message, 'alert-success': message.type === 'success', 'alert-danger': message.type === 'error' }">{{message.text}}</div>
+        </div>
+        <button  class="registration__create--button" type="submit">Create an account</button>
+    </form>
+    <div class="registration__create">
+        <p class="registration__create--already">Already have an account? <a class="registration__create--link" href="">Sign in</a></p>
+    </div>
+</div>

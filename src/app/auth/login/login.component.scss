@@ -1,16 +1,13 @@
-
 .sign-in {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    margin-top: -275px;
-    margin-left: -450px;
     height: 550px;
     width: 900px;
     background-color: #FFF;
     border-radius: 35px;
     overflow: hidden;
     display: flex;
+    box-shadow: 0 11px 15px -7px rgba(0,0,0,.2),
+              0 24px 38px 3px rgba(0,0,0,.14),
+              0 9px 46px 8px rgba(0,0,0,.12);
 
 }
 
@@ -25,7 +22,7 @@
 }
 
 .sign-in__form-container {
-    padding-top: 133px;
+    padding-top: 130px;
     padding-left: 65px;
     display: flex;
     justify-content: flex-end;
@@ -65,12 +62,14 @@
 .registration-form__item--button-container {
     display: flex;
     justify-content: flex-end;
+    
 }
 
 .registration-form__item--button {
     margin-top: 10px;
     border: none;
     background: none;
+    outline: none;
     font-size: 12px;
     font-weight: 600;
     color: #999;
@@ -80,6 +79,8 @@
     -o-transition: all .2s linear;
 
 }
+
+
 
 .registration-form__item--button:hover {
     text-decoration: underline;
@@ -133,10 +134,10 @@
 }
 
 .close {
-    position: absolute;
-    right: 0;
-    margin-top: 40px;
-    margin-right: 50px;
+    margin-top: 35px;
+    margin-left: -15px;
+    width: 40px;
+    height: 25px;
     border: none;
     background: none;
     color: #999;
@@ -146,4 +147,27 @@
 
 .close:hover {
     cursor: pointer;
+}
+
+.error {
+    margin-top: 10px;
+    font-size: 12px;
+    color: red;
+
+}
+
+.errorr {
+    margin-top: 10px;
+    font-size: 13px;
+    color: red;
+}
+
+.alert-error {
+    margin-top: 10px;
+    font-size: 12px;
+    color: red;
+}
+
+.registration-form__item--errors-container {
+    margin-top: -23px;
 }
