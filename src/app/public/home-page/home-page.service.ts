@@ -1,12 +1,15 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { HomePage } from './home-page.model';
 
 @Injectable()
 
 export class HomePageService {
+
+  eventsUrl = 'http://localhost:3000/events';
   constructor(private http: HttpClient) {}
 
   getEvents() {
-   return this.http.get('http://localhost:3000/events');
+   return this.http.get<HomePage[]>(this.eventsUrl);
   }
 }

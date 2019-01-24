@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HomePageService } from './home-page.service';
+import { HomePage } from './home-page.model';
 
 @Component({
   selector: 'app-home-page',
@@ -9,17 +10,13 @@ import { HomePageService } from './home-page.service';
 })
 export class HomePageComponent implements OnInit {
 
-  events = [];
+  events$: HomePage[];
 
   constructor(private homePageService: HomePageService) { }
 
   ngOnInit() {
-    this.homePageService
-      .getEvents()
-      .subscribe((response) => {
-        console.log(response);
-
-      });
+    return this.homePageService.getEvents().
+    subscribe(data => this.events$ = data)
   }
 
 }
