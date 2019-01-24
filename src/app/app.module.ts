@@ -1,16 +1,12 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
-import { MatDialogModule } from '@angular/material';
-// import { MatDialogRef } from '@angular/material';
-// import { MAT_DIALOG_DATA } from '@angular/material';
-import { ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AccountModule } from './account/account.module';
 import { PublicModule } from './public/public.module';
+<<<<<<< HEAD
 import { LoginComponent } from './auth/login/login.component';
 <<<<<<< HEAD
 import { HttpClientModule } from '@angular/common/http';
@@ -24,22 +20,19 @@ import {  ErrorInterceptor  } from './auth/helpers/error.interceptor';
 import { HomeComponent } from './auth/home/home.component';
 import { RegisterComponent } from './auth/register/register.component';
 >>>>>>> master
+=======
+>>>>>>> master
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
-    LoginComponent,
-    RegisterComponent,
-    AuthComponent,
   ],
   imports: [
     BrowserModule,
-    BrowserAnimationsModule,
     AppRoutingModule,
-    AuthRoutingModule,
     AccountModule,
     PublicModule,
+<<<<<<< HEAD
     MatDialogModule,
 <<<<<<< HEAD
     HttpClientModule
@@ -59,7 +52,12 @@ import { RegisterComponent } from './auth/register/register.component';
     fakeBackendProvider
   ],
 >>>>>>> master
+=======
+    HttpClientModule,
+  ],
+  providers: [],
+>>>>>>> master
   bootstrap: [AppComponent],
-  entryComponents: [LoginComponent]
+  entryComponents: []
 })
 export class AppModule { }
