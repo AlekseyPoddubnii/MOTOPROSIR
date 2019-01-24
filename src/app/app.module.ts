@@ -22,14 +22,10 @@ import { LoginComponent } from './auth/login/login.component';
     AppRoutingModule,
     AccountModule,
     PublicModule,
-<<<<<<< HEAD
-    HttpClientModule
-=======
     HttpClientModule,
     MatDialogModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
->>>>>>> c8214387be05578ef13dd78d2b5675bcc0620bbb
   ],
   providers: [HttpClientModule],
   bootstrap: [AppComponent],
