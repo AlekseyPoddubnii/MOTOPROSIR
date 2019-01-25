@@ -12,7 +12,6 @@ import { ErrorInterceptor } from './auth/error.interceptor';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-// import { AccountModule } from './account/account.module';
 
 import { PublicModule } from './public/public.module';
 import { LoginComponent } from './auth/login/login.component';
@@ -27,7 +26,6 @@ import { AccountComponent } from './account/account.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    // AccountModule,
     PublicModule,
     HttpClientModule,
     MatDialogModule,
