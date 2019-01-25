@@ -17,12 +17,16 @@ import { PublicModule } from './public/public.module';
 import { LoginComponent } from './auth/login/login.component';
 import { AccountComponent } from './account/account.component';
 import { AccountModule } from './account/account.module';
+import { RegisterComponent } from './auth/register/register.component';
+import { AlertComponent } from './shared/alerts/alert.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
+    RegisterComponent,
+    AlertComponent
   ],
   imports: [
     BrowserModule,
