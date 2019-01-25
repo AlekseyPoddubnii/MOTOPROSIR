@@ -12,7 +12,7 @@
 <section class="last">
   <div class="container">
     <div class="row">
-      <div class="col-lg" *ngFor="let event of events">
+      <div class="col-lg" *ngFor="let event of events$">
         <figure class="last-event">
           <ng-template [ngIf]="event.type === 1">
             <img class="last-event__img" src="assets/img/data/enduro.jpg" alt="" title="{{ event.title }}">
