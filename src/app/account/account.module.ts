@@ -8,6 +8,7 @@ import { AccountComponent } from './account.component';
 import { AddEventComponent } from './events/add-event/add-event.component';
 import { FormsModule } from '@angular/forms';
 import { AccHeaderComponent } from './shared/components/acc-header/acc-header.component';
+import { EventsService } from './shared/services/events.service';
 
 @NgModule({
   imports: [
@@ -21,7 +22,8 @@ import { AccHeaderComponent } from './shared/components/acc-header/acc-header.co
     AccountComponent,
     AddEventComponent,
     AccHeaderComponent
-  ]
+  ],
+  providers: [EventsService]
 })
 
 export class AccountModule { }

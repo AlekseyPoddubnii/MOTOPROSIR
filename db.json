@@ -1,6 +1,6 @@
 {
   "users": [
-    { 
+    {
       "id": 1,
       "username": "test",
       "password": "test",
@@ -12,16 +12,11 @@
 
   "events": [
     {
+      "id": 1,
       "title": "Our first Event for test",
       "days": 1,
-      "date": "Some description for event",
-      "type": 1
-    },
-    {
-      "title": "Our Second Event for test",
-      "days": 1,
-      "date": "Some description for event",
-      "type": 2
+      "type": 1,
+      "date": "11.01.2019 10:20:30"
     }
   ]
 }
