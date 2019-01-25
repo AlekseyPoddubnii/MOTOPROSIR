@@ -35,7 +35,8 @@ import { AccountComponent } from './account/account.component';
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
-    fakeBackendProvider
+    fakeBackendProvider,
+    HttpClientModule
   ],
   bootstrap: [AppComponent],
   entryComponents: [LoginComponent]
