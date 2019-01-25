@@ -6,17 +6,21 @@ import { EventsComponent } from './events/events.component';
 import { BoardPageComponent } from './board-page/board-page.component';
 import { AccountComponent } from './account.component';
 import { HeaderAccountComponent } from './shared/components/header-account/header-account.component';
+import { AddEventComponent } from './events/add-event/add-event.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   imports: [
     CommonModule,
-    AccountRoutingModule
+    AccountRoutingModule,
+    FormsModule
   ],
   declarations: [
     EventsComponent,
     BoardPageComponent,
     AccountComponent,
-    HeaderAccountComponent
+    HeaderAccountComponent,
+    AddEventComponent
   ]
 })
 

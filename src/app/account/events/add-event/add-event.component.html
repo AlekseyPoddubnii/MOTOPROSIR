@@ -1,0 +1,14 @@
+<form #f="ngForm" (ngSubmit)="onSubmit(f)">
+  <div class="form-group">
+    <label for="days">
+      Количество дней
+    </label>
+    <input type="number" id="days" class="form-control" name="days" [ngModel]="1" min="1" #days="ngModel">
+    <span>
+
+    </span>
+    <button type="submit">
+      Добавить событие
+    </button>
+  </div>
+</form>
