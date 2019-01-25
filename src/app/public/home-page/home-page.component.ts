@@ -16,7 +16,7 @@ export class HomePageComponent implements OnInit {
 
   ngOnInit() {
     return this.homePageService.getEvents().
-    subscribe(data => this.events$ = data)
+    subscribe(data => this.events$ = data);
   }
 
 }
