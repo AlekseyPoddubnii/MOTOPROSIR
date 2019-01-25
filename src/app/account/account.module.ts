@@ -5,9 +5,9 @@ import { AccountRoutingModule } from './account-routing.module';
 import { EventsComponent } from './events/events.component';
 import { BoardPageComponent } from './board-page/board-page.component';
 import { AccountComponent } from './account.component';
-import { HeaderAccountComponent } from './shared/components/header-account/header-account.component';
 import { AddEventComponent } from './events/add-event/add-event.component';
 import { FormsModule } from '@angular/forms';
+import { AccHeaderComponent } from './shared/components/acc-header/acc-header.component';
 
 @NgModule({
   imports: [
@@ -19,8 +19,8 @@ import { FormsModule } from '@angular/forms';
     EventsComponent,
     BoardPageComponent,
     AccountComponent,
-    HeaderAccountComponent,
-    AddEventComponent
+    AddEventComponent,
+    AccHeaderComponent
   ]
 })
 

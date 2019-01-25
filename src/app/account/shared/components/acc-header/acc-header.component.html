@@ -10,17 +10,16 @@
       <div class="col-lg-9">
         <nav class="navigation">
           <ul class="navigation__item">
-            <!-- <svg class="icon">
-                  <use xlink:href="sprite/sprite-sheet.svg#sign-in"></use>
-                </svg> -->
-
-            <li class="navigation__list">
-              <a class="nav-item nav-link" routerLinkActive="link--active" routerLink="/account/board">События</a>
-            </li>
-
+            <li class="navigation__list"><a class="navigation__link" *ngFor="let user of users">{{user.firstName}}
+                {{user.lastName}}</a></li>
+            <li class="navigation__list"><a class="navigation__link" (click)="logout()">Logout</a></li>
           </ul>
         </nav>
       </div>
     </div>
+  </div>
+  <div>
+    <ul>
+    </ul>
   </div>
 </header>

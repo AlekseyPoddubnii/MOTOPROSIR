@@ -16,13 +16,13 @@ import { AppComponent } from './app.component';
 import { PublicModule } from './public/public.module';
 import { LoginComponent } from './auth/login/login.component';
 import { AccountComponent } from './account/account.component';
+import { AccountModule } from './account/account.module';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    AccountComponent
   ],
   imports: [
     BrowserModule,
@@ -32,6 +32,7 @@ import { AccountComponent } from './account/account.component';
     MatDialogModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
+    AccountModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
