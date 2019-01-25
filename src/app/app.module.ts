@@ -33,16 +33,12 @@ import { AccountComponent } from './account/account.component';
     ReactiveFormsModule,
     BrowserAnimationsModule,
   ],
-<<<<<<< HEAD
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
     fakeBackendProvider,
     HttpClientModule
   ],
-=======
-  providers: [HttpClientModule],
->>>>>>> master
   bootstrap: [AppComponent],
   entryComponents: [LoginComponent]
 })
