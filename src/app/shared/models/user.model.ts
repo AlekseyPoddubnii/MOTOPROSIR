@@ -1,8 +1,14 @@
 export class User {
     id: number;
     username: string;
-    password: string;
+    email: string;
     firstName: string;
     lastName: string;
-    token?: string;
+    brandOgBike: string;
+    modelOfBike: string;
+    gender: string;
+    country: string;
+    sity: string;
+    password: string;
+    token: string;
 }

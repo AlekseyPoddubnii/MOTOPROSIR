@@ -24,7 +24,11 @@ export class LoginComponent implements OnInit {
         private router: Router,
         private authenticationService: AuthenticationService,
         @Inject(MAT_DIALOG_DATA) public data: any
-    ) { }
+    ) {
+        if (this.authenticationService.currentUserValue) {
+            this.router.navigate(['/account']);
+        }
+     }
 
     ngOnInit() {
         this.loginForm = this.formBuilder.group({
@@ -33,7 +37,6 @@ export class LoginComponent implements OnInit {
         });
         this.authenticationService.logout();
 
-        // get return url from route parameters or default to '/'
         this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/account';
     }
 
