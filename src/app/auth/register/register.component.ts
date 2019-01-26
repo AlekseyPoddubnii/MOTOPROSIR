@@ -8,6 +8,7 @@ import { AlertService } from '../../shared/services/alerts.servise';
 import { UserService } from '../../shared/services/user.service';
 import { AuthenticationService } from '../../shared/services/authentication.service';
 import { LoginComponent } from '../login/login.component';
+import { MustMatch } from './match.validator';
 
 @Component({
     templateUrl: 'register.component.html',
@@ -44,8 +45,11 @@ export class RegisterComponent implements OnInit {
             country: ['', Validators.required],
             sity: ['', Validators.required],
             password: ['', [Validators.required, Validators.minLength(6)]],
-            confirmedPassword: ['', [Validators.required, Validators.minLength(6)]],
-        });
+            confirmPassword: ['', Validators.required],
+        }, {
+            validator: MustMatch('password', 'confirmPassword')
+        }
+        );
     }
 
     get f() { return this.registerForm.controls; }
