@@ -80,6 +80,11 @@ export class FakeBackendInterceptor implements HttpInterceptor {
                     return throwError({ error: { message: 'Username "' + newUser.username + '" is already taken' } });
                 }
 
+                const duplicateEmail = users.filter(user => user.email === newUser.email).length;
+                if (duplicateEmail) {
+                    return throwError({ error: { message: 'E-mail "' + newUser.email + '" is already taken' } });
+                }
+
                 // save new user
                 newUser.id = users.length + 1;
                 users.push(newUser);
