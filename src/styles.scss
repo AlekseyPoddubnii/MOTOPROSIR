@@ -8,6 +8,10 @@
   padding: 0;
 }
 
+.cdk-overlay-dark-backdrop {
+  background: rgba(0,0,0,.2);
+}
+
 .mat-dialog-container {
   padding: 0 !important;
   border-radius: 35px !important;
@@ -30,16 +34,21 @@ h4 {
   margin: 0 !important;
 }
 
-a {
-  color: #0404e4;
-  text-decoration: none;
-}
-
 /* --- Navigation --- */
 
 .header {
-  background-color: #000;
-  max-height: 65px;
+  position: absolute;
+  margin-left: 50%;
+  left: -685px;
+  
+  // background-color: #000;
+  // max-height: 65px;
+}
+
+.headd {
+  width: 1370px;
+  display: flex;
+  justify-content: space-between;
 }
 
 .logo__img {
@@ -59,20 +68,12 @@ a {
 
 .navigation__link {
   color: #FFF;
-  padding: 10px 20px;
 }
 
-.navigation__button {
-  color: #FFF;
-  padding: 10px 20px;
-  background: none;
-  border: none;
-  outline: none;
-}
-
-.navigation__button:hover {
+.navigation__link:hover {
   cursor: pointer;
 }
+
 
 // .navigation__item--link {
 // 	margin-left: 50px;
@@ -92,3 +93,51 @@ a {
 // 	color: #CCC;
 // 	fill: #CCC;
 // }
+
+
+modal {
+  display: none;
+
+  .modal {
+      /* modal container fixed across whole screen */
+      position: fixed;
+      top: 50%;
+      margin-top: -275px;
+      margin-left: - 585px;
+      right: 0;
+      bottom: 0;
+      left: 50%;
+
+      /* z-index must be higher than .modal-background */
+      z-index: 1000;
+      
+      /* enables scrolling for tall modals */
+      overflow: auto;
+
+      .modal-body {
+
+      }
+  }
+
+  .modal-background {
+      /* modal background fixed across whole screen */
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+
+      /* semi-transparent black  */
+      background-color: #000;
+      opacity: 0.90;
+      
+      /* z-index must be below .modal and above everything else  */
+      z-index: 900;
+  }
+}
+
+body.modal-open {
+  /* body overflow is hidden to hide main scrollbar when modal window is open */
+  overflow: hidden;
+
+}
