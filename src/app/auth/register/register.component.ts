@@ -11,6 +11,9 @@ import { LoginComponent } from '../login/login.component';
 import { MustMatch } from './match.validator';
 import { ModalService } from 'src/app/shared/services/modal.service';
 
+import { AuthService } from '../../shared/services/auth.setvice';
+import { User } from '../../shared/models/user.model';
+
 
 @Component({
     // tslint:disable-next-line:component-selector
@@ -23,6 +26,7 @@ export class RegisterComponent implements OnInit {
     loading = false;
     submitted = false;
     result: string;
+    usersInfo: User;
 
     context: CanvasRenderingContext2D;
 
@@ -56,6 +60,7 @@ export class RegisterComponent implements OnInit {
         private matDialogRef: MatDialogRef<LoginComponent>,
         @Inject(MAT_DIALOG_DATA) public data: any,
         public modalService: ModalService,
+        private authService: AuthService,
     ) {
         // redirect to home if already logged in
         if (this.authenticationService.currentUserValue) {
@@ -86,12 +91,39 @@ export class RegisterComponent implements OnInit {
     get f() { return this.registerForm.controls; }
 
     onSubmit() {
+        console.log(this.registerForm.value);
+
+        this.usersInfo = new User (
+            this.registerForm.value.username,
+            this.registerForm.value.email,
+            this.registerForm.value.firstName,
+            this.registerForm.value.lastName,
+            this.registerForm.value.brandOfBike,
+            this.registerForm.value.modelOfBike,
+            this.registerForm.value.gender,
+            this.registerForm.value.countr,
+            this.registerForm.value.sity,
+            this.registerForm.value.password,
+            this.registerForm.value.avatar,
+            this.registerForm.value.token,
+        );
         this.submitted = true;
 
         if (this.registerForm.invalid) {
             return;
         }
 
+        // this.authService.signUp(this.usersInfo).subscribe(
+        //     data => {
+        //         console.log(data);
+        //         this.modalService.close('custom-modal-2');
+        //         this.dialog.open(LoginComponent);
+        //     },
+        //     error => {
+        //         console.log(error);
+        //         this.alertService.error(error);
+        //     }
+        // );
         this.loading = true;
         this.userService.register(this.registerForm.value)
             .pipe(first())
@@ -106,7 +138,6 @@ export class RegisterComponent implements OnInit {
                     this.loading = false;
                 });
     }
-
     closeModal(id: string) {
         this.modalService.close(id);
     }
