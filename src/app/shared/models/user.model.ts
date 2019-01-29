@@ -1,3 +1,5 @@
+import { Url } from 'url';
+
 export class User {
     id: number;
     username: string;
@@ -10,5 +12,6 @@ export class User {
     country: string;
     sity: string;
     password: string;
+    avatar: Url;
     token: string;
 }
