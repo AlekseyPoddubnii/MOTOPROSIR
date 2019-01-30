@@ -99,45 +99,28 @@ modal {
   display: none;
 
   .modal {
-      /* modal container fixed across whole screen */
       position: fixed;
-      top: 50%;
-      margin-top: -275px;
-      margin-left: - 585px;
-      right: 0;
-      bottom: 0;
-      left: 50%;
-
-      /* z-index must be higher than .modal-background */
+      padding-top: 50%;
+      padding-left: 50%;
+      left: - 585px;
+      top: -615px;
       z-index: 1000;
-      
-      /* enables scrolling for tall modals */
       overflow: auto;
-
-      .modal-body {
-
-      }
   }
 
   .modal-background {
-      /* modal background fixed across whole screen */
       position: fixed;
       top: 0;
       right: 0;
       bottom: 0;
       left: 0;
-
-      /* semi-transparent black  */
       background-color: #000;
       opacity: 0.90;
-      
-      /* z-index must be below .modal and above everything else  */
       z-index: 900;
   }
 }
 
 body.modal-open {
-  /* body overflow is hidden to hide main scrollbar when modal window is open */
   overflow: hidden;
 
 }
