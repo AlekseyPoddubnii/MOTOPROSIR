@@ -13,8 +13,6 @@ import { ModalService } from 'src/app/shared/services/modal.service';
 
 import { AuthService } from '../../shared/services/auth.setvice';
 import { User } from '../../shared/models/user.model';
-import { renderComponent } from '@angular/core/src/render3';
-import { CONTEXT } from '@angular/core/src/render3/interfaces/view';
 
 
 @Component({
