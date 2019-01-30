@@ -11,7 +11,7 @@
                 </label>
                 <input class="input-avatar" id="upload" type="file" (change)="preview($event)" accept="image/*">
                 <label class="button-upload" for="upload">Set your photo</label>
-                <button class="button-delete"><span class="button-delete__span">Delete</span> photo</button>
+                <button class="button-delete" type="button" (click)="deleteImg();"><span class="button-delete__span">Delete</span> photo</button>
             </div>
             <div class="registration__info">
                 <div class="registration-form__col1">
