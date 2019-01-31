@@ -1,14 +1,6 @@
 {
   "users": [
     {
-<<<<<<< HEAD
-      "id": 1,
-      "username": "test",
-      "password": "test",
-      "firstName": "Test",
-      "lastName": "User",
-      "token": "adsdsadsiudfnidnacnub"
-=======
       "username": "выфвфы",
       "email": "saddsa@dsadas.dsaasd",
       "firstName": "dsasdsadd",
@@ -19,7 +11,6 @@
       "sity": "Cherkasy",
       "password": "maxmax",
       "id": 1
->>>>>>> master
     }
   ],
   "events": [
