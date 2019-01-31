@@ -36,19 +36,11 @@ h4 {
 
 /* --- Navigation --- */
 
-.header {
-  position: absolute;
-  margin-left: 50%;
-  left: -685px;
-  
-  // background-color: #000;
-  // max-height: 65px;
-}
-
-.headd {
-  width: 1370px;
+.wrapper {
   display: flex;
   justify-content: space-between;
+  width: 1370px;
+  margin: 0 auto;
 }
 
 .logo__img {
@@ -59,7 +51,6 @@ h4 {
 .navigation__item {
   list-style: none;
   margin-top: 23px;
-  text-align: right;
 }
 
 .navigation__list {
@@ -67,13 +58,14 @@ h4 {
 }
 
 .navigation__link {
+  font-size: 14px;
   color: #FFF;
+  margin-left: 50px;
 }
 
 .navigation__link:hover {
   cursor: pointer;
 }
-
 
 // .navigation__item--link {
 // 	margin-left: 50px;
