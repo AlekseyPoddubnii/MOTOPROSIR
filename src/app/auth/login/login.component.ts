@@ -5,6 +5,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { first } from 'rxjs/operators';
 
 import { AuthenticationService } from '../../shared/services/authentication.service';
+import { ModalService } from 'src/app/shared/services/modal.service';
 
 @Component({
   templateUrl: 'login.component.html',
@@ -23,7 +24,8 @@ export class LoginComponent implements OnInit {
         private route: ActivatedRoute,
         private router: Router,
         private authenticationService: AuthenticationService,
-        @Inject(MAT_DIALOG_DATA) public data: any
+        @Inject(MAT_DIALOG_DATA) public data: any,
+        public modalService: ModalService,
     ) {
         if (this.authenticationService.currentUserValue) {
             this.router.navigate(['/account']);
@@ -62,6 +64,11 @@ export class LoginComponent implements OnInit {
     }
 
     public close() {
-          this.matDialogRef.close();
-        }
+        this.matDialogRef.close();
+    }
+
+    openModal(id: string) {
+        this.matDialogRef.close();
+        this.modalService.open(id);
+    }
 }

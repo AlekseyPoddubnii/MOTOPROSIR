@@ -8,6 +8,10 @@
   padding: 0;
 }
 
+.cdk-overlay-dark-backdrop {
+  background: rgba(0,0,0,.2);
+}
+
 .mat-dialog-container {
   padding: 0 !important;
   border-radius: 35px !important;
@@ -30,16 +34,13 @@ h4 {
   margin: 0 !important;
 }
 
-a {
-  color: #0404e4;
-  text-decoration: none;
-}
-
 /* --- Navigation --- */
 
-.header {
-  background-color: #000;
-  max-height: 65px;
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+  width: 1370px;
+  margin: 0 auto;
 }
 
 .logo__img {
@@ -50,7 +51,6 @@ a {
 .navigation__item {
   list-style: none;
   margin-top: 23px;
-  text-align: right;
 }
 
 .navigation__list {
@@ -58,19 +58,12 @@ a {
 }
 
 .navigation__link {
+  font-size: 14px;
   color: #FFF;
-  padding: 10px 20px;
+  margin-left: 50px;
 }
 
-.navigation__button {
-  color: #FFF;
-  padding: 10px 20px;
-  background: none;
-  border: none;
-  outline: none;
-}
-
-.navigation__button:hover {
+.navigation__link:hover {
   cursor: pointer;
 }
 
@@ -92,3 +85,33 @@ a {
 // 	color: #CCC;
 // 	fill: #CCC;
 // }
+
+
+modal {
+  display: none;
+
+  .modal {
+      position: fixed;
+      padding-top: 50%;
+      padding-left: 50%;
+      left: - 585px;
+      top: -615px;
+      z-index: 1000;
+  }
+
+  .modal-background {
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background-color: #000;
+      opacity: 0.90;
+      z-index: 900;
+  }
+}
+
+body.modal-open {
+  overflow: hidden;
+
+}

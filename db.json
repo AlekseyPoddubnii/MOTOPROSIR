@@ -1,15 +1,27 @@
 {
   "users": [
     {
+<<<<<<< HEAD
       "id": 1,
       "username": "test",
       "password": "test",
       "firstName": "Test",
       "lastName": "User",
       "token": "adsdsadsiudfnidnacnub"
+=======
+      "username": "выфвфы",
+      "email": "saddsa@dsadas.dsaasd",
+      "firstName": "dsasdsadd",
+      "lastName": "sadasd",
+      "brandOgBike": "Yamaha",
+      "modelOfBike": "324234",
+      "gender": "Male",
+      "sity": "Cherkasy",
+      "password": "maxmax",
+      "id": 1
+>>>>>>> master
     }
   ],
-
   "events": [
     {
       "id": 1,
