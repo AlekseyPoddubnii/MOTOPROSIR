@@ -1,23 +1,11 @@
-<!-- Account header -->
-<header class="header">
-  <div class="wrapper">
-    <a><img class="logo__img" src="assets/img/logo.png"></a>
-    <nav class="navigation">
-      <ul class="navigation__item">
-         <li class="navigation__list"><a class="navigation__link" mat-raised-button (click)="openModalLog()">Sign in</a></li>
-        <li class="navigation__list"><a class="navigation__link" (click)="openModal('custom-modal-2')">Sign up</a></li>
-      </ul>
-    </nav>
-  </div>
-</header>
-
-<modal id="custom-modal-2">
-    <div class="modal">
-        <div class="modal-body">
-            <register></register>
-        </div>
-    </div>
-    <div class="modal-background"></div>
-</modal>
 
 <router-outlet></router-outlet>
+
+<modal id="custom-modal-2">
+  <div class="modal">
+    <div class="modal-body">
+      <register></register>
+    </div>
+  </div>
+  <div class="modal-background"></div>
+</modal>

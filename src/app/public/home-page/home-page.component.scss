@@ -1,37 +1,72 @@
-*, *:after, *:before {
-  margin: 0;
-  padding: 0;
+// Variables
+
+$white: #FFF;
+$black: #000;
+
+// Home-page header
+
+.header {
+  padding: 10px 0;
 }
 
-.head {
+.navigation {
+  text-align: right;
+  margin-top: 27px;
+
+  .navigation__link {
+    color: $white;
+    padding: 9px 9px 9px 12px;
+    margin: 0 4px;
+    transition: 1s;
+    cursor: pointer;
+
+    &:hover {
+      color: $black;
+      background-color: $white;
+      border-radius: 7px;
+    }
+  }
+
+  .navigation--gold {
+    color: $black;
+    border-radius: 7px;
+    background-color: #ffd700;
+    cursor: pointer;
+    transition: 1s;
+
+    &:hover {
+      background-color: $white;
+    }
+  }
+}
+
+
+// Banner
+
+.banner {
   background-image: url('/assets/img/main.png');
-  background-size: contain;
-  height: 100vh;
+  background-size: cover;
   background-repeat: no-repeat;
 }
 
-.width {
-  width: 1170px;
-  margin: 0 auto;
-}
-
 .banner__h1 {
-  padding-top: 200px;
-  font-size: 75px;
+  padding-top: 150px;
+  font-size: 55px;
+  max-width: 666px;
   font-weight: 700;
   color: #FFF;
 }
 
 .banner__p {
-  padding-top: 45px;
-  font-size: 14px;
+  padding-top: 25px;
+  font-size: 24px;
   color: #FFF;
   line-height: 1.6;
   font-weight: 400;
 }
 
 .banner__buttons {
-  padding-top: 60px;
+  padding: 60px 0 80px;
   display: flex;
   justify-content: space-between;
   width: 475px;
@@ -45,9 +80,9 @@
   border: 1px solid #FFF;
   outline: none;
   transition: all .2s linear;
-    -webkit-transition: all .2s linear;
-    -moz-transition: all .2s linear;
-    -o-transition: all .2s linear;
+  -webkit-transition: all .2s linear;
+  -moz-transition: all .2s linear;
+  -o-transition: all .2s linear;
 }
 
 .banner__butons--item:hover {
@@ -64,9 +99,9 @@
   outline: none;
   border: none;
   transition: all .2s linear;
-    -webkit-transition: all .2s linear;
-    -moz-transition: all .2s linear;
-    -o-transition: all .2s linear;
+  -webkit-transition: all .2s linear;
+  -moz-transition: all .2s linear;
+  -o-transition: all .2s linear;
 }
 
 .banner__butons--itemm:hover {

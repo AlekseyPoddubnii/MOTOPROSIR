@@ -11,6 +11,7 @@ import { ModalComponent } from '../shared/directives/modal.component';
 import { ModalService } from '../shared/services/modal.service';
 import { RegisterComponent } from '../auth/register/register.component';
 import { AlertComponent } from '../shared/alerts/alert.component';
+import { EventComponent } from './event/event.component';
 
 
 
@@ -21,7 +22,8 @@ import { AlertComponent } from '../shared/alerts/alert.component';
     AboutPageComponent,
     ModalComponent,
     RegisterComponent,
-    AlertComponent
+    AlertComponent,
+    EventComponent
   ],
   imports: [
     CommonModule,

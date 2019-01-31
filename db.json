@@ -20,6 +20,34 @@
       "days": 1,
       "type": 1,
       "date": "11.01.2019 10:20:30"
+    },
+    {
+      "id": 1,
+      "title": "Our first Event for test",
+      "days": 1,
+      "type": 4,
+      "date": "11.01.2019 10:20:30"
+    },
+    {
+      "id": 1,
+      "title": "Our first Event for test",
+      "days": 1,
+      "type": 3,
+      "date": "11.01.2019 10:20:30"
+    },
+    {
+      "id": 1,
+      "title": "Our first Event for test",
+      "days": 1,
+      "type": 1,
+      "date": "11.01.2019 10:20:30"
+    },
+    {
+      "id": 1,
+      "title": "Our first Event for test",
+      "days": 1,
+      "type": 3,
+      "date": "11.01.2019 10:20:30"
     }
   ]
 }
