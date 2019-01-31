@@ -1,25 +1,18 @@
 <!-- Account header -->
 <header class="header">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-3">
-        <a class="logo" href="#">
-          <img class="logo__img" src="assets/img/logo.png">
-        </a>
-      </div>
-      <div class="col-lg-9">
-        <nav class="navigation">
-          <ul class="navigation__item">
-            <!-- <li class="navigation__list"><a class="navigation__link" *ngFor="let user of users">{{user.username}} - <button (click)="deleteUser(user.id)" class="text-danger">Delete</button></a></li> -->
-            <li class="navigation__list"><a class="navigation__link">{{currentUser.firstName}}</a></li>
-            <li class="navigation__list"><a class="navigation__link" (click)="logout()">Logout</a></li>
-          </ul>
-        </nav>
-      </div>
-    </div>
-  </div>
-  <div>
-    <ul>
-    </ul>
+  <div class="wrapper">
+    <a class="logo" href="#">
+      <img class="logo__img" src="assets/img/logo.png">
+    </a>
+    <nav class="navigation">
+      <ul class="navigation__item">
+        <!-- <li class="navigation__list"><a class="navigation__link" *ngFor="let user of users">{{user.username}} - <button (click)="deleteUser(user.id)" class="text-danger">Delete</button></a></li> -->
+        <li class="navigation__list"><a class="navigation__link">Events</a></li>
+        <li class="navigation__list"><a class="navigation__link">Chat</a></li>
+        <li class="navigation__list"><a class="navigation__link">Notifications</a></li>
+        <li class="navigation__list"><a class="navigation__link">{{currentUser.username}}</a></li>
+        <li class="navigation__list"><a class="navigation__link" (click)="logout()">Logout</a></li>
+      </ul>
+    </nav>
   </div>
 </header>
