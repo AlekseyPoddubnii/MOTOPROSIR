@@ -51,7 +51,7 @@ export class RegisterComponent implements OnInit {
     }
 
     deleteImg() {
-        this.preview(null);
+        this.preview(false);
     }
 
     constructor(
