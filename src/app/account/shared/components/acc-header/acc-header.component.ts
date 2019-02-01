@@ -32,7 +32,7 @@ export class AccHeaderComponent implements OnInit, OnDestroy {
 
     logout() {
         this.authenticationService.logout();
-        this.router.navigate(['']);
+        this.router.navigate(['/index']);
     }
 
     ngOnInit() {
