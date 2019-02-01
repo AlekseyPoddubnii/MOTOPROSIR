@@ -2,10 +2,8 @@
 <router-outlet></router-outlet>
 <div class="profile-wrapper">
     <div class="profile__cover">
-        <input class="update-cover" id="update-cover" type="file" accept="image/*">
-        <label for="update-cover">
-            <button class="profile__cover--update">Update cover photo</button>
-        </label>
+        <input class="update-cover" type="file" accept="image/*" #coverInput>
+        <button class="profile__cover--update" (click)="coverInput.click()">Update cover photo</button>
         <div class="profile__cover--profile-info">
             <div class="profile-info__container">                  
                 <div class="profile-info__avatar">
@@ -15,7 +13,7 @@
                             <use xlink:href="assets/sprite/sprite-sheet.svg#cover-photo"></use>
                         </svg>  
                     </label>
-                    <canvas class="profile-avatar" #Avatar></canvas>
+                    <canvas class="profile-avatar" ></canvas>
                 </div>
                 <div class="profile-info__user">
                     <h2 class="profile-info__user--username">{{currentUser.username}}</h2>

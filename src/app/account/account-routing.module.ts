@@ -7,12 +7,12 @@ import { BoardPageComponent } from './board-page/board-page.component';
 import { AuthGuard } from '../shared/guards/auth.guard';
 
 const routes: Routes = [
-  {
-    path: 'account', component: AccountComponent, children: [
-      {path: 'events', component: EventsComponent, canActivate: [AuthGuard]},
-      {path: 'board', component: BoardPageComponent, canActivate: [AuthGuard]}
-    ]
-  }
+  // {
+  //   path: 'account', component: AccountComponent, canActivate: [AuthGuard], children: [
+  //     {path: 'events', component: EventsComponent},
+  //     {path: 'board', component: BoardPageComponent},
+  //   ]
+  // },
 ];
 
 
