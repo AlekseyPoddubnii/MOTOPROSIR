@@ -1,0 +1,18 @@
+<div *ngFor="let blogs of blogs$">
+  <div id="blogsToHide">
+    <p>
+      {{ blogs.title }}
+      {{ blogs.description }}
+      {{ blogs.date | date:'medium' }}
+      {{ blogs.id }}
+    </p>
+    <button (click)="delete(blogs)">X</button>
+    <button (click)="edit(blogs.id)">Edit</button>
+  </div>
+  <div id="blogsToUpdate" style="display:none">
+    <input [(ngModel)]="blogs.title">
+    <input [(ngModel)]="blogs.description">
+    <button class="button-save" (click)="save(blogs)">Save</button>
+    <button (click)="cancel(blogs)">cancel</button>
+  </div>
+</div>

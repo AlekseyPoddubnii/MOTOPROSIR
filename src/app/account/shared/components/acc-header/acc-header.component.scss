@@ -14,11 +14,13 @@
 }
 
 .navigation__link {
-  font-size: 14px;
+  font-size: 12px;
+  font-weight: 600;
   color: #FFF;
   margin-left: 50px;
 }
 
 .navigation__link:hover {
   cursor: pointer;
+  color: #AAA;
 }
