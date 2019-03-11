@@ -1,7 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Blog } from '../../shared/models/blog.model';
 import { BlogsService } from '../../shared/services/blogs.service';
-import { CloseScrollStrategy } from '@angular/cdk/overlay';
 import { ActivatedRoute, Router } from '@angular/router';
 import { of, Observable } from 'rxjs';
 
@@ -13,6 +12,7 @@ import { of, Observable } from 'rxjs';
 export class BlogsShowComponent implements OnInit {
   blogs$: Blog[];
   blogs: Blog;
+  blogId: any;
 
   constructor(
     private blogsService: BlogsService,
@@ -33,22 +33,24 @@ export class BlogsShowComponent implements OnInit {
     subscribe(data => this.blogs$ = data);
   }
 
-  edit(id: number): void {
-    this.blogs$.find(blog => blog.id === id);
-    const blogHide = document.getElementById('blogsToHide');
-    blogHide.style.display = 'none';
-    const blogContent = document.getElementById('blogsToUpdate');
-    blogContent.style.display = 'block';
+  edit(value) {
+      this.blogId = value;
+      const blogHide = document.getElementById('buttonsToHide');
+      blogHide.style.display = 'none';
+      const blogContent = document.getElementById('buttonsToUpdate');
+      blogContent.style.display = 'block';
   }
 
   save(blog: Blog): void {
+    this.blogId = null;
     this.blogsService.updateBlogs(blog).subscribe();
   }
 
   cancel() {
-    const blogHide = document.getElementById('blogsToHide');
+    this.blogId = null;
+    const blogHide = document.getElementById('buttonsToHide');
     blogHide.style.display = 'block';
-    const blogContent = document.getElementById('blogsToUpdate');
+    const blogContent = document.getElementById('buttonsToUpdate');
     blogContent.style.display = 'none';
   }
 
