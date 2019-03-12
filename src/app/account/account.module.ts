@@ -6,22 +6,27 @@ import { EventsComponent } from './events/events.component';
 import { BoardPageComponent } from './board-page/board-page.component';
 import { AccountComponent } from './account.component';
 import { AddEventComponent } from './events/add-event/add-event.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AccHeaderComponent } from './shared/components/acc-header/acc-header.component';
 import { EventsService } from './shared/services/events.service';
+import { BlogsComponent } from './blogs/blogs.component';
+import { BlogsShowComponent } from './blogs/blogs-show/blogs-show.component';
 
 @NgModule({
   imports: [
     CommonModule,
     AccountRoutingModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule,
   ],
   declarations: [
     EventsComponent,
     BoardPageComponent,
     AccountComponent,
     AddEventComponent,
-    AccHeaderComponent
+    AccHeaderComponent,
+    BlogsComponent,
+    BlogsShowComponent,
   ],
   providers: [EventsService]
 })

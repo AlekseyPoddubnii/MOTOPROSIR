@@ -24,12 +24,32 @@ export class AccountComponent implements OnInit {
   currentUser: User;
   context: CanvasRenderingContext2D;
 
-  @ViewChild('coverPreview') coverPreview;
+  @ViewChild('canvasPreview') canvasPreview;
 
-  preview(e: any): void {
-    const canvas = this.coverPreview.nativeElement;
+  @ViewChild('avatarPreview') avatarPreview;
+
+  previewCover(e: any): void {
+    const canvas = this.canvasPreview.nativeElement;
     const context = canvas.getContext('2d');
-    context.clearRect(0, 0, 1170, 1170);
+    context.clearRect(0, 0, 250, 1170);
+
+    const render = new FileReader();
+    render.onload = function(event: any) {
+      const img = new Image();
+      img.onload = function() {
+        canvas.width = img.width;
+        canvas.height = img.height;
+        context.drawImage(img, 0, 0);
+      };
+      img.src = event.target.result;
+    };
+    render.readAsDataURL(e.target.files[0]);
+  }
+
+  previewAvatar(e: any): void {
+    const canvas = this.avatarPreview.nativeElement;
+    const context = canvas.getContext('2d');
+    context.clearRect(0, 0, 175, 175);
 
     const render = new FileReader();
     render.onload = function(event: any) {
