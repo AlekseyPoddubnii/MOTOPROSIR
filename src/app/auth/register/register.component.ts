@@ -11,7 +11,7 @@ import { LoginComponent } from '../login/login.component';
 import { MustMatch } from './match.validator';
 import { ModalService } from 'src/app/shared/services/modal.service';
 
-import { AuthService } from '../../shared/services/auth.setvice';
+import { AuthService } from '../../shared/services/auth.service';
 import { User } from '../../shared/models/user.model';
 
 
@@ -76,13 +76,6 @@ export class RegisterComponent implements OnInit {
         this.registerForm = this.formBuilder.group({
             username: ['', [Validators.required, Validators.minLength(3)]],
             email: ['', [Validators.required, Validators.email]],
-            firstName: ['', Validators.required],
-            lastName: ['', Validators.required],
-            brandOfBike: ['', Validators.required],
-            modelOfBike: ['', Validators.required],
-            gender: ['', Validators.required],
-            country: ['', Validators.required],
-            sity: ['', Validators.required],
             password: ['', [Validators.required, Validators.minLength(6)]],
             confirmPassword: ['', Validators.required],
             checkbox: ['', Validators.required],
@@ -117,17 +110,17 @@ export class RegisterComponent implements OnInit {
             return;
         }
 
-        // this.authService.signUp(this.usersInfo).subscribe(
-        //     data => {
-        //         console.log(data);
-        //         this.modalService.close('custom-modal-2');
-        //         this.dialog.open(LoginComponent);
-        //     },
-        //     error => {
-        //         console.log(error);
-        //         this.alertService.error(error);
-        //     }
-        // );
+        this.authService.signUp(this.usersInfo).subscribe(
+            data => {
+                console.log(data);
+                this.modalService.close('custom-modal-2');
+                this.dialog.open(LoginComponent);
+            },
+            error => {
+                console.log(error);
+                this.alertService.error(error);
+            }
+        );
         this.loading = true;
         this.userService.register(this.registerForm.value)
             .pipe(first())

@@ -1,6 +1,6 @@
-
-.registration {
-	width: 1170px;
+.sign-in__headline {
+    font-size: 25px;
+    padding-bottom: 30px;
 }
 
 .registration-headline {
@@ -12,6 +12,9 @@
 }
 
 .registration-headline__close {
+	position: absolute;
+	top: 30px;
+	right: 45px;
 	background: none;
 	border: none;
 	outline: none;
@@ -24,47 +27,13 @@
 
 .registration-headline__close:hover {
 	cursor: pointer;
-	color: #FFF;
+	color: #666;
 }
 
 .bg {
-	display: flex;
-	justify-content: space-between;
-	background-color: rgba(255, 255, 255, 0.10);
-    // border: 1px solid rgba(255, 255, 255, 0.6);
+	background-color: #FFF;
+	border-radius: 30px;
 	padding: 45px 45px;
-}
-
-.registration-form__avatar {
-	width: 225px;
-}
-
-.canvas {
-	width: 225px;
-	height: 225px;
-	background-image: url('../../../assets/img/image-holder.png');
-	outline: none;
-	margin-bottom: 26px;
-}
-
-.canvas:hover {
-	cursor: pointer;
-}
-
-.input-avatar {
-	display: none;
-}
-
-.button-upload {
-	color: #FFF;
-	font-size: 13px;
-	padding: 14px 66px;
-	border: 1px solid rgba(255, 255, 255, 0.6);;
-	outline: none;
-	transition: all .2s linear;
-    -webkit-transition: all .2s linear;
-    -moz-transition: all .2s linear;
-    -o-transition: all .2s linear;
 }
 
 .button-upload:hover {
@@ -72,30 +41,9 @@
 	background-color: rgba(255, 255, 255, 0.09);;
 }
 
-.button-delete {
-	color: #FFF;
-	width: 100%;
-	text-align: center;
-	margin-top: 26px;
-	font-size: 11px;
-	background: none;
-	border: none;
-	outline: none;
-}
-
-.button-delete__span {
-	font-weight: 600;
-}
-
-.button-delete:hover {
-	cursor: pointer;
-	text-decoration: underline;
-}
-
 .registration__info {
-	width: 790px;
-	display: flex;
-	justify-content: space-between;
+	width: 370px;
+	margin: 0 auto;
 }
 
 
@@ -106,11 +54,6 @@
 
 .registration-form__col2 {
 	width: 370px;
-}
-
-.registration-form__container {
-	display: flex;
-	justify-content: space-between;
 }
 
 .half {
@@ -126,9 +69,8 @@
 }
 
 .registration-form__item--headlines {
-	color: rgba(255, 255, 255, 0.80);;
+	color: #999;
 	font-size: 10px;
-	font-weight: 400;
 }
 
 .registration-form__item--inputs {
@@ -137,9 +79,9 @@
 	background: none;
 	border: none;
 	padding-bottom: 5px;
-	border-bottom: 1px solid rgba(255, 255, 255, 0.6);
+	border-bottom: 1px solid #CCC;
 	margin-top: 13px;
-	color: #FFF;
+	color: #000;
 	font-size: 14px;
 	font-weight: 400;
 }
@@ -197,23 +139,12 @@
 
 .agree-submit__container {
 	display: flex;
-	padding: 14px;
-}
-
-.agree-submit {
-	padding: 10px;
-	margin-bottom: 10px;
-	margin-top: 15px;
-	display: flex;
 	justify-content: space-between;
-	// border: 1px solid rgba(255, 255, 255, 0.6);
-	background-color: rgba(255, 255, 255, 0.10);
-
-
+	padding: 14px 0;
 }
 
 .agree-submit__checkbox {
-	border: #000;
+	border-color: #000;
 }
 
 .agree-submit__checkbox:hover {
@@ -223,8 +154,9 @@
 .agree-submit__item {
 	margin-left: 20px;
 	margin-top: 1px;
-	color: #FFF;
+	color: rgb(75, 75, 75);
 	font-size: 12px;
+	max-width: 300px;
 }
 
 .agree-submit__item--link {
@@ -237,17 +169,20 @@
 
 .agree-submit__item--link:hover {
 	text-decoration: underline;
-	color: rgba(255, 255, 255, 0.6);
+	color: rgba(14, 14, 14, 0.6);
 	cursor: pointer;
 
 }
 
 .agree-submit__button {
 	color: #FFF;
-	padding: 15px 45px;
-	font-size: 14px;
-	background-color: rgba(0, 0, 0, 0.65);;
+	padding: 15px;
+	font-size: 18px;
+	width: 250px;
+	background-color: #000;
 	border: none;
+	border-radius: 100px;
+	margin-top: 10px;
 	outline: none;
 	transition: all .2s linear;
     -webkit-transition: all .2s linear;
@@ -256,7 +191,6 @@
 }
 
 .agree-submit__button:hover {
-	background-color: rgba(255, 255, 255, 0.05);
 	cursor: pointer;
 }
 
@@ -267,4 +201,8 @@
 	font-size: 12px;
 	font-weight: 600;
 
+}
+
+.registration__create {
+	padding-top: 15px;
 }

@@ -1,19 +1,19 @@
 <div class="registration">
-    <div class="registration-headline">
-        <p>Registration</p>
-        <button class="registration-headline__close" (click)="closeModal('custom-modal-2');">Close</button>
-    </div>
     <form class="registration-form" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+        
         <div class="bg">
-            <div class="registration-form__avatar">
+            <button class="registration-headline__close" (click)="closeModal('custom-modal-2');">Close</button>
+            <!-- <div class="registration-form__avatar">
                 <label for="upload">
                     <canvas class="canvas" #previewAvatar></canvas>
                 </label>
                 <input class="input-avatar" id="upload" type="file" (change)="preview($event)" accept="image/*">
                 <label class="button-upload" for="upload">Set your photo</label>
                 <button class="button-delete" type="button" (click)="deleteImg();"><span class="button-delete__span">Delete</span> photo</button>
-            </div>
+            </div> -->
+            
             <div class="registration__info">
+                <h2 class="sign-in__headline">Sign up</h2>
                 <div class="registration-form__col1">
                     <div class="registration-form__item">
                         <h3 class="registration-form__item--headlines">Username</h3>
@@ -31,7 +31,23 @@
                             <div class="error" *ngIf="f.email.errors.email">Incorrect e-mail</div>
                         </div>
                     </div>
-                    <div class="registration-form__container">
+                    <div class="registration-form__item">
+                        <h3 class="registration-form__item--headlines">Password</h3>
+                        <input class="registration-form__item--inputs" type="password" formControlName="password" [ngClass]="{ 'is-invalid': submitted && f.password.errors }">
+                        <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                            <div class="error" *ngIf="f.password.errors.required">Enter your password</div>
+                            <div class="error" *ngIf="f.password.errors.minlength">Password must be at least 6 characters</div>
+                        </div>
+                    </div>
+                    <div class="registration-form__item margin-none">
+                        <h3 class="registration-form__item--headlines">Confirm password</h3>
+                        <input class="registration-form__item--inputs" type="password" formControlName="confirmPassword" [ngClass]="{ 'is-invalid': submitted && f.confirmPassword.errors }">
+                        <div *ngIf="submitted && f.confirmPassword.errors" class="invalid-feedback">
+                            <div class="error" *ngIf="f.confirmPassword.errors.required">Confirm your password</div>
+                            <div class="error" *ngIf="f.confirmPassword.errors.mustMatch">Password do not match</div>
+                        </div>
+                    </div>
+                    <!-- <div class="registration-form__container">
                         <div class="registration-form__item half">
                             <h3 class="registration-form__item--headlines">First Name</h3>
                             <input class="registration-form__item--inputs"  formControlName="firstName" [ngClass]="{'is-invalid': submitted && f.firstName.errors }" />
@@ -90,9 +106,9 @@
                                 <div class="error" *ngIf="f.gender.errors.required">Select your gender</div>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
-                <div class="registration-form__col2">
+                <!-- <div class="registration-form__col2">
                     <div class="registration-form__item">
                         <h3 class="registration-form__item--headlines">Bio</h3>
                         <textarea class="registration-form__item--inputs bio"></textarea>
@@ -121,32 +137,14 @@
                             </div>
                         </div>
                     </div>
-                    <div class="registration-form__item">
-                        <h3 class="registration-form__item--headlines">Password</h3>
-                        <input class="registration-form__item--inputs" type="password" formControlName="password" [ngClass]="{ 'is-invalid': submitted && f.password.errors }">
-                        <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
-                            <div class="error" *ngIf="f.password.errors.required">Enter your password</div>
-                            <div class="error" *ngIf="f.password.errors.minlength">Password must be at least 6 characters</div>
-                        </div>
-                    </div>
-                    <div class="registration-form__item margin-none">
-                        <h3 class="registration-form__item--headlines">Confirm password</h3>
-                        <input class="registration-form__item--inputs" type="password" formControlName="confirmPassword" [ngClass]="{ 'is-invalid': submitted && f.confirmPassword.errors }">
-                        <div *ngIf="submitted && f.confirmPassword.errors" class="invalid-feedback">
-                            <div class="error" *ngIf="f.confirmPassword.errors.required">Confirm your password</div>
-                            <div class="error" *ngIf="f.confirmPassword.errors.mustMatch">Password do not match</div>
-                        </div>
-                    </div>
-                </div>
+                </div> -->
             </div>
-        </div>
-        <div class="agree-submit">
             <div class="agree-submit__container">
-                <input class="agree-submit__checkbox" type="checkbox" formControlName="checkbox" [ngClass]="{ 'is-invalid': submitted && f.checkbox.errors }">
-                <div *ngIf="submitted && f.checkbox.errors" class="invalid-feedback">
-                    <div class="errorCheckbox" *ngIf="f.checkbox.errors.required">Do you agree?</div>
-                </div>
-                <p class="agree-submit__item">You agree to our <a class="agree-submit__item--link">Terms</a>, <a class="agree-submit__item--link">Data Policy</a> and <a class="agree-submit__item--link">Cookie Policy</a>. You can receive SMS-notifications from us and can opt out of them at any time.</p>
+                    <input class="agree-submit__checkbox" type="checkbox" formControlName="checkbox" [ngClass]="{ 'is-invalid': submitted && f.checkbox.errors }">
+                    <div *ngIf="submitted && f.checkbox.errors" class="invalid-feedback">
+                        <div class="errorCheckbox" *ngIf="f.checkbox.errors.required">Do you agree?</div>
+                    </div>
+                    <p class="agree-submit__item">You agree to our <a class="agree-submit__item--link">Terms</a>, <a class="agree-submit__item--link">Data Policy</a> and <a class="agree-submit__item--link">Cookie Policy</a>. You can receive SMS-notifications from us and can opt out of them at any time.</p>
             </div>
             <button class="agree-submit__button" type="submit">Create account</button>
         </div>

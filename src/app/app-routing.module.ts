@@ -12,11 +12,13 @@ import { EventsComponent } from './account/events/events.component';
 import { BoardPageComponent } from './account/board-page/board-page.component';
 import { HomePageComponent } from './public/home-page/home-page.component';
 import { EventComponent } from './public/event/event.component';
+import { SettingsComponent } from './account/settings/settings.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home-page', pathMatch: 'full' },
   { path: 'index', component: HomePageComponent },
   { path: 'account', component: AccountComponent, canActivate: [AuthGuard] },
+  { path: 'account/settings', component: SettingsComponent },
   { path: 'events', component: EventsComponent, canActivate: [AuthGuard] },
   { path: 'board', component: BoardPageComponent, canActivate: [AuthGuard] },
   { path: 'event', component: EventComponent },
