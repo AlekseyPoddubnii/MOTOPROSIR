@@ -11,6 +11,7 @@ import { AccHeaderComponent } from './shared/components/acc-header/acc-header.co
 import { EventsService } from './shared/services/events.service';
 import { BlogsComponent } from './blogs/blogs.component';
 import { BlogsShowComponent } from './blogs/blogs-show/blogs-show.component';
+import { SettingsComponent } from './settings/settings.component';
 
 @NgModule({
   imports: [
@@ -27,6 +28,7 @@ import { BlogsShowComponent } from './blogs/blogs-show/blogs-show.component';
     AccHeaderComponent,
     BlogsComponent,
     BlogsShowComponent,
+    SettingsComponent,
   ],
   providers: [EventsService]
 })
