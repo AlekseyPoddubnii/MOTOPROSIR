@@ -25,7 +25,7 @@ export class User {
         gender?: string,
         country?: string,
         sity?: string,
-        password: string,
+        password?: string,
         avatar?: Url,
         token?: string,
         ) {
