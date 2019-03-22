@@ -17,24 +17,18 @@
       "email": "dsadas@dsadas.asdasd",
       "password": "maxmaxmax",
       "id": 2
+    },
+    {
+      "username": "maxulaan",
+      "email": "sadasdas@dsadas.dsadsa",
+      "password": "maxmaxmax",
+      "id": 3
     }
   ],
   "blogs": [
     {
-      "title": "fdsfdsfsdffdsdf",
-      "description": "тыц тыц тыц",
-      "date": "2019-02-03T08:22:55.676Z",
-      "id": 2
-    },
-    {
-      "title": "jooljoklklljl",
-      "description": "gdgfhj,oipljol",
-      "date": "2019-02-03T12:48:47.648Z",
-      "id": 4
-    },
-    {
-      "title": "lfdsflsdlfsa",
-      "description": "dsfpksdfslglkfjgds",
+      "title": "lfdsflsdlfsdfasdfsdafdasfadsffsa",
+      "description": "dsfpksdfslgsdfasdfasdfafafasdflkfjgds",
       "date": "2019-02-13T08:01:06.945Z",
       "id": 5
     },
