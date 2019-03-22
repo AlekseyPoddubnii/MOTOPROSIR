@@ -35,10 +35,6 @@ export class BlogsShowComponent implements OnInit {
 
   edit(value) {
       this.blogId = value;
-      const blogHide = document.getElementById('buttonsToHide');
-      blogHide.style.display = 'none';
-      const blogContent = document.getElementById('buttonsToUpdate');
-      blogContent.style.display = 'block';
   }
 
   save(blog: Blog): void {
@@ -48,10 +44,6 @@ export class BlogsShowComponent implements OnInit {
 
   cancel() {
     this.blogId = null;
-    const blogHide = document.getElementById('buttonsToHide');
-    blogHide.style.display = 'block';
-    const blogContent = document.getElementById('buttonsToUpdate');
-    blogContent.style.display = 'none';
   }
 
   delete(blogs: Blog): void {

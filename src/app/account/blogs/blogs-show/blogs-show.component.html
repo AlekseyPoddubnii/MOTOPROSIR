@@ -7,14 +7,15 @@
       <span *ngIf="blogs.id !== blogId">{{ blogs.description }}</span>
       <span>{{ blogs.date | date:'medium' }}</span>
       {{ blogs.id }}
+      <button *ngIf="blogs.id === blogId" class="button-save" (click)="save(blogs)">save</button>
+      <button *ngIf="blogs.id === blogId" (click)="cancel(blogs)">cancel</button>
     </p>
     <div id="buttonsToHide">
-      <button (click)="delete(blogs)">X</button>
-      <button (click)="edit(blogs.id)">Edit</button>
+      <button *ngIf="blogs.id !== blogId" (click)="delete(blogs)">X</button>
+      <button *ngIf="blogs.id !== blogId" (click)="edit(blogs.id)">Edit</button>
     </div>
   </div>
   <div id="buttonsToUpdate" style="display:none">
-    <button class="button-save" (click)="save(blogs)">save</button>
-    <button (click)="cancel(blogs)">cancel</button>
+    
   </div>
 </div>
