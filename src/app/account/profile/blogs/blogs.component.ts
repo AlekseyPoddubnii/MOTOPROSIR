@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
-import { BlogsService } from '../shared/services/blogs.service';
-import { Blog } from '../shared/models/blog.model';
+import { BlogsService } from '../../shared/services/blogs.service';
+import { Blog } from '../../shared/models/blog.model';
 
 
 @Component({

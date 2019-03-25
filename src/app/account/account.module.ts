@@ -9,9 +9,11 @@ import { AddEventComponent } from './events/add-event/add-event.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AccHeaderComponent } from './shared/components/acc-header/acc-header.component';
 import { EventsService } from './shared/services/events.service';
-import { BlogsComponent } from './blogs/blogs.component';
-import { BlogsShowComponent } from './blogs/blogs-show/blogs-show.component';
+import { BlogsComponent } from './profile/blogs/blogs.component';
+import { BlogsShowComponent } from './profile/blogs/blogs-show/blogs-show.component';
 import { SettingsComponent } from './settings/settings.component';
+import { ProfileComponent } from './profile/profile.component';
+import { EventComponent } from '../public/event/event.component';
 
 @NgModule({
   imports: [
@@ -29,6 +31,7 @@ import { SettingsComponent } from './settings/settings.component';
     BlogsComponent,
     BlogsShowComponent,
     SettingsComponent,
+    ProfileComponent
   ],
   providers: [EventsService]
 })

@@ -10,18 +10,12 @@ import { SettingsService } from '../shared/services/settings.service';
 })
 export class SettingsComponent implements OnInit {
   users$: User[];
-  users: User;
 
   constructor(
     private settingsService: SettingsService,
     ) { }
 
   ngOnInit() {
-    this.settingsService.refreshUser$.
-    subscribe(() => {
-      this.getAllSettings();
-    });
-
     this.getAllSettings();
   }
 

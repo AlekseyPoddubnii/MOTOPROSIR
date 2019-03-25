@@ -29,6 +29,7 @@ export class SettingsService {
     }
 
     getUser(): Observable<User[]> {
+        console.log('idet');
         const userParsed = JSON.parse(this.user);
         return this.http.get<User[]>(`${this.usersUrl}/${userParsed.id}`);
     }

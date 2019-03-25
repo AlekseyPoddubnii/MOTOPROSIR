@@ -1,0 +1,39 @@
+<router-outlet></router-outlet>
+<div class="profile-wrapper">
+    <div class="profile__cover">
+        <input class="update-cover" type="file" accept="image/*" #coverInput (change)="previewCover($event)">
+        <button class="profile__cover--update" (click)="coverInput.click()">Update cover photo</button>
+        <div class="profile__cover--profile-info">
+            <div class="profile-info__container">                  
+                <div class="profile-info__avatar">
+                    <input class="profile-info__avatar--update" id="update-avatar" type="file" #avatarInput accept="image/*" (change)="previewAvatar($event)">
+                    <label class="update-label" for="update-avatar">
+                        <svg class="avatar-update">
+                            <use xlink:href="assets/sprite/sprite-sheet.svg#cover-photo"></use>
+                        </svg>  
+                    </label>
+                    <canvas class="profile-avatar" #avatarPreview></canvas>
+                </div>
+                <div class="profile-info__user">
+                    <h2 class="profile-info__user--username">{{currentUser.username}}</h2>
+                    <div class="profile-info__user--full-name">
+                        <p class="full-name__name">{{currentUser.firstName}}</p>
+                        <p class="full-name__surname">{{currentUser.lastName}}</p>
+                    </div>
+                </div>
+            </div>
+            <button class="profile__cover--settings" type="button" routerLink="/account/profile/settings">Account settings</button>
+        </div>
+        <canvas class="profile__cover--canvas" #canvasPreview></canvas>
+    </div>
+    <div class="profile__navigation-container">
+        <ul class="profile__navigation">
+            <li class="profile__navigation--list"><a class="profile__navigation--link">Blog</a></li>
+            <li class="profile__navigation--list"><a class="profile__navigation--link">About</a></li>
+            <li class="profile__navigation--list"><a class="profile__navigation--link">Friends ()</a></li>
+            <li class="profile__navigation--list"><a class="profile__navigation--link">Events ()</a></li>
+        </ul>
+    </div>
+    <app-blogs></app-blogs>
+    <app-blogs-show></app-blogs-show>
+</div>
