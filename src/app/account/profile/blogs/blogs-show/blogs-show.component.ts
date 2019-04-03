@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Blog } from '../../shared/models/blog.model';
-import { BlogsService } from '../../shared/services/blogs.service';
+import { Blog } from '../../../shared/models/blog.model';
+import { BlogsService } from '../../../shared/services/blogs.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { of, Observable } from 'rxjs';
 

@@ -1,6 +1,5 @@
-<app-acc-header></app-acc-header>
 <router-outlet></router-outlet>
-<div *ngFor="let user of users$">
-    <span>{{ user.username }}}</span>
-    <span>dfsaffasdffafasfassa</span>
+<div *ngFor="let user of users$ | keyvalue">
+    <span>{{user.value}}</span>
+    <span></span>
 </div>

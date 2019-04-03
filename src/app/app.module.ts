@@ -32,7 +32,6 @@ import { AccountModule } from './account/account.module';
     MatDialogModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    AccountModule,
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
