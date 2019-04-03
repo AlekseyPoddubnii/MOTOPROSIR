@@ -1,1 +1,36 @@
-<app-add-event></app-add-event>
+sss
+<section class="last">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12" *ngFor="let event of events$">
+        <figure class="last-event">
+          <ng-template [ngIf]="event.type === 1">
+            <img class="last-event__img" src="assets/img/data/enduro-big.jpg" alt="" title="{{ event.title }}">
+          </ng-template>
+          <ng-template [ngIf]="event.type === 3">
+            <img class="last-event__img" src="assets/img/data/touristic.jpg" alt="" title="{{ event.title }}">
+          </ng-template>
+          <ng-template [ngIf]="event.type === 4">
+            <img class="last-event__img" src="assets/img/data/chopper.jpg" alt="" title="{{ event.title }}">
+          </ng-template>
+          <figcaption class="last-event__heading">
+            {{ event.title }}
+          </figcaption>
+          <p class="last-event__type">
+            Type:
+            <ng-template [ngIf]="event.type === 1">Enduro</ng-template>
+            <ng-template [ngIf]="event.type === 2">Sport</ng-template>
+            <ng-template [ngIf]="event.type === 3">Touristic</ng-template>
+            <ng-template [ngIf]="event.type === 4">Chooper</ng-template>
+          </p>
+          <p class="last-event__start">
+            Date: {{ event.date }}
+          </p>
+          <p class="last-event__time">
+            Days: {{ event.days }}
+          </p>
+        </figure>
+      </div>
+    </div>
+  </div>
+</section>
