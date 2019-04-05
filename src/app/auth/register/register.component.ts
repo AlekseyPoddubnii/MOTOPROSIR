@@ -28,31 +28,6 @@ export class RegisterComponent implements OnInit {
     result: string;
     usersInfo: User;
 
-    context: CanvasRenderingContext2D;
-
-    @ViewChild('previewAvatar') previewAvatar;
-
-    preview(e: any): void {
-        const canvas = this.previewAvatar.nativeElement;
-        const context = canvas.getContext('2d');
-        context.clearRect(0, 0, 225, 225);
-
-        const render = new FileReader();
-        render.onload = function(event: any) {
-            const img = new Image();
-            img.onload = function() {
-                canvas.width = img.width;
-                canvas.height = img.height;
-                context.drawImage(img, 0, 0);
-            };
-            img.src = event.target.result;
-        };
-        render.readAsDataURL(e.target.files[0]);
-    }
-
-    deleteImg() {
-        this.preview(false);
-    }
 
     constructor(
         private formBuilder: FormBuilder,
@@ -122,18 +97,18 @@ export class RegisterComponent implements OnInit {
             }
         );
         this.loading = true;
-        this.userService.register(this.registerForm.value)
-            .pipe(first())
-            .subscribe(
-                data => {
-                    this.alertService.success('Registration successful', true);
-                    this.modalService.close('custom-modal-2');
-                    this.dialog.open(LoginComponent);
-                },
-                error => {
-                    this.alertService.error(error);
-                    this.loading = false;
-                });
+        // this.userService.register(this.registerForm.value)
+        //     .pipe(first())
+        //     .subscribe(
+        //         data => {
+        //             this.alertService.success('Registration successful', true);
+        //             this.modalService.close('custom-modal-2');
+        //             this.dialog.open(LoginComponent);
+        //         },
+        //         error => {
+        //             this.alertService.error(error);
+        //             this.loading = false;
+        //         });
     }
     closeModal(id: string) {
         this.modalService.close(id);

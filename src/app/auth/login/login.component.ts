@@ -6,6 +6,7 @@ import { first } from 'rxjs/operators';
 
 import { AuthenticationService } from '../../shared/services/authentication.service';
 import { ModalService } from 'src/app/shared/services/modal.service';
+import { AuthService } from 'src/app/shared/services/auth.service';
 
 @Component({
   templateUrl: 'login.component.html',
@@ -23,6 +24,7 @@ export class LoginComponent implements OnInit {
         private matDialogRef: MatDialogRef<LoginComponent>,
         private route: ActivatedRoute,
         private router: Router,
+        private authService: AuthService,
         private authenticationService: AuthenticationService,
         @Inject(MAT_DIALOG_DATA) public data: any,
         public modalService: ModalService,
@@ -34,7 +36,7 @@ export class LoginComponent implements OnInit {
 
     ngOnInit() {
         this.loginForm = this.formBuilder.group({
-            username: ['', Validators.required],
+            email: ['', Validators.required],
             password: ['', Validators.required]
         });
         this.authenticationService.logout();
@@ -51,7 +53,7 @@ export class LoginComponent implements OnInit {
             return;
         }
 
-        this.authenticationService.login(this.f.username.value, this.f.password.value)
+        this.authService.signIn(this.loginForm.value)
             .pipe(first())
             .subscribe(
                 data => {
@@ -61,6 +63,18 @@ export class LoginComponent implements OnInit {
                 error => {
                     this.error = error;
                 });
+
+
+        // this.authenticationService.login(this.f.username.value, this.f.password.value)
+        //     .pipe(first())
+        //     .subscribe(
+        //         data => {
+        //             this.router.navigate([this.returnUrl]);
+        //             this.matDialogRef.close();
+        //         },
+        //         error => {
+        //             this.error = error;
+        //         });
     }
 
     public close() {
