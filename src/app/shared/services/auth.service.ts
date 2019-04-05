@@ -12,12 +12,12 @@ const httpOptions = {
     providedIn: 'root',
 })
 export class AuthService {
-    private usersUrl = 'http://localhost:3000/users';
+    private usersUrl = 'https://pacific-plains-68381.herokuapp.com/api/users';
 
     constructor(private http: HttpClient) {}
 
-    signUp(info: User): Observable<string> {
-        return this.http.post<string>(this.usersUrl, info, httpOptions);
+    signUp(info: User): Observable<User> {
+        return this.http.post<User>(this.usersUrl, info, httpOptions);
     }
 }
 

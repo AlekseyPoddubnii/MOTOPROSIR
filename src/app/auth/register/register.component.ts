@@ -122,18 +122,18 @@ export class RegisterComponent implements OnInit {
             }
         );
         this.loading = true;
-        this.userService.register(this.registerForm.value)
-            .pipe(first())
-            .subscribe(
-                data => {
-                    this.alertService.success('Registration successful', true);
-                    this.modalService.close('custom-modal-2');
-                    this.dialog.open(LoginComponent);
-                },
-                error => {
-                    this.alertService.error(error);
-                    this.loading = false;
-                });
+        // this.userService.register(this.registerForm.value)
+        //     .pipe(first())
+        //     .subscribe(
+        //         data => {
+        //             this.alertService.success('Registration successful', true);
+        //             this.modalService.close('custom-modal-2');
+        //             this.dialog.open(LoginComponent);
+        //         },
+        //         error => {
+        //             this.alertService.error(error);
+        //             this.loading = false;
+        //         });
     }
     closeModal(id: string) {
         this.modalService.close(id);
