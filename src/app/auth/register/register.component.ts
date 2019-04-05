@@ -28,31 +28,6 @@ export class RegisterComponent implements OnInit {
     result: string;
     usersInfo: User;
 
-    context: CanvasRenderingContext2D;
-
-    @ViewChild('previewAvatar') previewAvatar;
-
-    preview(e: any): void {
-        const canvas = this.previewAvatar.nativeElement;
-        const context = canvas.getContext('2d');
-        context.clearRect(0, 0, 225, 225);
-
-        const render = new FileReader();
-        render.onload = function(event: any) {
-            const img = new Image();
-            img.onload = function() {
-                canvas.width = img.width;
-                canvas.height = img.height;
-                context.drawImage(img, 0, 0);
-            };
-            img.src = event.target.result;
-        };
-        render.readAsDataURL(e.target.files[0]);
-    }
-
-    deleteImg() {
-        this.preview(false);
-    }
 
     constructor(
         private formBuilder: FormBuilder,

@@ -3,9 +3,10 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 import { User } from '../models/user.model';
+import { Auth } from '../models/auth.model';
 
 const httpOptions = {
-    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+    headers: new HttpHeaders({ 'Content-Type': 'application/json', 'Accept': 'application/json', 'Accept-Version': 'v1' })
 };
 
 @Injectable({
@@ -18,6 +19,10 @@ export class AuthService {
 
     signUp(info: User): Observable<User> {
         return this.http.post<User>(this.usersUrl, info, httpOptions);
+    }
+
+    signIn(info: Auth): Observable<Auth> {
+        return this.http.post<Auth>(this.usersUrl, info, httpOptions);
     }
 }
 
