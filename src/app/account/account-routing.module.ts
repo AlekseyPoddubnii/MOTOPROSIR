@@ -6,6 +6,7 @@ import { EventsComponent } from './events/events.component';
 import { BoardPageComponent } from './board-page/board-page.component';
 import { SettingsComponent } from './settings/settings.component';
 import { ProfileComponent } from './profile/profile.component';
+import { EventDetailComponent } from './events/event-detail/event-detail.component';
 
 const routes: Routes = [
   {
@@ -13,6 +14,7 @@ const routes: Routes = [
       { path: 'profile', component: ProfileComponent },
       { path: 'profile/settings', component: SettingsComponent },
       { path: 'events', component: EventsComponent },
+      { path: 'events/:id', component: EventDetailComponent },
       { path: 'board', component: BoardPageComponent }
     ]
   },

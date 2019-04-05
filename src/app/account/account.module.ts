@@ -14,6 +14,7 @@ import { BlogsShowComponent } from './profile/blogs/blogs-show/blogs-show.compon
 import { SettingsComponent } from './settings/settings.component';
 import { ProfileComponent } from './profile/profile.component';
 import { EventComponent } from '../public/event/event.component';
+import { EventDetailComponent } from './events/event-detail/event-detail.component';
 
 @NgModule({
   imports: [
@@ -31,9 +32,12 @@ import { EventComponent } from '../public/event/event.component';
     BlogsComponent,
     BlogsShowComponent,
     SettingsComponent,
-    ProfileComponent
+    ProfileComponent,
+    EventDetailComponent
   ],
-  providers: [EventsService]
+  providers: [
+    EventsService
+  ]
 })
 
 export class AccountModule { }

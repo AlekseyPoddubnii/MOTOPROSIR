@@ -39,7 +39,7 @@ import { AccountModule } from './account/account.module';
     fakeBackendProvider,
     HttpClientModule,
     { provide: MatDialogRef, useValue: {} },
-    { provide: MAT_DIALOG_DATA, useValue: [] }
+    { provide: MAT_DIALOG_DATA, useValue: [] },
   ],
   bootstrap: [AppComponent],
   entryComponents: [LoginComponent]
