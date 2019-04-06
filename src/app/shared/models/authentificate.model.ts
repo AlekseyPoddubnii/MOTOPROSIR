@@ -1,14 +1,11 @@
-export class Auth {
-    username: string;
+export class Authentificate {
     email: string;
     password: string;
 
     constructor(
-        username: string,
         email: string,
         password: string,
         ) {
-            this.username = username;
             this.email = email;
             this.password = password;
         }

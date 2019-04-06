@@ -4,9 +4,10 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
 import { Router, ActivatedRoute } from '@angular/router';
 import { first } from 'rxjs/operators';
 
-import { AuthenticationService } from '../../shared/services/authentication.service';
+// import { AuthenticationService } from '../../shared/services/authentication.service';
 import { ModalService } from 'src/app/shared/services/modal.service';
 import { AuthService } from 'src/app/shared/services/auth.service';
+import { Authentificate } from 'src/app/shared/models/authentificate.model';
 
 @Component({
   templateUrl: 'login.component.html',
@@ -18,6 +19,7 @@ export class LoginComponent implements OnInit {
     submitted = false;
     returnUrl: string;
     error = '';
+    loginInfo: Authentificate;
 
     constructor(
         private formBuilder: FormBuilder,
@@ -25,13 +27,13 @@ export class LoginComponent implements OnInit {
         private route: ActivatedRoute,
         private router: Router,
         private authService: AuthService,
-        private authenticationService: AuthenticationService,
+        // private authenticationService: AuthenticationService,
         @Inject(MAT_DIALOG_DATA) public data: any,
         public modalService: ModalService,
     ) {
-        if (this.authenticationService.currentUserValue) {
-            this.router.navigate(['/account']);
-        }
+        // if (this.authenticationService.currentUserValue) {
+        //     this.router.navigate(['/account']);
+        // }
      }
 
     ngOnInit() {
@@ -39,7 +41,7 @@ export class LoginComponent implements OnInit {
             email: ['', Validators.required],
             password: ['', Validators.required]
         });
-        this.authenticationService.logout();
+        // this.authenticationService.logout();
 
         this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/account/events';
     }
@@ -47,13 +49,20 @@ export class LoginComponent implements OnInit {
     get f() { return this.loginForm.controls; }
 
     onSubmit() {
+        console.log(this.loginForm.value);
+
+        this.loginInfo = new Authentificate (
+            this.loginForm.value.email,
+            this.loginForm.value.password,
+        );
+
         this.submitted = true;
 
         if (this.loginForm.invalid) {
             return;
         }
 
-        this.authService.signIn(this.loginForm.value)
+        this.authService.signIn(this.loginInfo)
             .pipe(first())
             .subscribe(
                 data => {

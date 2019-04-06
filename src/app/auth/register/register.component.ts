@@ -5,14 +5,15 @@ import { first } from 'rxjs/operators';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 
 import { AlertService } from '../../shared/services/alerts.servise';
-import { UserService } from '../../shared/services/user.service';
-import { AuthenticationService } from '../../shared/services/authentication.service';
+// import { UserService } from '../../shared/services/user.service';
+// import { AuthenticationService } from '../../shared/services/authentication.service';
 import { LoginComponent } from '../login/login.component';
 import { MustMatch } from './match.validator';
 import { ModalService } from 'src/app/shared/services/modal.service';
 
 import { AuthService } from '../../shared/services/auth.service';
 import { User } from '../../shared/models/user.model';
+import { Registration } from 'src/app/shared/models/registration.model';
 
 
 @Component({
@@ -26,14 +27,14 @@ export class RegisterComponent implements OnInit {
     loading = false;
     submitted = false;
     result: string;
-    usersInfo: User;
+    usersInfo: Registration;
 
 
     constructor(
         private formBuilder: FormBuilder,
         private router: Router,
-        private authenticationService: AuthenticationService,
-        private userService: UserService,
+        // private authenticationService: AuthenticationService,
+        // private userService: UserService,
         private alertService: AlertService,
         public dialog: MatDialog,
         private matDialogRef: MatDialogRef<LoginComponent>,
@@ -42,9 +43,9 @@ export class RegisterComponent implements OnInit {
         private authService: AuthService,
     ) {
         // redirect to home if already logged in
-        if (this.authenticationService.currentUserValue) {
-            this.router.navigate(['/account']);
-        }
+        // if (this.authenticationService.currentUserValue) {
+        //     this.router.navigate(['/account']);
+        // }
     }
 
     ngOnInit() {
@@ -65,19 +66,10 @@ export class RegisterComponent implements OnInit {
     onSubmit() {
         console.log(this.registerForm.value);
 
-        this.usersInfo = new User (
+        this.usersInfo = new Registration (
             this.registerForm.value.username,
             this.registerForm.value.email,
-            this.registerForm.value.firstName,
-            this.registerForm.value.lastName,
-            this.registerForm.value.brandOfBike,
-            this.registerForm.value.modelOfBike,
-            this.registerForm.value.gender,
-            this.registerForm.value.countr,
-            this.registerForm.value.sity,
             this.registerForm.value.password,
-            this.registerForm.value.avatar,
-            this.registerForm.value.token,
         );
         this.submitted = true;
 
