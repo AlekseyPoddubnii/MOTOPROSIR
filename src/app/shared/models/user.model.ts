@@ -4,30 +4,30 @@ export class User {
     id: number;
     username: string;
     email: string;
-    firstName?: string;
-    lastName?: string;
-    brandOgBike?: string;
-    modelOfBike?: string;
-    gender?: string;
-    country?: string;
-    sity?: string;
+    firstName: string;
+    lastName: string;
+    brandOgBike: string;
+    modelOfBike: string;
+    gender: string;
+    country: string;
+    sity: string;
     password: string;
-    avatar?: Url;
-    token?: string;
+    avatar: Url;
+    token: string;
 
     constructor(
         username: string,
         email: string,
-        firstName?: string,
-        lastName?: string,
-        brandOgBike?: string,
-        modelOfBike?: string,
-        gender?: string,
-        country?: string,
-        sity?: string,
-        password?: string,
-        avatar?: Url,
-        token?: string,
+        firstName: string,
+        lastName: string,
+        brandOgBike: string,
+        modelOfBike: string,
+        gender: string,
+        country: string,
+        sity: string,
+        password: string,
+        avatar: Url,
+        token: string,
         ) {
             this.username = username;
             this.email = email;
