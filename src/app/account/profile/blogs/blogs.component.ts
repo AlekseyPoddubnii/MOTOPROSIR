@@ -35,13 +35,12 @@ onSubmit() {
     console.log(this.blogsCreateForm.value);
 
     const currentDate = new Date();
-    this.blogsCreateForm.value.date = currentDate;
+    this.blogsCreateForm.value.created_at = currentDate;
 
     this.blogsInfo = new Blog (
         this.blogsCreateForm.value.title,
         this.blogsCreateForm.value.description,
-        this.blogsCreateForm.value.category_id,
-        this.blogsCreateForm.value.date,
+        this.blogsCreateForm.value.created_at,
     );
     this.submitted = true;
 

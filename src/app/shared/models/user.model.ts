@@ -2,8 +2,8 @@ import { Url } from 'url';
 
 export class User {
     id: number;
-    username: object;
-    email: object;
+    username: string;
+    email: string;
     firstName?: string;
     lastName?: string;
     brandOgBike?: string;
@@ -11,13 +11,13 @@ export class User {
     gender?: string;
     country?: string;
     sity?: string;
-    password: object;
+    password: string;
     avatar?: Url;
     token?: string;
 
     constructor(
-        username: object,
-        email: object,
+        username: string,
+        email: string,
         firstName?: string,
         lastName?: string,
         brandOgBike?: string,
@@ -25,7 +25,7 @@ export class User {
         gender?: string,
         country?: string,
         sity?: string,
-        password?: object,
+        password?: string,
         avatar?: Url,
         token?: string,
         ) {

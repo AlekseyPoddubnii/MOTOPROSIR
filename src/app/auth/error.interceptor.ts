@@ -3,18 +3,17 @@
 // import { Observable, throwError } from 'rxjs';
 // import { catchError } from 'rxjs/operators';
 
-// import { AuthenticationService } from '../shared/services/authentication.service';
+// import { AuthService } from '../shared/services/auth.service';
 
 // @Injectable()
 // export class ErrorInterceptor implements HttpInterceptor {
-//     constructor(private authenticationService: AuthenticationService) { }
+//     constructor(private authService: AuthService) { }
 
 //     intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
 //         return next.handle(request).pipe(catchError(err => {
 //             if (err.status === 401) {
 
-//                 this.authenticationService.logout();
-//                 location.reload(true);
+//                 this.authService.logout();
 //             }
 
 //             const error = err.error.message || err.statusText;

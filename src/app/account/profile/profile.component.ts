@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { AuthenticationService } from '../../shared/services/authentication.service';
+import { AuthService } from '../../shared/services/auth.service';
 import { Subscription } from 'rxjs';
 import { User } from '../../shared/models/user.model';
 
@@ -13,9 +13,9 @@ export class ProfileComponent implements OnInit {
 
 
   constructor(
-    private authenticationService: AuthenticationService,
+    private authService: AuthService,
   ) {
-    this.currentUserSubscription = this.authenticationService.currentUser.subscribe(user => {
+    this.currentUserSubscription = this.authService.currentUser.subscribe(user => {
       this.currentUser = user;
     });
   }
