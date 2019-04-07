@@ -5,7 +5,7 @@
       <span *ngIf="blogs.id !== blogId">{{ blogs.title }}</span>
       <span *ngIf="blogs.id === blogId"><input [(ngModel)]="blogs.description"></span>
       <span *ngIf="blogs.id !== blogId">{{ blogs.description }}</span>
-      <span>{{ blogs.date | date:'medium' }}</span>
+      <span>{{ blogs.created_at | date:'medium' }}</span>
       {{ blogs.id }}
       <button *ngIf="blogs.id === blogId" class="button-save" (click)="save(blogs)">save</button>
       <button *ngIf="blogs.id === blogId" (click)="cancel(blogs)">cancel</button>

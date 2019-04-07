@@ -4,7 +4,6 @@ import { Observable, Subject, of } from 'rxjs';
 
 import { tap, catchError, map } from 'rxjs/operators';
 import { User } from 'src/app/shared/models/user.model';
-import { UserService } from 'src/app/shared/services/user.service';
 
 
 const httpOptions = {

@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+// import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 
 import { AccountRoutingModule } from './account-routing.module';
 import { EventsComponent } from './events/events.component';
@@ -15,6 +16,7 @@ import { SettingsComponent } from './settings/settings.component';
 import { ProfileComponent } from './profile/profile.component';
 import { EventComponent } from '../public/event/event.component';
 import { EventDetailComponent } from './events/event-detail/event-detail.component';
+// import { JwtInterceptor } from '../auth/jwt.interceptor';
 
 @NgModule({
   imports: [
@@ -22,6 +24,7 @@ import { EventDetailComponent } from './events/event-detail/event-detail.compone
     AccountRoutingModule,
     FormsModule,
     ReactiveFormsModule,
+
   ],
   declarations: [
     EventsComponent,
@@ -36,6 +39,7 @@ import { EventDetailComponent } from './events/event-detail/event-detail.compone
     EventDetailComponent
   ],
   providers: [
+    // { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
     EventsService
   ]
 })

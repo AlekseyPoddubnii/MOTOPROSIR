@@ -31,9 +31,9 @@ export class LoginComponent implements OnInit {
         @Inject(MAT_DIALOG_DATA) public data: any,
         public modalService: ModalService,
     ) {
-        // if (this.authenticationService.currentUserValue) {
-        //     this.router.navigate(['/account']);
-        // }
+        if (this.authService.currentUserValue) {
+            this.router.navigate(['/account']);
+        }
      }
 
     ngOnInit() {
@@ -41,7 +41,7 @@ export class LoginComponent implements OnInit {
             email: ['', Validators.required],
             password: ['', Validators.required]
         });
-        // this.authenticationService.logout();
+        this.authService.logout();
 
         this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/account/events';
     }
@@ -62,9 +62,7 @@ export class LoginComponent implements OnInit {
             return;
         }
 
-        this.authService.signIn(this.loginInfo)
-            .pipe(first())
-            .subscribe(
+        this.authService.signIn(this.loginInfo).subscribe(
                 data => {
                     this.router.navigate([this.returnUrl]);
                     this.matDialogRef.close();
@@ -72,18 +70,6 @@ export class LoginComponent implements OnInit {
                 error => {
                     this.error = error;
                 });
-
-
-        // this.authenticationService.login(this.f.username.value, this.f.password.value)
-        //     .pipe(first())
-        //     .subscribe(
-        //         data => {
-        //             this.router.navigate([this.returnUrl]);
-        //             this.matDialogRef.close();
-        //         },
-        //         error => {
-        //             this.error = error;
-        //         });
     }
 
     public close() {

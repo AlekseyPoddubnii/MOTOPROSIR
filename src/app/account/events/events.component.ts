@@ -14,6 +14,7 @@ export class EventsComponent implements OnInit {
 
 
   constructor(
+    // tslint:disable-next-line:no-shadowed-variable
     private EventsService: EventsService
   ) {
 

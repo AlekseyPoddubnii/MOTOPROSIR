@@ -43,9 +43,9 @@ export class RegisterComponent implements OnInit {
         private authService: AuthService,
     ) {
         // redirect to home if already logged in
-        // if (this.authenticationService.currentUserValue) {
-        //     this.router.navigate(['/account']);
-        // }
+        if (this.authService.currentUserValue) {
+            this.router.navigate(['/account']);
+        }
     }
 
     ngOnInit() {
@@ -67,9 +67,9 @@ export class RegisterComponent implements OnInit {
         console.log(this.registerForm.value);
 
         this.usersInfo = new Registration (
-            this.registerForm.value.username,
             this.registerForm.value.email,
             this.registerForm.value.password,
+            this.registerForm.value.username,
         );
         this.submitted = true;
 
@@ -89,18 +89,6 @@ export class RegisterComponent implements OnInit {
             }
         );
         this.loading = true;
-        // this.userService.register(this.registerForm.value)
-        //     .pipe(first())
-        //     .subscribe(
-        //         data => {
-        //             this.alertService.success('Registration successful', true);
-        //             this.modalService.close('custom-modal-2');
-        //             this.dialog.open(LoginComponent);
-        //         },
-        //         error => {
-        //             this.alertService.error(error);
-        //             this.loading = false;
-        //         });
     }
     closeModal(id: string) {
         this.modalService.close(id);

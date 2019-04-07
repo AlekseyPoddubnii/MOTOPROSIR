@@ -7,7 +7,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 // import { fakeBackendProvider } from './auth/auth.component';
 
-// import { JwtInterceptor } from './auth/jwt.interceptor';
 // import { ErrorInterceptor } from './auth/error.interceptor';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -16,6 +15,7 @@ import { AppComponent } from './app.component';
 import { PublicModule } from './public/public.module';
 import { LoginComponent } from './auth/login/login.component';
 import { AccountModule } from './account/account.module';
+import { JwtInterceptor } from './auth/jwt.interceptor';
 
 
 
@@ -34,7 +34,7 @@ import { AccountModule } from './account/account.module';
     BrowserAnimationsModule,
   ],
   providers: [
-    // { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
     // { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
     // fakeBackendProvider,
     HttpClientModule,
