@@ -10,6 +10,7 @@
         <input class="registration-form__item--inputs" type="text" formControlName="email" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
         <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
           <div class="error" *ngIf="f.email.errors.required">Enter your e-mail</div>
+          <div class="error" *ngIf="f.email.errors.email">Incorrect e-mail</div>
         </div>
         <div class="alert-error" *ngIf="error">{{error}}</div>
       </div>

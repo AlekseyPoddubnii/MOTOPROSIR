@@ -124,17 +124,11 @@
 
 }
 
-.message-success {
-    margin-top: 10px auto;
-	font-size: 14px;
-	font-weight: 600;
-    color: green;
-}
-
-.message-error {
+.alert-error {
+	padding: 15px 0; 
     margin-top: 10px;
     font-size: 12px;
-    color: rgb(238, 0, 0);
+    color: red;
 }
 
 .agree-submit__container {
