@@ -28,13 +28,12 @@ export class RegisterComponent implements OnInit {
     submitted = false;
     result: string;
     usersInfo: Registration;
+    error: '';
 
 
     constructor(
         private formBuilder: FormBuilder,
         private router: Router,
-        // private authenticationService: AuthenticationService,
-        // private userService: UserService,
         private alertService: AlertService,
         public dialog: MatDialog,
         private matDialogRef: MatDialogRef<LoginComponent>,
@@ -63,6 +62,12 @@ export class RegisterComponent implements OnInit {
 
     get f() { return this.registerForm.controls; }
 
+    onKeydown(event) {
+        if (event.key === 'Enter') {
+          this.onSubmit();
+        }
+      }
+
     onSubmit() {
         console.log(this.registerForm.value);
 
@@ -79,19 +84,28 @@ export class RegisterComponent implements OnInit {
 
         this.authService.signUp(this.usersInfo).subscribe(
             data => {
-                console.log(data);
                 this.modalService.close('custom-modal-2');
                 this.dialog.open(LoginComponent);
+                console.log('succes');
             },
             error => {
+                error = JSON.stringify(error.error);
+                error = error.split('"').join('');
+                error = error.replace('{', '');
+                error = error.replace('}', '');
+                error = error.split('[').join('');
+                error = error.split(']').join('');
+                error = error.split(':').join(' ');
+                error = error.replace(',', ', ');
+                this.error = error;
                 console.log(error);
-                this.alertService.error(error);
             }
         );
         this.loading = true;
     }
     closeModal(id: string) {
         this.modalService.close(id);
+        this.registerForm.reset();
     }
 
     public openModalLog() {

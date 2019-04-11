@@ -2,7 +2,7 @@
     <form class="registration-form" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
         
         <div class="bg">
-            <button class="registration-headline__close" (click)="closeModal('custom-modal-2');">Close</button>
+            <button class="registration-headline__close" type="button" (click)="closeModal('custom-modal-2');">Close</button>
             <!-- <div class="registration-form__avatar">
                 <label for="upload">
                     <canvas class="canvas" #previewAvatar></canvas>
@@ -108,6 +108,7 @@
                         </div>
                     </div> -->
                 </div>
+                <div class="alert-error" *ngIf="error">{{error}}</div>
                 <!-- <div class="registration-form__col2">
                     <div class="registration-form__item">
                         <h3 class="registration-form__item--headlines">Bio</h3>
@@ -152,5 +153,4 @@
     <div class="registration__create">
         <p class="registration__create--already">Already have an account? <a class="registration__create--link" mat-raised-button (click)="openModalLog()">Sign in</a></p>
     </div>
-    <alert class="message-success"></alert>
 </div>
