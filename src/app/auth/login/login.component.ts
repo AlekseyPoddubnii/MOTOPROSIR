@@ -32,7 +32,7 @@ export class LoginComponent implements OnInit {
         public modalService: ModalService,
     ) {
         if (this.authService.currentUserValue) {
-            this.router.navigate(['/account']);
+            this.router.navigate(['/account/events']);
         }
      }
 
@@ -64,8 +64,8 @@ export class LoginComponent implements OnInit {
 
         this.authService.signIn(this.loginInfo).subscribe(
                 data => {
-                    this.router.navigate([this.returnUrl]);
                     this.matDialogRef.close();
+                    this.router.navigate([this.returnUrl]);
                     console.log('succes');
                 },
                 error => {

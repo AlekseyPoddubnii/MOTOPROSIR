@@ -10,7 +10,7 @@
         <li class="navigation__list"><a class="navigation__link" routerLink="/account/events">Events</a></li>
         <li class="navigation__list"><a class="navigation__link">Chat</a></li>
         <li class="navigation__list"><a class="navigation__link">Notifications</a></li>
-        <li class="navigation__list"><a class="navigation__link" routerLink="/account/profile">{{ currentUser.username }}</a></li>
+        <li class="navigation__list"><a class="navigation__link" routerLink="/account/profile/{{id}}">{{ currentUser.username }}</a></li>
         <li class="navigation__list"><a class="navigation__link" (click)="logout()">Logout</a></li>
       </ul>
     </nav>

@@ -36,8 +36,8 @@ export class AuthService {
         return this.http.post<Registration>(this.usersUrl, info, httpOptions);
     }
 
-    signIn(info: Authentificate): Observable<Authentificate> {
-        return this.http.post<Authentificate>(this.authUrl, info, httpOptions).pipe(tap(response => {
+    signIn(info: Authentificate): Observable<any> {
+        return this.http.post<any>(this.authUrl, info, httpOptions).pipe(tap(response => {
             localStorage.setItem('token', JSON.stringify(response.token));
             localStorage.setItem('entity', JSON.stringify(response.entity));
           }));

@@ -11,11 +11,11 @@ import { EventDetailComponent } from './events/event-detail/event-detail.compone
 const routes: Routes = [
   {
     path: '', component: AccountComponent, children: [
-      { path: 'profile', component: ProfileComponent },
-      { path: 'profile/settings', component: SettingsComponent },
+      { path: 'profile/:id', component: ProfileComponent },
+      { path: 'settings', component: SettingsComponent },
       { path: 'events', component: EventsComponent },
       { path: 'events/:id', component: EventDetailComponent },
-      { path: 'board', component: BoardPageComponent }
+      { path: 'board', component: BoardPageComponent },
     ]
   },
 ];
