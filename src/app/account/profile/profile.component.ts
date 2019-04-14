@@ -2,6 +2,8 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { AuthService } from '../../shared/services/auth.service';
 import { Subscription } from 'rxjs';
 import { User } from '../../shared/models/user.model';
+import { ActivatedRoute } from '@angular/router';
+import { ProfileService } from '../shared/services/profile.service';
 
 @Component({
   selector: 'app-profile',
@@ -10,10 +12,15 @@ import { User } from '../../shared/models/user.model';
 })
 
 export class ProfileComponent implements OnInit {
+  user: User;
+  user$ = [];
+  id: number;
 
 
   constructor(
     private authService: AuthService,
+    private route: ActivatedRoute,
+    private profileService: ProfileService,
   ) {
     this.currentUserSubscription = this.authService.currentUser.subscribe(user => {
       this.currentUser = user;
@@ -65,6 +72,14 @@ export class ProfileComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.route.params.subscribe(params => {
+      const id = params['id'];
+      console.log(id);
+      this.profileService.getUser(id).subscribe(user => this.user = this.user$[0] = user);
+    });
 
+    let entity: any = localStorage.getItem('entity');
+    entity = JSON.parse(entity);
+    this.id = entity.id;
   }
 }

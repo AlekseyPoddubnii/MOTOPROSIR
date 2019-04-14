@@ -36,7 +36,7 @@ import { EventDetailComponent } from './events/event-detail/event-detail.compone
     BlogsShowComponent,
     SettingsComponent,
     ProfileComponent,
-    EventDetailComponent
+    EventDetailComponent,
   ],
   providers: [
     // { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },

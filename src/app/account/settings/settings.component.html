@@ -1,5 +1,79 @@
-<router-outlet></router-outlet>
-<div *ngFor="let user of users$ | keyvalue">
-    <span>{{user.value}}</span>
-    <span></span>
-</div>
+
+<form *ngFor="let user of user$" [formGroup]="userSettings" (ngSubmit)="onSubmit()">
+    <div>
+        <label for="">Username</label>
+        <input class="input" type="text" formControlName="username" [ngClass]="{ 'is-invalid': submitted && f.username.errors }" [(ngModel)]="user.username">
+        <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+      		<div class="error" *ngIf="f.username.errors.required">Enter your new username</div>
+      		<div class="error" *ngIf="f.username.errors.minlength">Title must be no more than 3 characters</div>
+    	</div>
+    </div>
+    <div>
+        <label for="">E-mail</label>
+        <input class="input" type="text" formControlName="email" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" [(ngModel)]="user.email">
+        <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+      		<div class="error" *ngIf="f.email.errors.required">Enter your new email</div>
+      		<div class="error" *ngIf="f.email.errors.email">Entered e-mail is incorrect</div>
+    	</div>
+    </div>
+    <div>
+        <label for="">Name</label>
+        <input class="input" type="text" formControlName="firstName" [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }" [(ngModel)]="user.firstName">
+        <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
+      		<div class="error" *ngIf="f.firstName.errors.required">Enter your name</div>
+      		<div class="error" *ngIf="f.firstName.errors.minlength">Name must be not less than 2 characters</div>
+    	</div>
+    </div>
+    <div>
+        <label for="">Surname</label>
+        <input class="input" type="text" formControlName="lastName" [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }" [(ngModel)]="user.lastName">
+        <div *ngIf="submitted && f.lastName.errors" class="invalid-feedback">
+      		<div class="error" *ngIf="f.lastName.errors.required">Enter your surname</div>
+      		<div class="error" *ngIf="f.lastName.errors.minlength">Surname must be not less than 3 characters</div>
+    	</div>
+    </div>
+    <div>
+        <label for="">Gender</label>
+        <input class="input" type="text" formControlName="gender" [ngClass]="{ 'is-invalid': submitted && f.gender.errors }" [(ngModel)]="user.gender">
+        <div *ngIf="submitted && f.gender.errors" class="invalid-feedback">
+      		<div class="error" *ngIf="f.gender.errors.required">Select your gender</div>
+    	</div>
+    </div>
+    <div>
+        <label for="">Country</label>
+        <input class="input" type="text" formControlName="country" [ngClass]="{ 'is-invalid': submitted && f.country.errors }" [(ngModel)]="user.country">
+        <div *ngIf="submitted && f.country.errors" class="invalid-feedback">
+      		<div class="error" *ngIf="f.country.errors.required">Select a country</div>
+    	</div>
+    </div>
+    <div>
+        <label for="">City</label>
+        <input class="input" type="text" formControlName="city" [ngClass]="{ 'is-invalid': submitted && f.city.errors }" [(ngModel)]="user.city">
+        <div *ngIf="submitted && f.city.errors" class="invalid-feedback">
+      		<div class="error" *ngIf="f.city.errors.required">Select a city</div>
+    	</div>
+    </div>
+    <div>
+        <label for="">Last password</label>
+        <input class="input" type="password" formControlName="lastPassword" [ngClass]="{ 'is-invalid': submitted && f.lastPassword.errors }">
+        <div *ngIf="submitted && f.lastPassword.errors" class="invalid-feedback">
+      		<div class="error" *ngIf="f.lastPassword.errors.required">Enter your last password</div>
+    	</div>
+    </div>
+    <div>
+        <label for="">New password</label>
+        <input class="input" type="password" formControlName="newPassword" [ngClass]="{ 'is-invalid': submitted && f.newPassword.errors }" [(ngModel)]="user.password">
+        <div *ngIf="submitted && f.newPassword.errors" class="invalid-feedback">
+      		<div class="error" *ngIf="f.newPassword.errors.required">Enter your new password</div>
+    	</div>
+    </div>
+    <div>
+        <label for="">Confirm new password</label>
+        <input class="input" type="password" formControlName="ConfirmNewPassword" [ngClass]="{ 'is-invalid': submitted && f.ConfirmNewPassword.errors }">
+        <div *ngIf="submitted && f.ConfirmNewPassword.errors" class="invalid-feedback">
+              <div class="error" *ngIf="f.ConfirmNewPassword.errors.required">Confirm your new password</div>
+              <div class="error" *ngIf="f.ConfirmNewPassword.errors.mustMatch">Password do not match</div>
+    	</div>
+    </div>
+    <button (click)="save(user)">Submit</button>
+</form>

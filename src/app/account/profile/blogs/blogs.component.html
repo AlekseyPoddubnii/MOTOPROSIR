@@ -8,7 +8,7 @@
 		<input type="text" formControlName="description" [ngClass]="{ 'is-invalid': submitted && f.description.errors }">
 		<div *ngIf="submitted && f.description.errors" class="invalid-feedback">
 			<div class="error" *ngIf="f.description.errors.required">Enter description of your post</div>
-			<div class="error" *ngIf="f.description.errors.minlength">Description must be no more than 5 characters</div>
+			<div class="error" *ngIf="f.description.errors.minlength">Description must be not less than 5 characters</div>
 			<div class="error" *ngIf="f.description.errors.maxlength">Description must be no more than 255 characters</div>
 	  	</div>
     	<button>Create</button>

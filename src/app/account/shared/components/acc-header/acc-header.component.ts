@@ -12,6 +12,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./acc-header.component.scss']
 })
 export class AccHeaderComponent implements OnInit, OnDestroy {
+    id: number;
 
     currentUserSubscription: Subscription;
 
@@ -34,7 +35,9 @@ export class AccHeaderComponent implements OnInit, OnDestroy {
     }
 
     ngOnInit() {
-
+        let user: any = localStorage.getItem('entity');
+        user = JSON.parse(user);
+        this.id = user.id;
     }
     ngOnDestroy() {
         // unsubscribe to ensure no memory leaks

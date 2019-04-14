@@ -15,26 +15,34 @@ const httpOptions = {
     providedIn: 'root',
 })
 export class SettingsService {
-    users: User[];
-    private user = localStorage.getItem('currentUser');
-    private usersUrl = 'http://localhost:3000/users';
+    users: User;
+    private user = localStorage.getItem('entity');
+    private usersUrl = 'https://pacific-plains-68381.herokuapp.com/api/users';
 
     constructor(private http: HttpClient) {}
 
     private _refresh$ = new Subject<void>();
 
-    get refreshUser$() {
+    get refreshBlogs$() {
         return this._refresh$;
     }
 
     getUser(): Observable<User[]> {
-        console.log('idet');
         const userParsed = JSON.parse(this.user);
         return this.http.get<User[]>(`${this.usersUrl}/${userParsed.id}`);
     }
 
-    updateUser(updBlogs: User): Observable<any> {
-        return this.http.put(`${this.usersUrl}/${updBlogs.id}`, updBlogs, httpOptions)
+
+    // getUser(): Observable<User> {
+    //     console.log('idet');
+    //     const userParsed = JSON.parse(this.user);
+    //     return this.http.get<User>(`${this.usersUrl}/${userParsed.id}`);
+    // }
+
+    updateUser(userSettings: User): Observable<User> {
+        console.log('tyt');
+        const userParsed = JSON.parse(this.user);
+        return this.http.put<User>(`${this.usersUrl}/${userParsed.id}`, userSettings, httpOptions)
         .pipe(
             tap(() => {
                 this._refresh$.next();
