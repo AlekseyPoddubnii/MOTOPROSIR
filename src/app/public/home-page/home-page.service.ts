@@ -6,7 +6,7 @@ import { HomePage } from './home-page.model';
 
 export class HomePageService {
 
-  eventsUrl = 'http://localhost:3000/events';
+  eventsUrl = 'https://pacific-plains-68381.herokuapp.com/events';
   constructor(private http: HttpClient) {}
 
   getEvents() {
