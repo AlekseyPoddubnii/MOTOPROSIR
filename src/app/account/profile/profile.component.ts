@@ -4,6 +4,8 @@ import { Subscription } from 'rxjs';
 import { User } from '../../shared/models/user.model';
 import { ActivatedRoute } from '@angular/router';
 import { ProfileService } from '../shared/services/profile.service';
+import { FormGroup } from '@angular/forms';
+import { Photo } from '../shared/models/photo.model';
 
 @Component({
   selector: 'app-profile',
@@ -12,10 +14,12 @@ import { ProfileService } from '../shared/services/profile.service';
 })
 
 export class ProfileComponent implements OnInit {
+
   user: User;
   user$ = [];
   id: number;
-
+  selectedFile: File = null;
+  avatarUrl: string;
 
   constructor(
     private authService: AuthService,
@@ -29,47 +33,20 @@ export class ProfileComponent implements OnInit {
 
   currentUserSubscription: Subscription;
   currentUser: User;
-  context: CanvasRenderingContext2D;
 
-  @ViewChild('canvasPreview') canvasPreview;
-
-  @ViewChild('avatarPreview') avatarPreview;
-
-  previewCover(e: any): void {
-    const canvas = this.canvasPreview.nativeElement;
-    const context = canvas.getContext('2d');
-    context.clearRect(0, 0, 250, 1170);
-
-    const render = new FileReader();
-    render.onload = function(event: any) {
-      const img = new Image();
-      img.onload = function() {
-        canvas.width = img.width;
-        canvas.height = img.height;
-        context.drawImage(img, 0, 0);
-      };
-      img.src = event.target.result;
-    };
-    render.readAsDataURL(e.target.files[0]);
+  onFileSelected(event) {
+    this.selectedFile = <File>event.target.files[0];
+    const fd: FormData = new FormData();
+    fd.append('avatar', this.selectedFile, this.selectedFile.name);
+    console.log(fd);
+    const fileName = this.selectedFile.name;
+    this.profileService.getUrl(fileName).subscribe(res => {
+      this.profileService.postPhoto(res, fd).subscribe(response =>
+        console.log(response));
+    });
   }
 
-  previewAvatar(e: any): void {
-    const canvas = this.avatarPreview.nativeElement;
-    const context = canvas.getContext('2d');
-    context.clearRect(0, 0, 175, 175);
 
-    const render = new FileReader();
-    render.onload = function(event: any) {
-      const img = new Image();
-      img.onload = function() {
-        canvas.width = img.width;
-        canvas.height = img.height;
-        context.drawImage(img, 0, 0);
-      };
-      img.src = event.target.result;
-    };
-    render.readAsDataURL(e.target.files[0]);
-  }
 
   ngOnInit() {
     this.route.params.subscribe(params => {
