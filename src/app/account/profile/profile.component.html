@@ -6,7 +6,7 @@
         <div class="profile__cover--profile-info">
             <div class="profile-info__container">                  
                 <div class="profile-info__avatar">
-                    <input class="profile-info__avatar--update" id="update-avatar" type="file" #avatarInput accept="image/*" (change)="previewAvatar($event)">
+                    <input class="profile-info__avatar--update" id="update-avatar" type="file" #avatarInput accept="image/*" (change)="onFileSelected($event)">
                     <label class="update-label" for="update-avatar">
                         <svg class="avatar-update" *ngIf="id === user.id">
                             <use xlink:href="assets/sprite/sprite-sheet.svg#cover-photo"></use>
