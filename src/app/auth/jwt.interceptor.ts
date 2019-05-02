@@ -22,7 +22,7 @@ export class JwtInterceptor implements HttpInterceptor {
         // }
         // return next.handle(req);
 
-        if (req.url.match(/api\//)  && currentUser) {
+        if (req.url.match(/api\//)  && localStorage.getItem('token') && localStorage.getItem('entity')) {
             console.log('api call detected.');
             let token = localStorage.getItem('token');
                 token = JSON.parse(token);

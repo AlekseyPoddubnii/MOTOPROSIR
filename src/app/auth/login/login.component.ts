@@ -43,7 +43,7 @@ export class LoginComponent implements OnInit {
         });
         this.authService.logout();
 
-        this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/account/events';
+        this.returnUrl = this.route.snapshot.queryParams['/account/events'] || '/account/events';
     }
 
     get f() { return this.loginForm.controls; }
@@ -65,8 +65,11 @@ export class LoginComponent implements OnInit {
         this.authService.signIn(this.loginInfo).subscribe(
                 data => {
                     this.matDialogRef.close();
-                    this.router.navigate([this.returnUrl]);
-                    console.log('succes');
+                    if (localStorage.getItem('entity') && localStorage.getItem('token')) {
+                        window.location.reload();
+                        this.router.navigate(['/account/events']);
+                        console.log('succes');
+                    }
                 },
                 error => {
                     error = JSON.stringify(error.error.message);

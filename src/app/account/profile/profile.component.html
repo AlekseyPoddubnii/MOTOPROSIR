@@ -13,10 +13,12 @@
                         </svg>  
                     </label>
                     <canvas class="profile-avatar" #avatarPreview></canvas>
+                    <img src="{{user.avatar}}" alt="">
                 </div>
                 <div class="profile-info__user">
                     <h2 class="profile-info__user--username">{{user.username}}</h2>
                     <div class="profile-info__user--full-name">
+                        <a href="{{user.avatar}}">link avatar</a>
                         <p class="full-name__name">{{user.firstName}}</p>
                         <p class="full-name__surname">{{user.lastName}}</p>
                     </div>

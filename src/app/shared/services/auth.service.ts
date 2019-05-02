@@ -5,7 +5,7 @@ import { Observable, BehaviorSubject } from 'rxjs';
 import { User } from '../models/user.model';
 import { Registration } from '../models/registration.model';
 import { Authentificate } from '../models/authentificate.model';
-import { tap } from 'rxjs/operators';
+import { tap, map } from 'rxjs/operators';
 
 const httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json', 'Accept': 'application/json', 'Accept-Version': 'v1' })
@@ -42,6 +42,7 @@ export class AuthService {
             localStorage.setItem('entity', JSON.stringify(response.entity));
           }));
     }
+
 
     logout() {
         localStorage.removeItem('token');
