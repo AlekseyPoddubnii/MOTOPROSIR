@@ -79,6 +79,8 @@ export class SettingsComponent implements OnInit {
         this.userSettings.value.gender,
         this.userSettings.value.country,
         this.userSettings.value.city,
+        this.userSettings.value.avatar,
+        this.userSettings.value.cover,
     );
     this.submitted = true;
 

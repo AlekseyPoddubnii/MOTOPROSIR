@@ -4,8 +4,8 @@ import { Subscription } from 'rxjs';
 import { User } from '../../shared/models/user.model';
 import { ActivatedRoute } from '@angular/router';
 import { ProfileService } from '../shared/services/profile.service';
-import { FormGroup } from '@angular/forms';
-import { Photo } from '../shared/models/photo.model';
+import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
+import { Avatar } from '../shared/models/photo.model';
 
 @Component({
   selector: 'app-profile',
@@ -20,6 +20,10 @@ export class ProfileComponent implements OnInit {
   id: number;
   selectedFile: File = null;
   avatarUrl: string;
+  res: any;
+  avatar: string;
+  userSettingsInfo: User;
+  url: string;
 
   constructor(
     private authService: AuthService,
@@ -34,18 +38,6 @@ export class ProfileComponent implements OnInit {
   currentUserSubscription: Subscription;
   currentUser: User;
 
-  onFileSelected(event) {
-    this.selectedFile = <File>event.target.files[0];
-    const fd: FormData = new FormData();
-    fd.append('avatar', this.selectedFile, this.selectedFile.name);
-    console.log(fd);
-    const fileName = this.selectedFile.name;
-    this.profileService.getUrl(fileName).subscribe(res => {
-      this.profileService.postPhoto(res, fd).subscribe(response =>
-        console.log(response));
-    });
-  }
-
 
 
   ngOnInit() {
@@ -58,5 +50,62 @@ export class ProfileComponent implements OnInit {
     let entity: any = localStorage.getItem('entity');
     entity = JSON.parse(entity);
     this.id = entity.id;
+
+    this.profileService.refreshUser$.
+    subscribe(() => {
+      this.getAllUsers();
+    });
+
+    this.getAllUsers();
   }
+  private getAllUsers() {
+    this.profileService.getUser(this.id).
+    subscribe(res => this.user = this.user$[0] = res);
+  }
+
+
+
+  onFileSelected(event) {
+    this.selectedFile = <File>event.target.files[0];
+    const fileName = this.selectedFile.name;
+    this.profileService.getUrl(fileName).subscribe(res => {
+      console.log('link', res);
+      this.res = res;
+      this.profileService.postAvatar(res, this.selectedFile).subscribe(response =>
+        console.log('liiink', this.res),
+      );
+      const avatarInfo = new FormGroup({
+        email: new FormControl(),
+        newPassword: new FormControl(),
+        username: new FormControl(),
+        firstName: new FormControl(),
+        lastName: new FormControl(),
+        gender: new FormControl(),
+        countery: new FormControl(),
+        city: new FormControl(),
+        avatar: new FormControl(),
+        cover: new FormControl(),
+      });
+      this.userSettingsInfo = new User (
+        avatarInfo.value.email = undefined,
+        avatarInfo.value.newPassword = undefined ,
+        avatarInfo.value.username = undefined,
+        avatarInfo.value.firstName = undefined,
+        avatarInfo.value.lastName = undefined,
+        avatarInfo.value.gender = undefined,
+        avatarInfo.value.country = undefined,
+        avatarInfo.value.city = undefined,
+        avatarInfo.value.avatar = this.res,
+        avatarInfo.value.cover = undefined,
+      );
+      console.log(this.userSettingsInfo);
+      this.profileService.putAvatar(this.userSettingsInfo).subscribe(response => {
+        console.log(res);
+      });
+    });
+  }
+
 }
+
+
+

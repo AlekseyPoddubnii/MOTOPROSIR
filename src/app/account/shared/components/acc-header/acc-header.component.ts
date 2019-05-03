@@ -13,6 +13,7 @@ import { Router } from '@angular/router';
 })
 export class AccHeaderComponent implements OnInit, OnDestroy {
     id: number;
+    currentUser: User;
 
     currentUserSubscription: Subscription;
 
@@ -25,9 +26,6 @@ export class AccHeaderComponent implements OnInit, OnDestroy {
             this.currentUser = user;
         });
     }
-  currentUser: User;
-
-    users: User[] = [];
 
     logout() {
         this.authService.logout();

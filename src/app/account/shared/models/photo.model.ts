@@ -1,9 +1,9 @@
-export class Photo {
+export class Avatar {
     id: number;
-    file: File;
+    avatar: string;
     constructor(
-        file: File,
+        avatar: string,
         ) {
-            this.file = file;
+            this.avatar = avatar;
         }
 }
