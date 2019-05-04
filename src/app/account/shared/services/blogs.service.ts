@@ -17,6 +17,7 @@ const httpOptions = {
 export class BlogsService {
     blogs: Blog[];
     private blogsUrl = 'https://pacific-plains-68381.herokuapp.com/api/posts';
+    private blogsUrlMy = 'https://pacific-plains-68381.herokuapp.com/api/posts/my';
 
     constructor(private http: HttpClient) {}
     private _refresh$ = new Subject<void>();

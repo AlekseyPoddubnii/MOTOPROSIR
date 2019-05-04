@@ -18,6 +18,7 @@ export class ProfileComponent implements OnInit {
   user: User;
   user$ = [];
   id: number;
+  userId: number;
   selectedFile: File = null;
   avatarUrl: string;
   res: any;
@@ -43,8 +44,9 @@ export class ProfileComponent implements OnInit {
   ngOnInit() {
     this.route.params.subscribe(params => {
       const id = params['id'];
+      this.userId = id;
       console.log(id);
-      this.profileService.getUser(id).subscribe(user => this.user = this.user$[0] = user);
+      this.getAllUsers();
     });
 
     let entity: any = localStorage.getItem('entity');
@@ -58,8 +60,9 @@ export class ProfileComponent implements OnInit {
 
     this.getAllUsers();
   }
+
   private getAllUsers() {
-    this.profileService.getUser(this.id).
+    this.profileService.getUser(this.userId).
     subscribe(res => this.user = this.user$[0] = res);
   }
 
@@ -95,13 +98,59 @@ export class ProfileComponent implements OnInit {
         avatarInfo.value.gender = undefined,
         avatarInfo.value.country = undefined,
         avatarInfo.value.city = undefined,
-        avatarInfo.value.avatar = this.res,
+        avatarInfo.value.avatar = this.res.split('?')[0],
         avatarInfo.value.cover = undefined,
       );
       console.log(this.userSettingsInfo);
       this.profileService.putAvatar(this.userSettingsInfo).subscribe(response => {
         console.log(res);
       });
+    });
+  }
+
+  onFileSelectedd(event) {
+    this.selectedFile = <File>event.target.files[0];
+    const fileName = this.selectedFile.name;
+    this.profileService.getUrl(fileName).subscribe(res => {
+      console.log('link', res);
+      this.res = res;
+      this.profileService.postAvatar(this.res, this.selectedFile).subscribe(response => {
+        console.log(response);
+        console.log('liiink', this.res);
+      });
+      const avatarInfo = new FormGroup({
+        email: new FormControl(),
+        newPassword: new FormControl(),
+        username: new FormControl(),
+        firstName: new FormControl(),
+        lastName: new FormControl(),
+        gender: new FormControl(),
+        countery: new FormControl(),
+        city: new FormControl(),
+        avatar: new FormControl(),
+        cover: new FormControl(),
+      });
+      this.userSettingsInfo = new User (
+        avatarInfo.value.email = undefined,
+        avatarInfo.value.newPassword = undefined ,
+        avatarInfo.value.username = undefined,
+        avatarInfo.value.firstName = undefined,
+        avatarInfo.value.lastName = undefined,
+        avatarInfo.value.gender = undefined,
+        avatarInfo.value.country = undefined,
+        avatarInfo.value.city = undefined,
+        avatarInfo.value.avatar = undefined,
+        avatarInfo.value.cover = this.res.split('?')[0],
+      );
+      console.log(this.userSettingsInfo);
+      this.profileService.putCover(this.userSettingsInfo).subscribe(
+        data => {
+        console.log(data);
+      },
+      error => {
+        console.log(error);
+      }
+      );
     });
   }
 

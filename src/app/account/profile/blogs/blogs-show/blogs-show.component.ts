@@ -13,6 +13,8 @@ export class BlogsShowComponent implements OnInit {
   blogs$: Blog[];
   blogs: Blog;
   blogId: any;
+  id: any;
+  idd: number;
 
   constructor(
     private blogsService: BlogsService,
@@ -20,6 +22,17 @@ export class BlogsShowComponent implements OnInit {
     ) { }
 
   ngOnInit() {
+    this.route.params.subscribe(params => {
+      this.id = params['id'];
+      this.id = JSON.parse(this.id);
+      console.log('bloggs', this.id);
+    });
+
+    let entity: any = localStorage.getItem('entity');
+    entity = JSON.parse(entity);
+    this.idd = entity.id;
+
+
     this.blogsService.refreshBlogs$.
     subscribe(() => {
       this.getAllBlogs();

@@ -1,21 +1,21 @@
 <div *ngFor="let blogs of blogs$">
-  <div>
+  <div *ngIf="blogs.user_id === id">
     <p>
       <span *ngIf="blogs.id === blogId"><input [(ngModel)]="blogs.title"></span>
-      <span *ngIf="blogs.id !== blogId">{{ blogs.title }}</span>
+      <span *ngIf="blogs.user_id !== id">{{ blogs.title }}</span>
       <span *ngIf="blogs.id === blogId"><input [(ngModel)]="blogs.description"></span>
       <span *ngIf="blogs.id !== blogId">{{ blogs.description }}</span>
       <span>{{ blogs.created_at | date:'medium' }}</span>
       {{ blogs.id }}
+      {{ blogs.user_id }}
+      {{ id }}
       <button *ngIf="blogs.id === blogId" class="button-save" (click)="save(blogs)">save</button>
       <button *ngIf="blogs.id === blogId" (click)="cancel(blogs)">cancel</button>
     </p>
-    <div id="buttonsToHide">
+    <div *ngIf="blogs.user_id === idd" id="buttonsToHide">
       <button *ngIf="blogs.id !== blogId" (click)="delete(blogs)">X</button>
       <button *ngIf="blogs.id !== blogId" (click)="edit(blogs.id)">Edit</button>
     </div>
   </div>
-  <div id="buttonsToUpdate" style="display:none">
-    
-  </div>
+  
 </div>
