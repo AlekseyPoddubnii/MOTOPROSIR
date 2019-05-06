@@ -65,5 +65,17 @@ export class ProfileService {
         );
     }
 
+    putCover(avatar: User): Observable<User> {
+        let entity: any = localStorage.getItem('entity');
+        entity = JSON.parse(entity);
+        const id = entity.id;
+        return this.http.put<User>(`${this.usersUrl}/${id}`, avatar, httpOptionsApi)
+        .pipe(
+            tap(() => {
+                this._refresh$.next();
+            })
+        );
+    }
+
 
 }
