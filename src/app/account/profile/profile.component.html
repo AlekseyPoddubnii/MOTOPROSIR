@@ -2,7 +2,7 @@
 <div *ngFor='let user of user$' class="profile-wrapper">
     <div class="profile__cover" [ngStyle]="user.cover !== null && { 'background-image': 'url(' + user.cover + ')' }">
         <input class="update-cover" type="file" accept="image/*" #coverInput (change)="onFileSelectedd($event)">
-        <button class="profile__cover--update" *ngIf="id === user.id" (click)="coverInput.click()">Update cover photo</button>
+        <button class="profile__cover--update" *ngIf="id === user.id" (click)="coverInput.click()">Оновити фонове зображення</button>
         <div class="profile__cover--profile-info">
             <div class="profile-info__container">                  
                 <div class="profile-info__avatar">
@@ -13,7 +13,7 @@
                         </svg>  
                     </label>
                     <img class="profile-avatar" src="{{user.avatar}}" alt="">
-                    <canvas *ngIf="user.avatar === null" class="profile-avatar" #avatarPreview></canvas>
+                    <canvas class="profile-avatar" #avatarPreview></canvas>
                 </div>
                 <div class="profile-info__user">
                     <h2 class="profile-info__user--username">{{user.username}}</h2>
@@ -23,8 +23,11 @@
                     </div>
                 </div>
             </div>
-            <button class="profile__cover--settings" *ngIf="id === user.id" type="button" routerLink="/account/settings">Account settings</button>
-            <button class="profile__cover--settings" *ngIf="id !== user.id" type="button">Add to friends</button>
+            <div></div>
+            <div>
+                <button class="profile__cover--settings" *ngIf="id === user.id" type="button" routerLink="/account/settings">Налаштування</button>
+                <button class="profile__cover--settings" *ngIf="id !== user.id" type="button">Додати до друзiв</button>
+            </div>
         </div>
         <canvas class="profile__cover--canvas" #canvasPreview></canvas>
     </div>
@@ -37,8 +40,82 @@
         </ul>
     </div>
     <div class="border--margin">
-        <app-blogs *ngIf="id === user.id"></app-blogs>
-        <app-blogs-show></app-blogs-show>
+        <div class="friends">
+            <div class="block--heading">
+                <h2 class="block--headline">Друзi</h2>
+            </div>
+            <div class="content--friends">
+                <div class="block--content">
+                    <a class="block__friendS--info" routerLink="/account/profile/{{user.id}}">
+                        <div class="avatar--border">
+                            <img class="block__friends--avatar" src="{{user.avatar}}" alt="">
+                        </div>
+                        <p class="block__friends--username">{{user.username}}</p>
+                    </a>
+                    <a class="block__friendS--info" routerLink="/account/profile/{{user.id}}">
+                        <div class="avatar--border">
+                            <img class="block__friends--avatar" src="{{user.avatar}}" alt="">
+                        </div>  
+                        <p class="block__friends--username">{{user.username}}</p>
+                    </a>
+                    <a class="block__friendS--info" routerLink="/account/profile/{{user.id}}">
+                        <div class="avatar--border">
+                            <img class="block__friends--avatar" src="{{user.avatar}}" alt="">
+                        </div>
+                        <p class="block__friends--username">{{user.username}}</p>
+                    </a>
+                    <a class="block__friendS--info" routerLink="/account/profile/{{user.id}}">
+                        <div class="avatar--border">
+                            <img class="block__friends--avatar" src="{{user.avatar}}" alt="">
+                        </div>
+                        <p class="block__friends--username">{{user.username}}</p>
+                    </a>
+                    <a class="block__friendS--info" routerLink="/account/profile/{{user.id}}">
+                        <div class="avatar--border">
+                            <img class="block__friends--avatar" src="{{user.avatar}}" alt="">
+                        </div>
+                        <p class="block__friends--username">{{user.username}}</p>
+                    </a>
+                    <a class="block__friendS--info" routerLink="/account/profile/{{user.id}}">
+                        <div class="avatar--border">
+                            <img class="block__friends--avatar" src="{{user.avatar}}" alt="">
+                        </div>
+                        <p class="block__friends--username">{{user.username}}</p>
+                    </a>
+                    <a class="block__friendS--info" routerLink="/account/profile/{{user.id}}">
+                        <div class="avatar--border">
+                            <img class="block__friends--avatar" src="{{user.avatar}}" alt="">
+                        </div>
+                        <p class="block__friends--username">{{user.username}}</p>
+                    </a>
+                    <a class="block__friendS--info" routerLink="/account/profile/{{user.id}}">
+                        <div class="avatar--border">
+                            <img class="block__friends--avatar" src="{{user.avatar}}" alt="">
+                        </div>
+                        <p class="block__friends--username">{{user.username}}</p>
+                    </a>
+                    <a class="block__friendS--info" routerLink="/account/profile/{{user.id}}">
+                        <div class="avatar--border">
+                            <img class="block__friends--avatar" src="{{user.avatar}}" alt="">
+                        </div>
+                        <p class="block__friends--username">{{user.username}}</p>
+                    </a>
+                    <a class="block__friendS--info" routerLink="/account/profile/{{user.id}}">
+                        <div class="avatar--border">
+                            <img class="block__friends--avatar" src="{{user.avatar}}" alt="">
+                        </div>
+                        <p class="block__friends--username">{{user.username}}</p>
+                    </a>
+                </div>
+                <a class="block--link">Пабачити всix друзiв</a>
+            </div>
+        </div>
+        <div class="blogs">
+            <button class="blogs--add" type="button" (click)="showAdd()"><span *ngIf="show === 0">Додати запис</span><span *ngIf="show === 1">Приховати</span></button>
+            <app-blogs class="add--panel" id="addBlog" *ngIf="id === user.id"></app-blogs>
+            <app-blogs-show class="show--panel"></app-blogs-show>
+        </div>
+        
     </div>
     
 </div>
