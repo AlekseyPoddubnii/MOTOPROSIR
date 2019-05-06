@@ -43,7 +43,7 @@ export class RegisterComponent implements OnInit {
     ) {
         // redirect to home if already logged in
         if (this.authService.currentUserValue) {
-            this.router.navigate(['/account']);
+            this.router.navigate(['/account/events']);
         }
     }
 

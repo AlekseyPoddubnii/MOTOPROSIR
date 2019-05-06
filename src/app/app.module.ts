@@ -16,6 +16,7 @@ import { PublicModule } from './public/public.module';
 import { LoginComponent } from './auth/login/login.component';
 import { AccountModule } from './account/account.module';
 import { JwtInterceptor } from './auth/jwt.interceptor';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 
 
@@ -23,6 +24,7 @@ import { JwtInterceptor } from './auth/jwt.interceptor';
   declarations: [
     AppComponent,
     LoginComponent,
+    NotFoundComponent,
   ],
   imports: [
     BrowserModule,
