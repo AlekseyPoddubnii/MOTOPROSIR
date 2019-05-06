@@ -2,6 +2,7 @@
   padding-top: 20px;
   width: 1170px;
   margin: 0 auto;
+  position: relative;
 }
 
 .profile__user__cover {
@@ -59,6 +60,7 @@
   height: 33px;
   padding: 10px 23px;
   font-size: 12px;
+  right: 50px;
   font-weight: 600;
   color: #FFF;
   background-color: rgba(0, 0, 0, 0.6);
@@ -78,14 +80,14 @@
 .profile__cover--profile-info {
   display: flex;
   justify-content: space-between;
-  width: 1070px;
+  padding: 0 50px;
   margin-top: 115px;
-  margin-left: 50px;
-  position: absolute;
+  // position: relative;
 }
 
 .profile-info__container {
   display: flex;
+  position: absolute;
 } 
 
 .profile-info__avatar {
@@ -103,6 +105,7 @@
 .profile-avatar {
   width: 100%;
   height: 100%;
+  
 }
 
 .profile-info__avatar--update {
@@ -176,5 +179,125 @@
 }
 
 .border--margin {
+  display: flex;
+  justify-content: space-between;
   margin-top: 65px;
 }
+
+.friends {
+  text-align: center;
+  width: 440px;
+  height: 490px;
+  border: solid 1px #CCC; 
+  background-color: #FFF;
+}
+
+.content--friends {
+  padding: 30px;
+  text-align: center;
+}
+
+.block--heading {
+  background-color: #000;
+}
+
+.block--headline {
+  padding: 20px 0;
+  font-size: 16px;
+  text-align: center;
+  color: #FFF;
+}
+
+.block--content {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  max-height: 400px;
+  padding-bottom: 15px;
+}
+
+.block__friendS--info {
+  display: flex;
+  margin-bottom: 15px;
+  text-decoration: none;
+  color: #000;
+}
+
+.avatar--border {
+  position: relative;
+  width: 50px;
+  height: 50px;
+  background-color: #FFF;
+  border-radius: 50%;
+  border: solid 1px #000;
+}
+
+.block__friends--avatar {
+  position: absolute;
+  border-radius: 50%;
+  top: 5px;
+  left: 5px;
+  width: 40px;
+  height: 40px;
+}
+
+.block__friends--username {
+  font-size: 14px;
+  padding: 16px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.block--link {
+  margin-top: 15px;
+  color: #888;
+  text-decoration: none;
+  font-size: 14px;
+  transition: all .2s linear;
+  -webkit-transition: all .2s linear;
+  -moz-transition: all .2s linear;
+  -o-transition: all .2s linear;
+
+  &:hover {
+    color: #666;
+    text-decoration: underline;
+    cursor: pointer;
+  }
+}
+
+
+.blogs {
+  width: 700px;
+}
+
+.blogs--add {
+  display: inline-block;
+  text-align: center;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  font-size: 16px;
+  outline: none;
+  border: none;
+  width: 100%;
+  background-color: #000;
+  color: #FFF;
+  padding: 20px;
+  font-weight: 700;
+  margin-bottom: 15px;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.add--panel {
+  display: none;
+}
+
+.show--panel {
+  display: flex;
+  flex-direction: column-reverse;
+}
+

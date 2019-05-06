@@ -25,6 +25,8 @@ export class ProfileComponent implements OnInit {
   avatar: string;
   userSettingsInfo: User;
   url: string;
+  // tslint:disable-next-line:no-inferrable-types
+  show: number = 0;
 
   constructor(
     private authService: AuthService,
@@ -64,6 +66,16 @@ export class ProfileComponent implements OnInit {
   private getAllUsers() {
     this.profileService.getUser(this.userId).
     subscribe(res => this.user = this.user$[0] = res);
+  }
+
+  showAdd() {
+    if (this.show === 1) {
+      document.getElementById('addBlog').style.display = 'none';
+      this.show = 0;
+    } else if (this.show === 0) {
+      document.getElementById('addBlog').style.display = 'block';
+      this.show = 1;
+    }
   }
 
 
@@ -145,6 +157,7 @@ export class ProfileComponent implements OnInit {
       console.log(this.userSettingsInfo);
       this.profileService.putCover(this.userSettingsInfo).subscribe(
         data => {
+          // window.location.reload();
         console.log(data);
       },
       error => {

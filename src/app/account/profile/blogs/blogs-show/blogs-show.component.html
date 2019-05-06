@@ -1,21 +1,39 @@
-<div *ngFor="let blogs of blogs$">
-  <div *ngIf="blogs.user_id === id">
-    <p>
-      <span *ngIf="blogs.id === blogId"><input [(ngModel)]="blogs.title"></span>
-      <span *ngIf="blogs.user_id !== id">{{ blogs.title }}</span>
-      <span *ngIf="blogs.id === blogId"><input [(ngModel)]="blogs.description"></span>
-      <span *ngIf="blogs.id !== blogId">{{ blogs.description }}</span>
-      <span>{{ blogs.created_at | date:'medium' }}</span>
-      {{ blogs.id }}
-      {{ blogs.user_id }}
-      {{ id }}
-      <button *ngIf="blogs.id === blogId" class="button-save" (click)="save(blogs)">save</button>
-      <button *ngIf="blogs.id === blogId" (click)="cancel(blogs)">cancel</button>
-    </p>
-    <div *ngIf="blogs.user_id === idd" id="buttonsToHide">
-      <button *ngIf="blogs.id !== blogId" (click)="delete(blogs)">X</button>
-      <button *ngIf="blogs.id !== blogId" (click)="edit(blogs.id)">Edit</button>
+<div class="blog--body" *ngFor="let blogs of blogs$">
+  <div class="blog--content" *ngIf="blogs.user_id === id">
+    <div class="block--heading">
+      <div class="block--flex">
+        <p class="headline" *ngFor="let user of user$"><a class="blog--ovner" routerLink="/account/profile/{{user.id}}">
+          <div class="avatar--border-blog">
+              <img class="block__owner--avatar-blog" src="{{user.avatar}}" alt="">
+          </div>
+          <span class="blog--owner-username">{{user.username}}</span></a><span class="blog--owner-username">додав(ла) запис</span></p>
+          <p class="block--time">{{ blogs.created_at | date:'medium' }}</p>
+      </div>
+      <div class="owner--buttons" *ngIf="blogs.user_id === idd" id="buttonsToHide">
+        <button class="owner--button-edit" *ngIf="blogs.id !== blogId" type="button" (click)="edit(blogs.id)">
+          <svg class="icon--pencil-edit">
+            <use xlink:href="assets/sprite/sprite-sheet.svg#pencil-edit"></use>
+          </svg>
+        </button>
+        <button class="owner--button-delete" *ngIf="blogs.id !== blogId" type="button" (click)="delete(blogs)">
+          <svg class="icon--delete-photo">
+            <use xlink:href="assets/sprite/sprite-sheet.svg#delete-photo"></use>
+          </svg>
+        </button>
+      </div>
     </div>
+    <div class="blog--title">
+        <input class="blog--input" *ngIf="blogs.id === blogId" [(ngModel)]="blogs.title">
+        <p class="blog--title-content" *ngIf="blogs.id !== blogId">{{ blogs.title }}</p>
+    </div>
+    <div class="blog--description">
+        <textarea class="blog-textarea" id="textarea" (keyup)="autogrow()" *ngIf="blogs.id === blogId" [(ngModel)]="blogs.description"></textarea>
+        <p class="blog--description-content" *ngIf="blogs.id !== blogId">{{ blogs.description }}</p>
+    </div>
+      <!-- <img *ngIf="blogs.picture" src="{{blogs.picture}}" width="100" height="100" alt=""> -->
+      <div class="btn--box" *ngIf="blogs.id === blogId">
+        <button class="blog--reset"  (click)="cancel(blogs)">Скасувати</button>
+        <button class="blog--btn" (click)="save(blogs)">Зберегти</button>
+      </div>
   </div>
-  
 </div>

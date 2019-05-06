@@ -1,79 +1,116 @@
 
-<form *ngFor="let user of user$" [formGroup]="userSettings" (ngSubmit)="onSubmit()">
-    <div>
-        <label for="">Username</label>
-        <input class="input" type="text" formControlName="username" [ngClass]="{ 'is-invalid': submitted && f.username.errors }" [(ngModel)]="user.username">
-        <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
-      		<div class="error" *ngIf="f.username.errors.required">Enter your new username</div>
-      		<div class="error" *ngIf="f.username.errors.minlength">Title must be no more than 3 characters</div>
-    	</div>
-    </div>
-    <div>
-        <label for="">E-mail</label>
-        <input class="input" type="text" formControlName="email" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" [(ngModel)]="user.email">
-        <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
-      		<div class="error" *ngIf="f.email.errors.required">Enter your new email</div>
-      		<div class="error" *ngIf="f.email.errors.email">Entered e-mail is incorrect</div>
-    	</div>
-    </div>
-    <div>
-        <label for="">Name</label>
-        <input class="input" type="text" formControlName="firstName" [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }" [(ngModel)]="user.firstName">
-        <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
-      		<div class="error" *ngIf="f.firstName.errors.required">Enter your name</div>
-      		<div class="error" *ngIf="f.firstName.errors.minlength">Name must be not less than 2 characters</div>
-    	</div>
-    </div>
-    <div>
-        <label for="">Surname</label>
-        <input class="input" type="text" formControlName="lastName" [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }" [(ngModel)]="user.lastName">
-        <div *ngIf="submitted && f.lastName.errors" class="invalid-feedback">
-      		<div class="error" *ngIf="f.lastName.errors.required">Enter your surname</div>
-      		<div class="error" *ngIf="f.lastName.errors.minlength">Surname must be not less than 3 characters</div>
-    	</div>
-    </div>
-    <div>
-        <label for="">Gender</label>
-        <input class="input" type="text" formControlName="gender" [ngClass]="{ 'is-invalid': submitted && f.gender.errors }" [(ngModel)]="user.gender">
-        <div *ngIf="submitted && f.gender.errors" class="invalid-feedback">
-      		<div class="error" *ngIf="f.gender.errors.required">Select your gender</div>
-    	</div>
-    </div>
-    <div>
-        <label for="">Country</label>
-        <input class="input" type="text" formControlName="country" [ngClass]="{ 'is-invalid': submitted && f.country.errors }" [(ngModel)]="user.country">
-        <div *ngIf="submitted && f.country.errors" class="invalid-feedback">
-      		<div class="error" *ngIf="f.country.errors.required">Select a country</div>
-    	</div>
-    </div>
-    <div>
-        <label for="">City</label>
-        <input class="input" type="text" formControlName="city" [ngClass]="{ 'is-invalid': submitted && f.city.errors }" [(ngModel)]="user.city">
-        <div *ngIf="submitted && f.city.errors" class="invalid-feedback">
-      		<div class="error" *ngIf="f.city.errors.required">Select a city</div>
-    	</div>
-    </div>
-    <div>
-        <label for="">Last password</label>
-        <input class="input" type="password" formControlName="lastPassword" [ngClass]="{ 'is-invalid': submitted && f.lastPassword.errors }">
-        <div *ngIf="submitted && f.lastPassword.errors" class="invalid-feedback">
-      		<div class="error" *ngIf="f.lastPassword.errors.required">Enter your last password</div>
-    	</div>
-    </div>
-    <div>
-        <label for="">New password</label>
-        <input class="input" type="password" formControlName="newPassword" [ngClass]="{ 'is-invalid': submitted && f.newPassword.errors }" [(ngModel)]="user.password">
-        <div *ngIf="submitted && f.newPassword.errors" class="invalid-feedback">
-      		<div class="error" *ngIf="f.newPassword.errors.required">Enter your new password</div>
-    	</div>
-    </div>
-    <div>
-        <label for="">Confirm new password</label>
-        <input class="input" type="password" formControlName="ConfirmNewPassword" [ngClass]="{ 'is-invalid': submitted && f.ConfirmNewPassword.errors }">
-        <div *ngIf="submitted && f.ConfirmNewPassword.errors" class="invalid-feedback">
-              <div class="error" *ngIf="f.ConfirmNewPassword.errors.required">Confirm your new password</div>
-              <div class="error" *ngIf="f.ConfirmNewPassword.errors.mustMatch">Password do not match</div>
-    	</div>
-    </div>
-    <button (click)="save(user)">Submit</button>
-</form>
+<div class="settings-wrapper">
+    <h2 class="settings--headline">Налаштування профiлю</h2>
+    <form class="settings--form" *ngFor="let user of user$" [formGroup]="userSettings" (ngSubmit)="onSubmit()">
+        <div class="settings--container">
+            <label class="settings--label" for="username">Iм'я користувача</label>
+            <input class="settings--input" type="text" formControlName="username" id="username"  placeholder="Введiть iм'я користувача" [ngClass]="{ 'is-invalid': submitted && f.username.errors }" [(ngModel)]="user.username">
+            <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+      		    <div class="error" *ngIf="f.username.errors.required">Enter your new username</div>
+      		    <div class="error" *ngIf="f.username.errors.minlength">Title must be no more than 3 characters</div>
+    	    </div>
+        </div>
+        <div class="settings--container">
+            <label class="settings--label" for="email">Електронна пошта</label>
+            <input class="settings--input" type="text" formControlName="email" id="email" placeholder="Введiть email" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" [(ngModel)]="user.email">
+            <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+      		    <div class="error" *ngIf="f.email.errors.required">Enter your new email</div>
+      		    <div class="error" *ngIf="f.email.errors.email">Entered e-mail is incorrect</div>
+    	    </div>
+        </div>
+        <div class="settings--container">
+            <label class="settings--label" for="name">Ваше iм'я</label>
+            <input class="settings--input" type="text" formControlName="firstName" id="name" placeholder="Введiть iм'я" [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }" [(ngModel)]="user.firstName">
+            <!-- <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
+      		    <div class="error" *ngIf="f.firstName.errors.required">Enter your name</div>
+      		    <div class="error" *ngIf="f.firstName.errors.minlength">Name must be not less than 2 characters</div>
+    	    </div> -->
+        </div>
+        <div class="settings--container">
+            <label class="settings--label" for="surname">Ваше прiзвище</label>
+            <input class="settings--input" type="text" formControlName="lastName" id="surname" placeholder="Введiть прiзвище" [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }" [(ngModel)]="user.lastName">
+            <!-- <div *ngIf="submitted && f.lastName.errors" class="invalid-feedback">
+      		    <div class="error" *ngIf="f.lastName.errors.required">Enter your surname</div>
+      		    <div class="error" *ngIf="f.lastName.errors.minlength">Surname must be not less than 3 characters</div>
+    	    </div> -->
+        </div>
+        <div class="settings--container">
+            <label class="settings--label" for="gender">Ваша стать</label>
+            <select class="settings--select" formControlName="gender" id="gender" [ngClass]="{ 'is-invalid': submitted && f.gender.errors }" [(ngModel)]="user.gender">
+                <option value="" *ngIf="user.gender === null" disabled selected hidden>Виберiть стать</option>
+                <option value="{{user.gender}}" *ngIf="user.gender !== null">{{user.gender}}</option>
+                <option value="m">m</option>
+                <option value="f">f</option>
+            </select>
+            <!-- <div *ngIf="submitted && f.gender.errors" class="invalid-feedback">
+      		    <div class="error" *ngIf="f.gender.errors.required">Select your gender</div>
+    	    </div> -->
+        </div>
+        <div class="settings--container">
+            <label class="settings--label" for="country">Ваша країна</label>
+            <select class="settings--select" formControlName="country" id="country" [ngClass]="{ 'is-invalid': submitted && f.country.errors }" >
+                <option value="" *ngIf="user.country === null" disabled selected hidden>Виберiть країну</option>
+                <option value="{{user.country}}" *ngIf="user.country !== null" selected>{{user.country}}</option>
+                <option value="">Україна</option>
+            </select>
+            <!-- <div *ngIf="submitted && f.country.errors" class="invalid-feedback">
+      		    <div class="error" *ngIf="f.country.errors.required">Select a country</div>
+    	    </div> -->
+        </div>
+        <div class="settings--container">
+            <label class="settings--label" for="city">Ваше мiсто</label>
+            <select class="settings--select" formControlName="city" id="city" [ngClass]="{ 'is-invalid': submitted && f.city.errors }">
+                <option value="" *ngIf="user.city === null"  disabled selected hidden>Виберiть мiсто</option>
+                <option value="{{user.city}}" *ngIf="user.city !== null">{{user.city}}</option>
+                <option value="Київ">Київ</option>
+                <option value="Харкiв">Харкiв</option>
+                <option value="Одеса">Одеса</option>
+                <option value="Запорiжжя">Запорiжжя</option>
+                <option value="Львiв">Львiв</option>
+                <option value="Кривий Рiг">Кривий Рiг</option>
+                <option value="Миколаїв">Миколаїв</option>
+                <option value="Вiнниця">Вiнниця</option>
+                <option value="Херсон">Херсон</option>
+                <option value="Полтава">Полтава</option>
+                <option value="Чернiгiв">Чернiгiв</option>
+                <option value="Черкаси">Черкаси</option>
+                <option value="Житомир">Житомир</option>
+                <option value="Суми">Суми</option>
+                <option value="Хмельницький">Хмельницький</option>
+                <option value="Чернiвцi">Чернiвцi</option>
+                <option value="Горлiвка">Горлiвка</option>
+                <option value="Рiвне">Рiвне</option>
+                <option value="Кам'янське">Кам'янське</option>
+            </select>
+            <!-- <div *ngIf="submitted && f.city.errors" class="invalid-feedback">
+      		    <div class="error" *ngIf="f.city.errors.required">Select a city</div>
+    	    </div> -->
+        </div>
+        <!-- <div>
+            <label for="">Last password</label>
+            <input class="input" type="password" formControlName="lastPassword" [ngClass]="{ 'is-invalid': submitted && f.lastPassword.errors }">
+            <div *ngIf="submitted && f.lastPassword.errors" class="invalid-feedback">
+      	    	<div class="error" *ngIf="f.lastPassword.errors.required">Enter your last password</div>
+    	    </div>
+        </div>
+        <div>
+            <label for="">New password</label>
+            <input class="input" type="password" formControlName="newPassword" [ngClass]="{ 'is-invalid': submitted && f.newPassword.errors }" [(ngModel)]="user.password">
+            <div *ngIf="submitted && f.newPassword.errors" class="invalid-feedback">
+      	    	<div class="error" *ngIf="f.newPassword.errors.required">Enter your new password</div>
+    	    </div>
+        </div>
+        <div>
+            <label for="">Confirm new password</label>
+            <input class="input" type="password" formControlName="ConfirmNewPassword" [ngClass]="{ 'is-invalid': submitted && f.ConfirmNewPassword.errors }">
+            <div *ngIf="submitted && f.ConfirmNewPassword.errors" class="invalid-feedback">
+                <div class="error" *ngIf="f.ConfirmNewPassword.errors.required">Confirm your new password</div>
+                <div class="error" *ngIf="f.ConfirmNewPassword.errors.mustMatch">Password do not match</div>
+    	    </div>
+        </div> -->
+        <div class="settings--btns">
+            <button class="settings--btn-save" (click)="save(user)">Зберегти</button>
+            <button class="settings--btn-reset" type="button" (click)="resetSettings()">Скасувати змiни</button>
+        </div>
+    </form>
+</div>

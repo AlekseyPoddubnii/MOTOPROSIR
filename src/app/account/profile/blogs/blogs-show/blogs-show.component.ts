@@ -3,6 +3,8 @@ import { Blog } from '../../../shared/models/blog.model';
 import { BlogsService } from '../../../shared/services/blogs.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { of, Observable } from 'rxjs';
+import { User } from 'src/app/shared/models/user.model';
+import { ProfileService } from 'src/app/account/shared/services/profile.service';
 
 @Component({
   selector: 'app-blogs-show',
@@ -15,10 +17,14 @@ export class BlogsShowComponent implements OnInit {
   blogId: any;
   id: any;
   idd: number;
+  user: User;
+  userId: number;
+  user$ = [];
 
   constructor(
     private blogsService: BlogsService,
     private route: ActivatedRoute,
+    private profileService: ProfileService,
     ) { }
 
   ngOnInit() {
@@ -26,6 +32,7 @@ export class BlogsShowComponent implements OnInit {
       this.id = params['id'];
       this.id = JSON.parse(this.id);
       console.log('bloggs', this.id);
+      this.getAllUsers();
     });
 
     let entity: any = localStorage.getItem('entity');
@@ -39,11 +46,31 @@ export class BlogsShowComponent implements OnInit {
     });
 
     this.getAllBlogs();
+
+    this.profileService.refreshUser$.
+    subscribe(() => {
+      this.getAllUsers();
+    });
+
+    this.getAllUsers();
   }
+
 
   private getAllBlogs() {
     this.blogsService.getBlogs().
     subscribe(data => this.blogs$ = data);
+  }
+
+  private getAllUsers() {
+    this.profileService.getUser(this.id).
+    subscribe(res => this.user = this.user$[0] = res);
+  }
+
+  autogrow() {
+    const textArea = document.getElementById('textarea');
+    textArea.style.overflow = 'hidden';
+    textArea.style.height = '150px';
+    textArea.style.height = textArea.scrollHeight + 'px';
   }
 
   edit(value) {

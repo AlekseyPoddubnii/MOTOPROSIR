@@ -1,0 +1,234 @@
+.blog--content {
+    background-color: #FFF;
+    border: solid 1px #CCC;
+    margin-bottom: 15px;
+    padding: 30px;
+    position: relative;
+}
+
+.block--heading {
+    display: flex;
+    justify-content: space-between;
+}
+
+.headline {
+    display: flex;
+}
+
+.blog--ovner {
+    display: flex;
+    margin-right: 10px;
+    text-decoration: none;
+    color: #000;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.blog--owner-username {
+    padding-top: 14.5px;
+}
+
+.avatar--border-blog {
+    position: relative;
+    width: 50px;
+    height: 50px;
+    background-color: #FFF;
+    border-radius: 50%;
+    border: solid 1px #000;
+    margin-right: 20px;
+}
+  
+.block__owner--avatar-blog {
+    position: absolute;
+    border-radius: 50%;
+    top: 5px;
+    left: 5px;
+    width: 40px;
+    height: 40px;
+}
+
+.block--flex {
+    display: flex;
+}
+
+.block--time {
+    
+    padding-top: 19px;
+    margin-left: 20px;
+    color: #888;
+    font-size: 12px;
+}
+
+.owner--buttons {
+    display: flex;
+}
+
+.icon--pencil-edit {
+    padding: 5px;
+    width: 20px;
+    height: 20px;
+    fill: #CCC;
+    transition: all .2s linear;
+    -webkit-transition: all .2s linear;
+    -moz-transition: all .2s linear;
+    -o-transition: all .2s linear;
+
+    &:hover {
+        fill: #888;
+        cursor: pointer;
+    }
+}
+
+.icon--delete-photo {
+    width: 22px;
+    height: 22px;
+    fill: #CCC;
+    transition: all .2s linear;
+    -webkit-transition: all .2s linear;
+    -moz-transition: all .2s linear;
+    -o-transition: all .2s linear;
+
+    &:hover {
+        fill: rgb(255, 95, 95);
+        cursor: pointer;
+    }
+}
+
+.owner--button-delete {
+    text-decoration: none;
+    border: none;
+    background: none;
+    outline: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.owner--button-edit {
+    margin-right: 10px;
+    text-decoration: none;
+    border: none;
+    background: none;
+    outline: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.blog--title {
+    margin-top: 30px;
+}
+
+
+.blog--description {
+    margin-top: 15px;
+}
+
+.blog--description-content {
+    padding-right: 30px;
+    line-height: 1.5;
+    font-size: 16px;
+    width: 630px;
+
+}
+
+.blog--title-content {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.blog--input {
+    padding: 10px 5px; 
+    display: block;
+    width: 100%;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #000;
+    background-color: #fff;
+    border: none;
+    border-bottom: solid 1px #CCC;
+    outline: none;
+    transition: all .3s linear;
+    -webkit-transition: all .3s linear;
+    -moz-transition: all .3s linear;
+    -o-transition: all .3s linear;
+
+    &:focus {
+        border-bottom: solid 1px #000;
+    }
+}
+
+.blog-textarea {
+    padding: 10px 5px; 
+    display: block;
+    width: 100%;
+    height: 150px;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #000;
+    background-color: #fff;
+    resize: none;
+    border: none;
+    border-bottom: solid 1px #CCC;
+    outline: none;
+    box-sizing: border-box;
+
+    &:focus {
+        border-bottom: solid 1px #000;
+    }
+}
+
+.btn--box {
+    padding: 30px 0 0 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+.blog--reset {
+    color: #888;
+    text-decoration: none;
+    font-size: 14px;
+    transition: all .2s linear;
+    -webkit-transition: all .2s linear;
+    -moz-transition: all .2s linear;
+    -o-transition: all .2s linear;
+    border: none;
+    background: none;
+    outline: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    margin-right: 30px;
+
+    &:hover {
+        color: #666;
+        text-decoration: underline;
+        cursor: pointer;
+    }
+}
+
+.blog--btn {
+    padding: 15px 100px;
+    display: inline-block;
+    text-align: center;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    font-size: 14px;
+    outline: none;
+    border: none;
+    background-color: #000;
+    color: #FFF;
+    font-weight: 700;
+
+    &:hover {
+        cursor: pointer;
+    }
+}

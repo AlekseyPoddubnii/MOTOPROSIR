@@ -1,16 +1,27 @@
 <div class="progile--right-wrapper">
   	<form class="profile-bologs" [formGroup]="blogsCreateForm" (ngSubmit)="onSubmit()">
-    	<input type="text" formControlName="title" [ngClass]="{ 'is-invalid': submitted && f.title.errors }">
-    	<div *ngIf="submitted && f.title.errors" class="invalid-feedback">
-      		<div class="error" *ngIf="f.title.errors.required">Enter title of your post</div>
-      		<div class="error" *ngIf="f.title.errors.maxlength">Title must be no more than 25 characters</div>
-    	</div>
-		<input type="text" formControlName="description" [ngClass]="{ 'is-invalid': submitted && f.description.errors }">
-		<div *ngIf="submitted && f.description.errors" class="invalid-feedback">
-			<div class="error" *ngIf="f.description.errors.required">Enter description of your post</div>
-			<div class="error" *ngIf="f.description.errors.minlength">Description must be not less than 5 characters</div>
-			<div class="error" *ngIf="f.description.errors.maxlength">Description must be no more than 255 characters</div>
-	  	</div>
-    	<button>Create</button>
+		<div class="title--group">
+			<input class="blog--input" type="text" placeholder="Введiть заголовк" formControlName="title" [ngClass]="{ 'is-invalid': submitted && f.title.errors }">
+    		<div *ngIf="submitted && f.title.errors" class="invalid-feedback">
+      			<div class="error" *ngIf="f.title.errors.required">Введiть заголовок до вашого запису</div>
+      			<div class="error" *ngIf="f.title.errors.maxlength">Заголовок повынен бути не бiльше 128-мы символiв</div>
+    		</div>
+		</div>
+		<div class="description--input">
+			<textarea class="blog-textarea" id="textarea" (keyup)="autogrow()" type="text" placeholder="Введiть запис" rows="3" formControlName="description" [ngClass]="{ 'is-invalid': submitted && f.description.errors }"></textarea>
+				<div *ngIf="submitted && f.description.errors" class="invalid-feedback">
+					<div class="error" *ngIf="f.description.errors.required">Введiть запис</div>
+					<div class="error" *ngIf="f.description.errors.minlength">Запис повинен бути не менше 5-ти символiв</div>
+					<div class="error" *ngIf="f.description.errors.maxlength">Запис повынен бути не бiльше 1000-чi символiв</div>
+				</div>
+		</div>
+		
+		<!-- <img [src]="imgUrl" height="50%" width="50%" *ngIf="imgUrl !== null">
+		<button *ngIf="imgUrl !== null" (click)="deleteImg()">Delere img</button>
+		<input type="file" accept="image/*" (change)="onPictureSelected($event)"> -->
+		<div class="btn--box">
+			<button class="blog--reset" type="button" (click)="resetForm()">Очистити</button>
+			<button class="blog--btn">Додати</button>
+		</div>
   	</form>
 </div>

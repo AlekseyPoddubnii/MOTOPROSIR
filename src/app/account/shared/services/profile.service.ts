@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders, HttpParams, HttpEvent, HttpRequest } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams, HttpEvent, HttpRequest, HttpEventType } from '@angular/common/http';
 import { Observable, Subject, of } from 'rxjs';
 
 import { User } from 'src/app/shared/models/user.model';
@@ -48,9 +48,12 @@ export class ProfileService {
         return this.http.get(`${this.usersUrl}/${id}/presigned_url`, { params });
     }
 
-    postAvatar(url, file): Observable<any> {
+    postAvatar(url, file) {
         console.log(file);
-        return this.http.put(url, file);
+        return this.http.put(url, file, {
+            reportProgress: true,
+            observe: 'events',
+        });
     }
 
     putAvatar(avatar: User): Observable<User> {

@@ -59,6 +59,11 @@ export class SettingsComponent implements OnInit {
     this.getAllUsers();
   }
 
+  resetSettings() {
+    this.userSettings.reset();
+    //   this.blogsCreateForm.setErrors(null);
+  }
+
   private getAllUsers() {
     this.settingsService.getUser().
     subscribe(res => this.users$ = this.user$[0] = res);

@@ -1,0 +1,114 @@
+.progile--right-wrapper {
+    border: solid 1px #CCC;
+    background-color: #FFF;
+    width: 698px;
+    margin-bottom: 15px;
+}
+
+.title--group {
+    padding: 30px 30px 15px 30px;
+}
+
+.blog--input {
+    padding: 10px 5px; 
+    display: block;
+    width: 100%;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #000;
+    background-color: #fff;
+    border: none;
+    border-bottom: solid 1px #CCC;
+    outline: none;
+    transition: all .3s linear;
+    -webkit-transition: all .3s linear;
+    -moz-transition: all .3s linear;
+    -o-transition: all .3s linear;
+
+    &:focus {
+        border-bottom: solid 1px #000;
+    }
+}
+
+.error {
+    padding-top: 10px;
+    color: red;
+    font-size: 12px;
+}
+
+.description--input {
+    padding: 15px 30px 30px 30px;
+}
+
+.blog-textarea {
+    padding: 10px 5px; 
+    display: block;
+    width: 100%;
+    height: 150px;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #000;
+    background-color: #FFF;
+    resize: none;
+    border: none;
+    border-bottom: solid 1px #CCC;
+    outline: none;
+    box-sizing: border-box;
+
+    &:focus {
+        border-bottom: solid 1px #000;
+    }
+}
+
+.btn--box {
+    padding: 0 30px 30px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+.blog--reset {
+    color: #888;
+    text-decoration: none;
+    font-size: 14px;
+    transition: all .2s linear;
+    -webkit-transition: all .2s linear;
+    -moz-transition: all .2s linear;
+    -o-transition: all .2s linear;
+    border: none;
+    background: none;
+    outline: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    margin-right: 30px;
+
+    &:hover {
+        color: #666;
+        text-decoration: underline;
+        cursor: pointer;
+    }
+}
+
+.blog--btn {
+    padding: 15px 100px;
+    display: inline-block;
+    text-align: center;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    font-size: 14px;
+    outline: none;
+    border: none;
+    background-color: #000;
+    color: #FFF;
+    font-weight: 700;
+
+    &:hover {
+        cursor: pointer;
+    }
+}
