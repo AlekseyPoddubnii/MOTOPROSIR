@@ -28,6 +28,8 @@ export class ProfileComponent implements OnInit {
   // tslint:disable-next-line:no-inferrable-types
   show: number = 0;
 
+  blogsLength: number;
+
   constructor(
     private authService: AuthService,
     private route: ActivatedRoute,

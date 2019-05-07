@@ -12,13 +12,15 @@ import { EventComponent } from './public/event/event.component';
 import { SettingsComponent } from './account/settings/settings.component';
 import { ProfileComponent } from './account/profile/profile.component';
 import { EventDetailComponent } from './account/events/event-detail/event-detail.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home-page', pathMatch: 'full' },
   { path: 'index', component: HomePageComponent },
   { path: 'account', loadChildren: './account/account.module#AccountModule', canActivate: [AuthGuard]},
   { path: 'events/event', component: EventComponent },
-  { path: 'about', component: AboutPageComponent }
+  { path: 'about', component: AboutPageComponent },
+  { path: '**', component: NotFoundComponent }
 ];
 
 @NgModule({

@@ -1,0 +1,17 @@
+<div>
+  <div class="not-found--heading">
+    <h3 class="not-found--headline">404</h3>
+    <p class="not-found--paragraph">Сторiнка не знайдена</p>
+    <p class="not-found--paragraph-2">На жаль, такої сторінки не існує. Ймовірно вона була видалена або її ніколи не існувало.</p>
+    <div class="not-found--nav" *ngIf="id === 1">
+      <a class="not-found--link" routerLink="/account/event">Iвенти</a>
+      <a class="not-found--link">Чат</a>
+      <a class="not-found--link" routerLink="/account/profile/{{id}}">Профiль</a>
+    </div>
+    <div class="not-found--nav" *ngIf="id === 0">
+      <a class="not-found--link" (click)="openModalLog()">Уввiйти</a>
+      <a class="not-found--link" (click)="openModal('custom-modal-2')">Зареєструватися</a>
+    </div>
+    <button class="not-found--button" type="button" (click)="backClicked()">Назад</button>
+  </div>
+</div>
