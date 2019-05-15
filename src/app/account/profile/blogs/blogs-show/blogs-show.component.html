@@ -1,16 +1,15 @@
 <div class="blog--body" *ngFor="let blogs of blogs$">
-    <!-- {{blogs$.length }} -->
-  <div class="blog--content" *ngIf="blogs.user_id === id">
+  <div class="blog--content">
     <div class="block--heading">
       <div class="block--flex">
-        <p class="headline" *ngFor="let user of user$"><a class="blog--ovner" routerLink="/account/profile/{{user.id}}">
+        <p class="headline" *ngFor="let user of user$"><a class="blog--ovner" routerLink="/account/profile/{{blogs.user .id}}">
           <div class="avatar--border-blog">
-              <img class="block__owner--avatar-blog" src="{{user.avatar}}" alt="">
+              <img class="block__owner--avatar-blog" src="{{blogs.user.avatar}}" alt="">
           </div>
-          <span class="blog--owner-username">{{user.username}}</span></a><span class="blog--owner-username">додав(ла) запис</span></p>
+          <span class="blog--owner-username">{{blogs.user.username}}</span></a><span class="blog--owner-username">додав(ла) запис</span></p>
           <p class="block--time">{{ blogs.created_at | date:'medium' }}</p>
       </div>
-      <div class="owner--buttons" *ngIf="blogs.user_id === idd" id="buttonsToHide">
+      <div class="owner--buttons" *ngIf="blogs.user.id === idd" id="buttonsToHide">
         <button class="owner--button-edit" *ngIf="blogs.id !== blogId" type="button" (click)="edit(blogs.id)">
           <svg class="icon--pencil-edit">
             <use xlink:href="assets/sprite/sprite-sheet.svg#pencil-edit"></use>
@@ -31,10 +30,12 @@
         <textarea class="blog-textarea" id="textarea" (keyup)="autogrow()" *ngIf="blogs.id === blogId" [(ngModel)]="blogs.description"></textarea>
         <p class="blog--description-content" *ngIf="blogs.id !== blogId">{{ blogs.description }}</p>
     </div>
-      <!-- <img *ngIf="blogs.picture" src="{{blogs.picture}}" width="100" height="100" alt=""> -->
+      <img class="blog--picture" *ngIf="blogs.picture" src="{{blogs.picture}}" alt="">
       <div class="btn--box" *ngIf="blogs.id === blogId">
         <button class="blog--reset"  (click)="cancel(blogs)">Скасувати</button>
         <button class="blog--btn" (click)="save(blogs)">Зберегти</button>
       </div>
+      <!-- <input type="text" (keydown.enter)="send(blogs.id)" [(ngModel)]="commentBody" placeholder="Введiть коментар"> -->
   </div>
+  
 </div>

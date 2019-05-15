@@ -80,5 +80,35 @@ export class ProfileService {
         );
     }
 
+    follow(id): Observable<any> {
+        id = JSON.parse(id);
+        console.log('follow', id);
+        return this.http.post(`${this.usersUrl}/${id}/follow`, httpOptionsApi)
+        .pipe(
+            tap(() => {
+                this._refresh$.next();
+            })
+        );
+    }
+
+    unfollow(id): Observable<any> {
+        id = JSON.parse(id);
+        console.log('unfollow', id);
+        return this.http.post(`${this.usersUrl}/${id}/unfollow`, httpOptionsApi)
+        .pipe(
+            tap(() => {
+                this._refresh$.next();
+            })
+        );
+    }
+
+    getFollowers(id): Observable<any> {
+        return this.http.get(`${this.usersUrl}/${id}/followers`, httpOptionsApi);
+    }
+
+    getFollowing(id): Observable<any> {
+        return this.http.get(`${this.usersUrl}/${id}/following`, httpOptionsApi);
+    }
+
 
 }

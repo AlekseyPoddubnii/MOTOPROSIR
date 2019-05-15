@@ -6,6 +6,8 @@ import { ActivatedRoute } from '@angular/router';
 import { ProfileService } from '../shared/services/profile.service';
 import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 import { Avatar } from '../shared/models/photo.model';
+import { BlogsShowComponent } from './blogs/blogs-show/blogs-show.component';
+import { Follower } from '../shared/models/follower.model';
 
 @Component({
   selector: 'app-profile',
@@ -17,6 +19,9 @@ export class ProfileComponent implements OnInit {
 
   user: User;
   user$ = [];
+  followers$ = [];
+  following$ = [];
+  follower = Follower;
   id: number;
   userId: number;
   selectedFile: File = null;
@@ -27,8 +32,6 @@ export class ProfileComponent implements OnInit {
   url: string;
   // tslint:disable-next-line:no-inferrable-types
   show: number = 0;
-
-  blogsLength: number;
 
   constructor(
     private authService: AuthService,
@@ -42,7 +45,6 @@ export class ProfileComponent implements OnInit {
 
   currentUserSubscription: Subscription;
   currentUser: User;
-
 
 
   ngOnInit() {
@@ -65,7 +67,7 @@ export class ProfileComponent implements OnInit {
     this.getAllUsers();
   }
 
-  private getAllUsers() {
+  getAllUsers() {
     this.profileService.getUser(this.userId).
     subscribe(res => this.user = this.user$[0] = res);
   }
@@ -80,6 +82,19 @@ export class ProfileComponent implements OnInit {
     }
   }
 
+  follow() {
+    this.profileService.follow(this.userId).subscribe(
+      data => { console.log(data);
+        this.profileService.getFollowing(this.userId);
+      }
+    );
+  }
+
+  unfollow() {
+    this.profileService.unfollow(this.userId).subscribe(
+      data => console.log(data),
+    );
+  }
 
 
   onFileSelected(event) {

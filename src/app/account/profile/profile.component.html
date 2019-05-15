@@ -26,92 +26,48 @@
             <div></div>
             <div>
                 <button class="profile__cover--settings" *ngIf="id === user.id" type="button" routerLink="/account/settings">Налаштування</button>
-                <button class="profile__cover--settings" *ngIf="id !== user.id" type="button">Додати до друзiв</button>
+                <div *ngIf="id !== user.id">
+                    <button class="profile__cover--settings" (click)="follow()" *ngIf="user.followed === false" type="button">Пiдписатися</button>
+                    <button class="profile__cover--settings" (click)="unfollow()" *ngIf="user.followed === true" type="button">Вiдписатися</button>
+                </div>
             </div>
         </div>
         <canvas class="profile__cover--canvas" #canvasPreview></canvas>
     </div>
     <div class="profile__navigation-container">
         <ul class="profile__navigation">
-            <li class="profile__navigation--list"><a class="profile__navigation--link">Blog ()</a></li>
+            <li class="profile__navigation--list"><a class="profile__navigation--link">Blogs ()</a></li>
             <li class="profile__navigation--list"><a class="profile__navigation--link">Friends ()</a></li>
             <li class="profile__navigation--list"><a class="profile__navigation--link">Events ()</a></li>
         </ul>
     </div>
     <div class="border--margin">
-        <div class="friends">
-            <div class="block--heading">
-                <h2 class="block--headline">Друзi</h2>
-            </div>
-            <div class="content--friends">
-                <div class="block--content">
-                    <a class="block__friendS--info" routerLink="/account/profile/{{user.id}}">
-                        <div class="avatar--border">
-                            <img class="block__friends--avatar" src="{{user.avatar}}" alt="">
-                        </div>
-                        <p class="block__friends--username">{{user.username}}</p>
-                    </a>
-                    <a class="block__friendS--info" routerLink="/account/profile/{{user.id}}">
-                        <div class="avatar--border">
-                            <img class="block__friends--avatar" src="{{user.avatar}}" alt="">
-                        </div>  
-                        <p class="block__friends--username">{{user.username}}</p>
-                    </a>
-                    <a class="block__friendS--info" routerLink="/account/profile/{{user.id}}">
-                        <div class="avatar--border">
-                            <img class="block__friends--avatar" src="{{user.avatar}}" alt="">
-                        </div>
-                        <p class="block__friends--username">{{user.username}}</p>
-                    </a>
-                    <a class="block__friendS--info" routerLink="/account/profile/{{user.id}}">
-                        <div class="avatar--border">
-                            <img class="block__friends--avatar" src="{{user.avatar}}" alt="">
-                        </div>
-                        <p class="block__friends--username">{{user.username}}</p>
-                    </a>
-                    <a class="block__friendS--info" routerLink="/account/profile/{{user.id}}">
-                        <div class="avatar--border">
-                            <img class="block__friends--avatar" src="{{user.avatar}}" alt="">
-                        </div>
-                        <p class="block__friends--username">{{user.username}}</p>
-                    </a>
-                    <a class="block__friendS--info" routerLink="/account/profile/{{user.id}}">
-                        <div class="avatar--border">
-                            <img class="block__friends--avatar" src="{{user.avatar}}" alt="">
-                        </div>
-                        <p class="block__friends--username">{{user.username}}</p>
-                    </a>
-                    <a class="block__friendS--info" routerLink="/account/profile/{{user.id}}">
-                        <div class="avatar--border">
-                            <img class="block__friends--avatar" src="{{user.avatar}}" alt="">
-                        </div>
-                        <p class="block__friends--username">{{user.username}}</p>
-                    </a>
-                    <a class="block__friendS--info" routerLink="/account/profile/{{user.id}}">
-                        <div class="avatar--border">
-                            <img class="block__friends--avatar" src="{{user.avatar}}" alt="">
-                        </div>
-                        <p class="block__friends--username">{{user.username}}</p>
-                    </a>
-                    <a class="block__friendS--info" routerLink="/account/profile/{{user.id}}">
-                        <div class="avatar--border">
-                            <img class="block__friends--avatar" src="{{user.avatar}}" alt="">
-                        </div>
-                        <p class="block__friends--username">{{user.username}}</p>
-                    </a>
-                    <a class="block__friendS--info" routerLink="/account/profile/{{user.id}}">
-                        <div class="avatar--border">
-                            <img class="block__friends--avatar" src="{{user.avatar}}" alt="">
-                        </div>
-                        <p class="block__friends--username">{{user.username}}</p>
-                    </a>
+        <div>
+            <div class="friends">
+                <div class="block--heading">
+                    <h2 class="block--headline">Пiдписники</h2>
                 </div>
-                <a class="block--link">Пабачити всix друзiв</a>
+                <div class="content--friends">
+                    <app-followers class="follow--flex"></app-followers>
+                    <a class="block--link">Пабачити всix пiдписникiв</a>
+                </div>
+                
+            </div>
+            <div class="friends following-top">
+                <div class="block--heading">
+                    <h2 class="block--headline">Пiдписки</h2>
+                </div>
+                <div class="content--friends">
+                    <app-following class="follow--flex"></app-following>
+                    <a class="block--link">Пабачити всi пiдписки</a>
+                </div>
+                
             </div>
         </div>
         <div class="blogs">
             <button class="blogs--add" type="button" (click)="showAdd()"><span *ngIf="show === 0">Додати запис</span><span *ngIf="show === 1">Приховати</span></button>
-            <app-blogs class="add--panel" id="addBlog" *ngIf="id === user.id"></app-blogs>
+            <!-- <app-blogs class="add--panel" id="addBlog" *ngIf="id === user.id"></app-blogs> -->
+            <app-blogs class="add--panel" id="addBlog"></app-blogs>
             <app-blogs-show class="show--panel"></app-blogs-show>
         </div>
         
