@@ -1,0 +1,8 @@
+<div class="block--content" *ngFor="let following of following$ ">
+  <a class="block__friendS--info" routerLink="/account/profile/{{following.id}}">
+    <div class="avatar--border">
+        <img class="block__friends--avatar" src="{{following.avatar}}" alt="">
+    </div>
+    <p class="block__friends--username">{{following.username}}</p>
+  </a>            
+</div>

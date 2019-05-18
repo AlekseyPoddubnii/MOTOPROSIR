@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Observable, Subject, of } from 'rxjs';
 
 import { Blog } from '../models/blog.model';
@@ -31,8 +31,10 @@ export class BlogsService {
     //     return this.http.get<Blog>(`${this.blogsUrl}/${id}`);
     // }
 
-    getBlogs(): Observable<Blog[]> {
-        return this.http.get<Blog[]>(this.blogsUrl);
+    getBlogs(id): Observable<Blog[]> {
+        const params = new HttpParams().set('user_id', id);
+        console.log('working');
+        return this.http.get<Blog[]>(this.blogsUrl, { params });
     }
 
     postBlogs(blog: Blog): Observable<Blog> {

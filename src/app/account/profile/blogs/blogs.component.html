@@ -15,10 +15,17 @@
 					<div class="error" *ngIf="f.description.errors.maxlength">Запис повынен бути не бiльше 1000-чi символiв</div>
 				</div>
 		</div>
-		
-		<!-- <img [src]="imgUrl" height="50%" width="50%" *ngIf="imgUrl !== null">
-		<button *ngIf="imgUrl !== null" (click)="deleteImg()">Delere img</button>
-		<input type="file" accept="image/*" (change)="onPictureSelected($event)"> -->
+		<div class="img--input">
+			<img [src]="imgUrl" height="100%" width="auto" *ngIf="imgUrl !== null">
+			<div class="under-image">
+				<button class="delete-img" *ngIf="imgUrl !== null" (click)="deleteImg()"> Выдалити фото</button>
+				<label for="picture">
+					<span class="upload-picture">Завантажити фото</span>
+					<span class="upload-picture__span"></span>
+				</label>
+				<input style="display:none" id="picture" type="file" accept="image/*" (change)="onPictureSelected($event)">
+			</div>
+		</div>
 		<div class="btn--box">
 			<button class="blog--reset" type="button" (click)="resetForm()">Очистити</button>
 			<button class="blog--btn">Додати</button>

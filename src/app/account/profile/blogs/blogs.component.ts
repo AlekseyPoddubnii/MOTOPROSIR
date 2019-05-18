@@ -5,6 +5,7 @@ import { BlogsService } from '../../shared/services/blogs.service';
 import { Blog } from '../../shared/models/blog.model';
 import { ProfileService } from '../../shared/services/profile.service';
 import { HttpEventType, HttpResponse } from '@angular/common/http';
+import { ActivatedRoute } from '@angular/router';
 
 
 @Component({
@@ -20,17 +21,25 @@ export class BlogsComponent implements OnInit {
   res: string;
   url: string;
   imgUrl: any = null;
+  id: any;
 
   constructor(
     private formBuilder: FormBuilder,
     private blogsService: BlogsService,
     private profileService: ProfileService,
+    private route: ActivatedRoute,
   ) { }
 
   ngOnInit() {
     this.blogsCreateForm = this.formBuilder.group({
         title: ['', [Validators.required, Validators.maxLength(128)]],
         description: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(1000)]],
+    });
+
+    this.route.params.subscribe(params => {
+      this.id = params['id'];
+      this.id = JSON.parse(this.id);
+      // console.log('bloggs', this.id);
     });
   }
 
@@ -46,6 +55,8 @@ export class BlogsComponent implements OnInit {
     if (this.selectedFile === null) {
       return;
     } else if (this.selectedFile) {
+
+      document.querySelector('.upload-picture__span').innerHTML = this.selectedFile.name;
       const reader = new FileReader();
       reader.readAsDataURL(this.selectedFile);
       reader.onload = (_event) => {

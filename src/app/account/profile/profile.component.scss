@@ -187,7 +187,7 @@
 .friends {
   text-align: center;
   width: 440px;
-  height: 490px;
+  max-height: 490px;
   border: solid 1px #CCC; 
   background-color: #FFF;
 }
@@ -195,6 +195,13 @@
 .content--friends {
   padding: 30px;
   text-align: center;
+}
+
+.follow--flex {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  max-width: 380px;
 }
 
 .block--heading {
@@ -206,46 +213,6 @@
   font-size: 16px;
   text-align: center;
   color: #FFF;
-}
-
-.block--content {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  max-height: 400px;
-  padding-bottom: 15px;
-}
-
-.block__friendS--info {
-  display: flex;
-  margin-bottom: 15px;
-  text-decoration: none;
-  color: #000;
-}
-
-.avatar--border {
-  position: relative;
-  width: 50px;
-  height: 50px;
-  background-color: #FFF;
-  border-radius: 50%;
-  border: solid 1px #000;
-}
-
-.block__friends--avatar {
-  position: absolute;
-  border-radius: 50%;
-  top: 5px;
-  left: 5px;
-  width: 40px;
-  height: 40px;
-}
-
-.block__friends--username {
-  font-size: 14px;
-  padding: 16px;
-  font-weight: 600;
-  text-decoration: none;
 }
 
 .block--link {
@@ -264,7 +231,6 @@
     cursor: pointer;
   }
 }
-
 
 .blogs {
   width: 700px;
@@ -292,12 +258,15 @@
   }
 }
 
-.add--panel {
-  display: none;
-}
+// .add--panel {
+//   display: none;
+// }
 
 .show--panel {
   display: flex;
   flex-direction: column-reverse;
 }
 
+.following-top {
+  margin-top: 15px;
+}

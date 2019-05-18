@@ -5,6 +5,10 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { of, Observable } from 'rxjs';
 import { User } from 'src/app/shared/models/user.model';
 import { ProfileService } from 'src/app/account/shared/services/profile.service';
+import { BlogsCommentService } from 'src/app/account/shared/services/blogs-commet.service';
+import { BlogComment } from 'src/app/account/shared/models/comment.model';
+import { FormGroup, FormControl } from '@angular/forms';
+import { ProfileComponent } from '../../profile.component';
 
 @Component({
   selector: 'app-blogs-show',
@@ -20,6 +24,8 @@ export class BlogsShowComponent implements OnInit {
   user: User;
   userId: number;
   user$ = [];
+  commentBody: string;
+  commentInfo: BlogComment;
 
   constructor(
     private blogsService: BlogsService,
@@ -53,11 +59,33 @@ export class BlogsShowComponent implements OnInit {
     });
 
     this.getAllUsers();
+
+    // this.getComments();
   }
+
+  // send(id) {
+  //   console.log('blog id', id);
+    // const comment = new FormGroup({
+    //   type: new FormControl(),
+    //   id: new FormControl(),
+    //   comment: new FormControl(),
+    // });
+    // this.commentInfo = new BlogComment (
+    //   comment.value.type = 'blog',
+    //   comment.value.id = id,
+    //   comment.value.comment = this.commentBody,
+    // );
+    // console.log(this.commentInfo);
+  //   this.blogsCommentServise.postComment(id, this.commentBody);
+  // }
+
+  // getComments() {
+  //   this.blogsCommentServise.getComments(this.blogs.id);
+  // }
 
 
   private getAllBlogs() {
-    this.blogsService.getBlogs().
+    this.blogsService.getBlogs(this.id).
     subscribe(data => this.blogs$ = data);
   }
 

@@ -16,6 +16,9 @@ import { SettingsComponent } from './settings/settings.component';
 import { ProfileComponent } from './profile/profile.component';
 import { EventComponent } from '../public/event/event.component';
 import { EventDetailComponent } from './events/event-detail/event-detail.component';
+import { BlogsCommentService } from './shared/services/blogs-commet.service';
+import { FollowingComponent } from './profile/following/following.component';
+import { FollowersComponent } from './profile/followers/followers.component';
 // import { JwtInterceptor } from '../auth/jwt.interceptor';
 
 @NgModule({
@@ -37,10 +40,14 @@ import { EventDetailComponent } from './events/event-detail/event-detail.compone
     SettingsComponent,
     ProfileComponent,
     EventDetailComponent,
+    FollowingComponent,
+    FollowersComponent,
+    // BlogsCommentsComponent,
   ],
   providers: [
     // { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
-    EventsService
+    EventsService,
+    BlogsCommentService
   ]
 })
 
